@@ -8,8 +8,6 @@ categories: ["tip"]
 hiddenFromHomePage: true
 ---
 
-#### Tips
-
 ## [How to download a single folder from a Github Repo](https://stackoverflow.com/questions/7106012/download-a-single-folder-or-directory-from-a-github-repo)
 
 Basically there are three ways to do this:

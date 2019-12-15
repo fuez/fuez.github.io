@@ -9,8 +9,7 @@ hiddenFromHomePage: true
 ---
 
 
-
-## System Design Interview Tips
+## System Design Tips
 
 ## Clarify the constraints and identify the user cases
 > Spend a few minutes questioning the interviewer and agreeing on the scope of the system.User cases indicate the main functions of the system, and constraints list the scale of the system such as requests per second, requests types, data written per second, data read per second.
