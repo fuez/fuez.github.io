@@ -13,6 +13,7 @@
 </div>
 
 <div class="copyright">
+  {{ if (default true .Site.Params.ShowFooterCredits) }}
   <span class="power-by">
     {{ (printf (T "powered") `<a class="hexo-link" href="https://gohugo.io">Hugo</a>`) | safeHTML }}
   </span>
@@ -21,6 +22,7 @@
     {{ T "theme" }} - 
     <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
   </span>
+  {{ end }}
 
   {{ if .Site.Params.busuanzi.enable -}}
   <div class="busuanzi-footer">
