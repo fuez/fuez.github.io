@@ -1,0 +1,193 @@
+<!doctype html><html lang=en><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge,chrome=1"><title>devops - Andy's Blog</title><meta name=renderer content="webkit"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1"><meta http-equiv=cache-control content="no-transform"><meta http-equiv=cache-control content="no-siteapp"><meta name=theme-color content="#f8f5ec"><meta name=msapplication-navbutton-color content="#f8f5ec"><meta name=apple-mobile-web-app-capable content="yes"><meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec"><meta name=author content="Andy Zhang"><meta name=description content="使用 Certbot + Let's Encrypt 小步快跑的奔向 HTTPS Install on centos Revised: should install certbot on python3, like this 1 2 3 4 sudo python3 -m venv ~/py3 source ~/py3/bin/activate pip install certbot certbot-nginx sudo certbot --nginx 如果状态显示，其中一些API server down了：https:"><meta name=keywords content="linux,SRE,software"><meta name=generator content="Hugo 0.60.1 with theme even"><link rel=canonical href=http://localhost:1313/post/tips/devops/><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=manifest href=/manifest.json><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><link href=/dist/even.c2a46f00.min.css rel=stylesheet><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin=anonymous><meta property="og:title" content="devops"><meta property="og:description" content="使用 Certbot + Let's Encrypt 小步快跑的奔向 HTTPS Install on centos Revised: should install certbot on python3, like this 1 2 3 4 sudo python3 -m venv ~/py3 source ~/py3/bin/activate pip install certbot certbot-nginx sudo certbot --nginx 如果状态显示，其中一些API server down了：https:"><meta property="og:type" content="article"><meta property="og:url" content="http://localhost:1313/post/tips/devops/"><meta property="article:published_time" content="2019-06-08T10:36:33+08:00"><meta property="article:modified_time" content="2019-11-19T18:50:32+08:00"><meta itemprop=name content="devops"><meta itemprop=description content="使用 Certbot + Let's Encrypt 小步快跑的奔向 HTTPS Install on centos Revised: should install certbot on python3, like this 1 2 3 4 sudo python3 -m venv ~/py3 source ~/py3/bin/activate pip install certbot certbot-nginx sudo certbot --nginx 如果状态显示，其中一些API server down了：https:"><meta itemprop=datePublished content="2019-06-08T10:36:33+08:00"><meta itemprop=dateModified content="2019-11-19T18:50:32+08:00"><meta itemprop=wordCount content="1272"><meta itemprop=keywords content><meta name=twitter:card content="summary"><meta name=twitter:title content="devops"><meta name=twitter:description content="使用 Certbot + Let's Encrypt 小步快跑的奔向 HTTPS Install on centos Revised: should install certbot on python3, like this 1 2 3 4 sudo python3 -m venv ~/py3 source ~/py3/bin/activate pip install certbot certbot-nginx sudo certbot --nginx 如果状态显示，其中一些API server down了：https:"><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script><script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]--></head><body><div id=mobile-navbar class=mobile-navbar><div class=mobile-header-logo><a href=/ class=logo>Andy's Blog</a></div><div class=mobile-navbar-icon><span></span><span></span><span></span></div></div><nav id=mobile-menu class="mobile-menu slideout-menu"><ul class=mobile-menu-list><a href=/><li class=mobile-menu-item>Home</li></a><a href=/post/><li class=mobile-menu-item>Archives</li></a><a href=/tags/><li class=mobile-menu-item>Tags</li></a><a href=/categories/><li class=mobile-menu-item>Categories</li></a><a href=/about/><li class=mobile-menu-item>About</li></a></ul></nav><div class=container id=mobile-panel><header id=header class=header><div class=logo-wrapper><a href=/ class=logo>Andy's Blog</a></div><nav class=site-navbar><ul id=menu class=menu><li class=menu-item><a class=menu-item-link href=/>Home</a></li><li class=menu-item><a class=menu-item-link href=/post/>Archives</a></li><li class=menu-item><a class=menu-item-link href=/tags/>Tags</a></li><li class=menu-item><a class=menu-item-link href=/categories/>Categories</a></li><li class=menu-item><a class=menu-item-link href=/about/>About</a></li></ul></nav></header><main id=main class=main><div class=content-wrapper><div id=content class=content><article class=post><header class=post-header><h1 class=post-title>devops</h1><div class=post-meta><span class=post-time>2019-06-08</span><div class=post-category><a href=/categories/tip/>tip</a></div><span class=more-meta>1272 words</span>
+<span class=more-meta>3 mins read</span></div></header><div class=post-toc id=post-toc><h2 class=post-toc-title>Contents</h2><div class="post-toc-content always-active"><nav id=TableOfContents><ul><li><a href=#-certbot--lets-encrypt--httpshttpslearnkucomlaravelt2525usingcertbotletsencryptsmallstepruntowardshttps>使用 Certbot + Let's Encrypt 小步快跑的奔向 HTTPS</a></li><li><a href=#acmeshhttpsgithubcomneilpangacmesh>acme.sh</a></li><li><a href=#script-to-clean-up-notused-k8s-namespaces>Script to clean up not-used k8s namespaces</a></li><li><a href=#good-series-of-articles-explains-oauth2httpsmediumcomgooglecloudunderstandingoauth2andbuildingabasicauthorizationserverofyourownabeginnersguidecf7451a16f66>Good series of articles explains oauth2</a></li><li><a href=#building-a-basic-authorization-server-using-authorization-code-flowhttpsmediumcomratrosybuildingabasicauthorizationserverusingauthorizationcodeflowc06866859fb1>Building a Basic Authorization Server using Authorization Code Flow</a></li><li><a href=#nice-curl-example-to-post-data>Nice curl example to POST data</a></li><li><a href=#get-httpcode-from-curl>Get http_code from curl</a></li><li><a href=#linux-cpumemoryfileio-benchmark-toolsysbenchhttpswwwhowtoforgecomhowtobenchmarkyoursystemcpufileiomysqlwithsysbench>Linux cpu/memory/fileio benchmark tool:sysbench</a></li><li><a href=#apache-traffic-serverhttpsdocstrafficserverapacheorgen80xgettingstartedindexenhtml-can-be-used-as-both-reverse-proxy-as-well-as-forward-proxy-it-performs-better-than-squid-or-varnish>Apache Traffic Server can be used as both reverse proxy as well as forward proxy, it performs better than Squid or Varnish</a></li><li><a href=#understand-difference-between-reverse-proxy-forward-proxy-and-transparent-proxyhttpsdocstrafficserverapacheorgen80xgettingstartedindexenhtml>Understand difference between reverse proxy, forward proxy and transparent proxy</a></li><li><a href=#enable-external-access-to-grayloghttpdocsgraylogorgen30pagesconfigurationwebinterfacehtml>Enable external access to graylog</a></li><li><a href=#deploy-gogs-dockerhttpsgarthwaiteorgdockergogshtml>Deploy gogs docker</a></li><li><a href=#aliyun-mirror-site-httpsopsxalibabacommirror>Aliyun mirror site:</a></li><li><a href=#how-to-disable-password-authentication-for-ssh>How to Disable Password Authentication for SSH?</a></li><li><a href=#how-to-install-shadowsocks-serverhttpswwwlinodecomdocsnetworkingcreateasocks5proxyserverwithshadowsocksonubuntuandcentos7>How to install shadowsocks server</a></li><li><a href=#basic-setup-for-influxdb-and-chronograf>Basic setup for influxdb and chronograf:</a></li><li><a href=#how-to-list-files-from-remote-nginx-server-with-index-on>How to list files from remote nginx server with index on?</a></li><li><a href=#howto--create-csr-using-openssl-without-prompt-noninteractivehttpwwwshellhackscomenhowtocreatecsrusingopensslwithoutpromptnoninteractive>HowTo : Create CSR using OpenSSL Without Prompt (Non-Interactive</a></li><li><a href=#leverage-lets-encrypthttpsletsencryptorghowitworks-to-set-up-a-trusted-https-server>Leverage Let's Encrypt to set up a trusted HTTPS server</a></li><li><a href=#how-to-configure-nginx-for-file-server>How to configure nginx for file server?</a></li><li><a href=#installations>Installations</a><ul><li><a href=#install-and-configure-lighttpd-on-centosrhel>Install and configure lighttpd on centos/rhel</a></li></ul></li><li><a href=#install-by-yum-yum-install-y-lighttpd>Install by yum: yum install -y lighttpd</a></li><li><a href=#refer-to-configuration-files-for-lighttpdhttpsredminelighttpdnetprojects1wikidocsconfiguration-for-detail-configuration-explaination>Refer to Configuration files for lighttpd for detail configuration explaination</a></li><li><a href=#create-a-director-such-as-datawww-as-document-root-and-update-serverdocumentroot-value>Create a director such as /data/www as document root, and update server.document-root value</a></li><li><a href=#start-lighttpd-service-systemctl-start-lighttpd>Start lighttpd service: systemctl start lighttpd</a></li><li><a href=#to-enable-uploading-refer-to-how-to-enable-cgi-with-perlhttpwwwsitepointcomuploadingfilescgiperl2>To enable uploading, refer to how to enable cgi with perl</a><ul><li><a href=#haproxy>HAProxy</a></li></ul></li><li><a href=#how-to-ue-haproxy-to-set-up-http-load-balancehttpswwwdigitaloceancomcommunitytutorialshowtousehaproxytosetuphttploadbalancingonanubuntuvps>How to ue HAProxy to set up http load balance</a></li><li><a href=#load-balance-with-haproxyhttpsserversforhackerscomloadbalancingwithhaproxy>Load balance with HAProxy</a></li><li><a href=#howto-setup-highavailable-haproxy-with-keepalivedhttpsbloglaimbockcom20141001howtosetuphighavailablehaproxywithkeepalived>Howto setup High-Available HAProxy with Keepalived</a><ul><li><a href=#install-filebeat-for-elk-stack>Install filebeat for ELK stack</a></li></ul></li><li><a href=#filebeat-configuration-detailhttpswwwelasticcoguideenbeatsfilebeatcurrentfilebeatconfigurationdetailshtml>filebeat configuration detail</a><ul><li><a href=#setup-ci-environment-on-ubuntu>Setup CI environment on Ubuntu</a></li></ul></li><li><a href=#install-docker-sudo-aptget-install-y-dockerio>Install docker: sudo apt-get install -y docker.io</a></li><li><a href=#test-docker-installation-sudo-docker-run-d-p-800080-nginx>Test docker installation: sudo docker run -d -p 8000:80 nginx</a><ul><li><a href=#set-up-ci-on-redhat-and-dockerhttpsgithubcomopenfrontierci>Set up CI on Redhat and docker</a></li></ul></li><li><a href=#reference>Reference:</a></li><li><a href=#development-environments-with-vagrant-and-ansiblehttpsdanielgrovesnetnotebook201405developmentenvironments>Development Environments with Vagrant and Ansible</a></li><li><a href=#the-zen-of-high-performance-messaging-with-natshttpswwwslidesharenetwallyqsthezenofhighperformancemessagingwithnatsstrangeloop2016>The Zen of High Performance Messaging with NATS</a></li><li><a href=#centralized-elk-buildhttpswikizimbracomwikicentralizedlogselasticsearchlogstashandkibana>Centralized ELK build</a></li><li><a href=#how-to-serve-django-applications-with-apache-and-modewsgi-on-centos-7httpswwwdigitaloceancomcommunitytutorialshowtoservedjangoapplicationswithapacheandmodwsgioncentos7>How to serve Django Applications with Apache and mode_wsgi on CentOS 7</a></li><li><a href=#graphitehttpwwwaosabookorgengraphitehtml>Graphite</a></li><li><a href=#httpd-vs-nginx-vs-haproxyhttpblogmetrinkcomblog20140812httpdvsnginxvshaproxy>httpd Vs. Nginx Vs. HAProxy</a></li><li><a href=#how-to-configure-nginxhttpswwwlinodecomdocswebsitesnginxhowtoconfigurenginx>How to Configure Nginx</a></li><li><a href=#automated-nginx-reverse-proxy-for-dockerhttpjasonwildercomblog20140325automatednginxreverseproxyfordocker>Automated Nginx Reverse Proxy for Docker</a></li><li><a href=#configuring-haproxy-as-a-swiftstack-load-balancerhttpswwwswiftstackcomwpcontentuploads201506configuringhaproxyloadbalancingpdf>Configuring HAproxy as a SwiftStack Load Balancer</a></li><li><a href=#load-balancing-mysql-with-haproxyhttpswwwperconacomlivemysqlconference2013sitesdefaultfilesslideshaproxytalkpdf>Load balancing MySQL with HaProxy</a></li><li><a href=#configuring-https-servershttpnginxorgendocshttpconfiguringhttpsservershtml>Configuring HTTPS servers</a></li><li><a href=#confd-templateshttpsgithubcomkelseyhightowerconfdblobc6622ed25cf9a77804542c6d32c9ee306894f14ddocstemplatesmd>confd templates</a></li><li><a href=#openssl-essentials-working-with-ssl-certificates-private-keys-and-csrshttpswwwdigitaloceancomcommunitytutorialsopensslessentialsworkingwithsslcertificatesprivatekeysandcsrs>OpenSSL Essentials: Working with SSL Certificates, Private Keys and CSRs</a></li><li><a href=#how-to-install-zabbix-agent-on-centosrhel-765httptecadminnetinstallzabbixagentoncentosrhel>How to Install Zabbix Agent on CentOS/RHEL 7/6/5</a></li></ul></nav></div></div><div class=post-content><h2 id=-certbot--lets-encrypt--httpshttpslearnkucomlaravelt2525usingcertbotletsencryptsmallstepruntowardshttps><a href=https://learnku.com/laravel/t/2525/using-certbot-lets-encrypt-small-step-run-towards-https>使用 Certbot + Let's Encrypt 小步快跑的奔向 HTTPS</a></h2><p><a href=https://certbot.eff.org/lets-encrypt/centosrhel7-nginx>Install on centos</a>
+<em>Revised</em>: should install certbot on python3, like this</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-sh data-lang=sh>sudo python3 -m venv ~/py3
+<span class=nb>source</span> ~/py3/bin/activate
+pip install certbot certbot-nginx
+sudo certbot --nginx  
+</code></pre></td></tr></table></div></div><p>如果状态显示，其中一些API server down了：https://letsencrypt.status.io/，可以通过<code>--server</code>命令行参数选择其他server， 详见: <a href=https://github.com/certbot/certbot/blob/master/docs/using.rst>https://github.com/certbot/certbot/blob/master/docs/using.rst</a></p><h2 id=acmeshhttpsgithubcomneilpangacmesh><a href=https://github.com/Neilpang/acme.sh>acme.sh</a></h2><p><code>curl https://get.acme.sh | sh</code> to install</p><h2 id=script-to-clean-up-notused-k8s-namespaces>Script to clean up not-used k8s namespaces</h2><p>First, list all namespaces with helm chart deployed: <code>helm list | tail +2 | awk -F '\t' '{print $7}' > /tmp/using.txt</code>, also add system namespaces to this file, &lsquo;echo -e &ldquo;default\nkube-public\nkube-system&rdquo; &#187; /tmp/using.txt&rsquo;
+Then, list all existing namespace: `k get ns | tail +2 | awk &lsquo;{print $3} > /tmp/all.txt&rsquo;
+Last, using python script to get diff:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-python data-lang=python><span class=n>a</span> <span class=o>=</span> <span class=nb>set</span><span class=p>(</span><span class=n>x</span><span class=o>.</span><span class=n>strip</span><span class=p>(</span><span class=p>)</span> <span class=k>for</span> <span class=n>x</span> <span class=ow>in</span> <span class=nb>open</span><span class=p>(</span><span class=sa></span><span class=s2>&#34;</span><span class=s2>/tmp/using.txt</span><span class=s2>&#34;</span><span class=p>)</span><span class=o>.</span><span class=n>read</span><span class=p>(</span><span class=p>)</span><span class=o>.</span><span class=n>splitlines</span><span class=p>(</span><span class=p>)</span><span class=p>)</span>
+<span class=n>b</span> <span class=o>=</span> <span class=p>[</span> <span class=n>x</span><span class=o>.</span><span class=n>strip</span><span class=p>(</span><span class=p>)</span> <span class=k>for</span> <span class=n>x</span> <span class=ow>in</span> <span class=nb>open</span><span class=p>(</span><span class=sa></span><span class=s2>&#34;</span><span class=s2>/tmp/all.txt</span><span class=s2>&#34;</span><span class=p>)</span><span class=o>.</span><span class=n>read</span><span class=p>(</span><span class=p>)</span><span class=o>.</span><span class=n>splitlines</span><span class=p>(</span><span class=p>)</span><span class=p>]</span>
+<span class=n>c</span> <span class=o>=</span> <span class=p>[</span><span class=n>x</span> <span class=k>for</span> <span class=n>x</span> <span class=ow>in</span> <span class=n>b</span> <span class=k>if</span> <span class=n>x</span> <span class=ow>not</span> <span class=ow>in</span> <span class=n>a</span><span class=p>]</span>
+<span class=k>with</span> <span class=nb>open</span><span class=p>(</span><span class=sa></span><span class=s2>&#34;</span><span class=s2>/tmp/diff.txt</span><span class=s2>&#34;</span><span class=p>,</span> <span class=sa></span><span class=s2>&#34;</span><span class=s2>wt</span><span class=s2>&#34;</span><span class=p>)</span> <span class=k>as</span> <span class=n>f</span><span class=p>:</span>
+  <span class=n>f</span><span class=o>.</span><span class=n>write</span><span class=p>(</span><span class=sa></span><span class=s2>&#34;</span><span class=se>\n</span><span class=s2>&#34;</span><span class=o>.</span><span class=n>join</span><span class=p>(</span><span class=n>c</span><span class=p>)</span><span class=p>)</span>
+
+</code></pre></td></tr></table></div></div><p>Finally, double check whether it is OK to delele those namespaces: <code>for n in </code>cat /tmp/diff.txt<code>; do echo $n; k -n $n get all ; done</code>, and if OK, delete all <code>for n in </code>cat /tmp/diff.txt<code>; do k delete ns $n ; done</code></p><h2 id=good-series-of-articles-explains-oauth2httpsmediumcomgooglecloudunderstandingoauth2andbuildingabasicauthorizationserverofyourownabeginnersguidecf7451a16f66>Good series of articles explains <a href=https://medium.com/google-cloud/understanding-oauth2-and-building-a-basic-authorization-server-of-your-own-a-beginners-guide-cf7451a16f66>oauth2</a></h2><h2 id=building-a-basic-authorization-server-using-authorization-code-flowhttpsmediumcomratrosybuildingabasicauthorizationserverusingauthorizationcodeflowc06866859fb1><a href=https://medium.com/@ratrosy/building-a-basic-authorization-server-using-authorization-code-flow-c06866859fb1>Building a Basic Authorization Server using Authorization Code Flow</a></h2><h2 id=nice-curl-example-to-post-data>Nice <code>curl</code> example to POST data</h2><blockquote><p>Learn how to use <code>EOF</code> to input json data</p></blockquote><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-sh data-lang=sh>curl -i -X POST https://api.github.com/user/repos <span class=se>\
+</span><span class=se></span>-H <span class=s2>&#34;Authorization: token &lt;OAuth token&gt;&#34;</span> <span class=se>\
+</span><span class=se></span>-d @- <span class=s>&lt;&lt; EOF
+</span><span class=s>{
+</span><span class=s>  &#34;name&#34;: &#34;blog&#34;,
+</span><span class=s>  &#34;auto_init&#34;: true,
+</span><span class=s>  &#34;private&#34;: true,
+</span><span class=s>  &#34;gitignore_template&#34;: &#34;nanoc&#34;
+</span><span class=s>}
+</span><span class=s>EOF</span>
+</code></pre></td></tr></table></div></div><h2 id=get-httpcode-from-curl>Get <code>http_code</code> from <code>curl</code></h2><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-sh data-lang=sh>curl -s -o /dev/null -w <span class=s2>&#34;%{http_code}&#34;</span> http://www.example.org/
+</code></pre></td></tr></table></div></div><h2 id=linux-cpumemoryfileio-benchmark-toolsysbenchhttpswwwhowtoforgecomhowtobenchmarkyoursystemcpufileiomysqlwithsysbench>Linux cpu/memory/fileio benchmark tool:<a href=https://www.howtoforge.com/how-to-benchmark-your-system-cpu-file-io-mysql-with-sysbench>sysbench</a></h2><p>Install it on centos: <code>yum install -y sysbench</code> when <code>epel-release</code> is enabled</p><p>Benchmark fileio:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-sh data-lang=sh>sysbench --test<span class=o>=</span>fileio --file-total-size<span class=o>=</span>2G prepare
+sysbench --test<span class=o>=</span>fileio --file-total-size<span class=o>=</span>2G --file-test-mode<span class=o>=</span>rndrw  --max-time<span class=o>=</span><span class=m>300</span> --max-requests<span class=o>=</span><span class=m>0</span> run
+</code></pre></td></tr></table></div></div><h2 id=apache-traffic-serverhttpsdocstrafficserverapacheorgen80xgettingstartedindexenhtml-can-be-used-as-both-reverse-proxy-as-well-as-forward-proxy-it-performs-better-than-squid-or-varnish><a href=https://docs.trafficserver.apache.org/en/8.0.x/getting-started/index.en.html>Apache Traffic Server</a> can be used as both reverse proxy as well as forward proxy, it performs better than Squid or Varnish</h2><p>A full conf example for reserse proxy with cache enabled is:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-ini data-lang=ini><span class=na>records.config:</span>
+
+<span class=na>CONFIG proxy.config.http.cache.http INT 1</span>
+<span class=na>CONFIG proxy.config.reverse_proxy.enabled INT 1</span>
+<span class=na>CONFIG proxy.config.url_remap.remap_required INT 1</span>
+<span class=na>CONFIG proxy.config.url_remap.pristine_host_hdr INT 1</span>
+<span class=na>CONFIG proxy.config.http.server_ports STRING 80 80:ipv6</span>
+
+<span class=na>remap.config:</span>
+
+<span class=na>map http://www.acme.com/api/ http://api-origin.acme.com/</span>
+<span class=na>map https://www.acme.com/api/ https://api-origin.acme.com/</span>
+<span class=na>map http://www.acme.com/ http://localhost:8080/</span>
+<span class=na>map https://www.acme.com/ http://localhost:8080/</span>
+<span class=na>map http://static.acme.com/ http://origin-static.acme.com/</span>
+<span class=na>map https://static.acme.com/ https://origin-static.acme.com/</span>
+
+<span class=na>storage.config:</span>
+
+<span class=na>/cache/trafficserver 500G</span>
+
+<span class=na>ssl_multicert.config:</span>
+
+<span class=na>ssl_cert_name</span><span class=o>=</span><span class=s>/path/to/secret/acme.rsa</span>
+</code></pre></td></tr></table></div></div><h2 id=understand-difference-between-reverse-proxy-forward-proxy-and-transparent-proxyhttpsdocstrafficserverapacheorgen80xgettingstartedindexenhtml><a href=https://docs.trafficserver.apache.org/en/8.0.x/getting-started/index.en.html>Understand difference between reverse proxy, forward proxy and transparent proxy</a></h2><blockquote><p>A reverse proxy appears to outside users as if it were the origin server, though it does not generate the content itself. Instead, it intercepts the requests and, based on the configured rules and contents of its cache, will either serve a cached copy of the requested content itself, or forward the request to the origin server, possibly caching the content returned for use with future requests.
+A forward proxy brokers access to external resources, intercepting all matching outbound traffic from a network. Forward proxies may be used to speed up external access for locations with slow connections (by caching the external resources and using those cached copies to service requests directly in the future), or may be used to restrict or monitor external access.
+A transparent proxy may be either a reverse or forward proxy (though nearly all reverse proxies are deployed transparently), the defining feature being the use of network routing to send requests through the proxy without any need for clients to configure themselves to do so, and often without the ability for those clients to bypass the proxy.</p></blockquote><p>From my understanding, reverse proxy is often used at the server side to balance load.</p><h2 id=enable-external-access-to-grayloghttpdocsgraylogorgen30pagesconfigurationwebinterfacehtml><a href=http://docs.graylog.org/en/3.0/pages/configuration/web_interface.html>Enable external access to graylog</a></h2><h2 id=deploy-gogs-dockerhttpsgarthwaiteorgdockergogshtml><a href=https://garthwaite.org/docker-gogs.html>Deploy gogs docker</a></h2><p>Here is its <a href=https://gogs.io/docs/advanced/configuration_cheat_sheet>cheat sheet for configuration</a></p><h2 id=aliyun-mirror-site-httpsopsxalibabacommirror>Aliyun mirror site: <a href=https://opsx.alibaba.com/mirror>https://opsx.alibaba.com/mirror</a></h2><h2 id=how-to-disable-password-authentication-for-ssh>How to Disable Password Authentication for SSH?</h2><p>Edit <em>/etc/ssh/sshd_config</em> file, to make sure the following configurations are configured as below:</p><pre><code>ChallengeResponseAuthentication no
+PasswordAuthentication no
+UsePAM no
+</code></pre><p>And then restart <em>sshd</em> service.</p><h2 id=how-to-install-shadowsocks-serverhttpswwwlinodecomdocsnetworkingcreateasocks5proxyserverwithshadowsocksonubuntuandcentos7><a href=https://www.linode.com/docs/networking/create-a-socks5-proxy-server-with-shadowsocks-on-ubuntu-and-centos7>How to install shadowsocks server</a></h2><p>On Ubuntu server:</p><pre><code>apt-get update &amp;&amp; apt-get upgrade -yuf
+apt-get install -y --no-install-recommends gettext build-essential autoconf libtool libpcre3-dev asciidoc xmlto libev-dev libudns-dev automake libmbedtls-dev libsodium-dev git python-m2crypto
+apt-get install -y libc-ares-dev
+./autogen.sh
+./configure
+make &amp;&amp; make install
+
+</code></pre><p>For client on OSX, it is called shadowsocksX, which could be downloaded from <a href=https://github.com/shadowsocks/ShadowsocksX-NG/releases>github</a></p><h2 id=basic-setup-for-influxdb-and-chronograf>Basic setup for influxdb and chronograf:</h2><pre><code>version: '2'
+services:
+  influx:
+    container_name: influxdb
+    image: influxdb:1.3
+    environment:
+      - INFLUXDB_DATA_QUERY_LOG_ENABLED=false
+      - INFLUXDB_REPORTING_DISABLED=true
+    ports:
+      - &quot;8086:8086&quot;
+
+  chronograf:
+    container_name: chrono
+    image: chronograf:1.3
+    environment:
+      - INFLUXDB_URL=http://influxdb:8086
+    ports:
+      - &quot;8888:8888&quot;
+</code></pre><h2 id=how-to-list-files-from-remote-nginx-server-with-index-on>How to list files from remote nginx server with index on?</h2><p>Like this:<code>curl -sSL http://pp03:8080/base_image/rpms | perl -n -e'/href="([a-zA-Z][^"]*)"/ && print $1, print "\n"'</code></p><h2 id=howto--create-csr-using-openssl-without-prompt-noninteractivehttpwwwshellhackscomenhowtocreatecsrusingopensslwithoutpromptnoninteractive><a href=http://www.shellhacks.com/en/HowTo-Create-CSR-using-OpenSSL-Without-Prompt-Non-Interactive>HowTo : Create CSR using OpenSSL Without Prompt (Non-Interactive</a></h2><ul><li>An example request to generate both key and CSR:<code>openssl req -nodes -newkey rsa:2048 -keyout example.key -out example.csr -subj "/C=GB/ST=London/L=London/O=Global Security/OU=IT Department/CN=example.com"</code></li><li>An example request to generate CSR wth existing key:<code>openssl req -new -key example.key -out example.csr -subj "/C=GB/ST=London/L=London/O=Global Security/OU=IT Department/CN=example.com"</code>
+=======</li></ul><h2 id=leverage-lets-encrypthttpsletsencryptorghowitworks-to-set-up-a-trusted-https-server>Leverage <a href=https://letsencrypt.org/how-it-works/>Let's Encrypt</a> to set up a trusted HTTPS server</h2><h2 id=how-to-configure-nginx-for-file-server>How to configure nginx for file server?</h2><p>Just add a new conf file under <em>/etc/nginx/conf.d/</em>, like the following and restart nginx service:</p><pre><code>server{
+    listen 8080;
+    server_name _;
+    root /data/;
+
+    location /{
+        autoindex on;
+        autoindex_exact_size off;
+        autoindex_localtime on;
+    }
+}
+</code></pre><h2 id=installations>Installations</h2><h3 id=install-and-configure-lighttpd-on-centosrhel>Install and configure lighttpd on centos/rhel</h3><h2 id=install-by-yum-yum-install-y-lighttpd>Install by yum: <code>yum install -y lighttpd</code></h2><h2 id=refer-to-configuration-files-for-lighttpdhttpsredminelighttpdnetprojects1wikidocsconfiguration-for-detail-configuration-explaination>Refer to <a href=https://redmine.lighttpd.net/projects/1/wiki/docs_configuration>Configuration files for lighttpd</a> for detail configuration explaination</h2><h2 id=create-a-director-such-as-datawww-as-document-root-and-update-serverdocumentroot-value>Create a director such as <em>/data/www</em> as document root, and update <strong>server.document-root</strong> value</h2><h2 id=start-lighttpd-service-systemctl-start-lighttpd>Start lighttpd service: <code>systemctl start lighttpd</code></h2><h2 id=to-enable-uploading-refer-to-how-to-enable-cgi-with-perlhttpwwwsitepointcomuploadingfilescgiperl2>To enable uploading, refer to <a href=http://www.sitepoint.com/uploading-files-cgi-perl-2/>how to enable cgi with perl</a></h2><h3 id=haproxy>HAProxy</h3><h2 id=how-to-ue-haproxy-to-set-up-http-load-balancehttpswwwdigitaloceancomcommunitytutorialshowtousehaproxytosetuphttploadbalancingonanubuntuvps><a href=https://www.digitalocean.com/community/tutorials/how-to-use-haproxy-to-set-up-http-load-balancing-on-an-ubuntu-vps>How to ue HAProxy to set up http load balance</a></h2><h2 id=load-balance-with-haproxyhttpsserversforhackerscomloadbalancingwithhaproxy><a href=https://serversforhackers.com/load-balancing-with-haproxy>Load balance with HAProxy</a></h2><h2 id=howto-setup-highavailable-haproxy-with-keepalivedhttpsbloglaimbockcom20141001howtosetuphighavailablehaproxywithkeepalived><a href=https://blog.laimbock.com/2014/10/01/howto-setup-high-available-haproxy-with-keepalived/>Howto setup High-Available HAProxy with Keepalived</a></h2><p>A sample haproxy.cfg:</p><pre><code>global
+    log         127.0.0.1   local0
+    log         127.0.0.1   local1 notice
+    maxconn     4096
+    user        haproxy
+    group       haproxy
+    nbproc      1
+    pidfile     /var/run/haproxy.pid
+ 
+defaults
+    log         global
+    option      tcplog
+    option      dontlognull
+    retries     3
+    maxconn     4096
+    option      redispatch
+    timeout     connect 50000ms
+    timeout     client  50000ms
+    timeout     server  50000ms
+ 
+listen mariadb-galera-writes
+    bind 0.0.0.0:3307
+    mode tcp
+    option mysql-check user haproxy
+    server db1 10.0.0.9:3306 check
+    server db2 10.0.0.11:3306 check backup
+    server db3 10.0.0.13:3306 check backup
+ 
+listen mariadb-galera-reads
+    bind 0.0.0.0:3306
+    mode tcp
+    balance leastconn
+    option mysql-check user haproxy
+    server db1 10.0.0.9:3306 check
+    server db2 10.0.0.11:3306 check
+    server db3 10.0.0.13:3306 check
+ 
+# HAProxy web ui
+listen stats 0.0.0.0:9000
+    mode http
+    stats enable
+    stats uri /haproxy
+    stats realm HAProxy\ Statistics
+    stats auth haproxy:haproxy
+    stats admin if TRUE
+EOF
+</code></pre><h3 id=install-filebeat-for-elk-stack>Install filebeat for ELK stack</h3><h2 id=filebeat-configuration-detailhttpswwwelasticcoguideenbeatsfilebeatcurrentfilebeatconfigurationdetailshtml><a href=https://www.elastic.co/guide/en/beats/filebeat/current/filebeat-configuration-details.html>filebeat configuration detail</a></h2><h3 id=setup-ci-environment-on-ubuntu>Setup CI environment on Ubuntu</h3><h2 id=install-docker-sudo-aptget-install-y-dockerio>Install docker: <code>sudo apt-get install -y docker.io</code></h2><h2 id=test-docker-installation-sudo-docker-run-d-p-800080-nginx>Test docker installation: <code>sudo docker run -d -p 8000:80 nginx</code></h2><h3 id=set-up-ci-on-redhat-and-dockerhttpsgithubcomopenfrontierci><a href=https://github.com/openfrontier/ci>Set up CI on Redhat and docker</a></h3><h2 id=reference>Reference:</h2><h2 id=development-environments-with-vagrant-and-ansiblehttpsdanielgrovesnetnotebook201405developmentenvironments><a href=https://danielgroves.net/notebook/2014/05/development-environments/>Development Environments with Vagrant and Ansible</a></h2><h2 id=the-zen-of-high-performance-messaging-with-natshttpswwwslidesharenetwallyqsthezenofhighperformancemessagingwithnatsstrangeloop2016><a href=https://www.slideshare.net/wallyqs/the-zen-of-high-performance-messaging-with-nats-strange-loop-2016>The Zen of High Performance Messaging with NATS</a></h2><h2 id=centralized-elk-buildhttpswikizimbracomwikicentralizedlogselasticsearchlogstashandkibana><a href=https://wiki.zimbra.com/wiki/Centralized_Logs_-_Elasticsearch,_Logstash_and_Kibana>Centralized ELK build</a></h2><h2 id=how-to-serve-django-applications-with-apache-and-modewsgi-on-centos-7httpswwwdigitaloceancomcommunitytutorialshowtoservedjangoapplicationswithapacheandmodwsgioncentos7><a href=https://www.digitalocean.com/community/tutorials/how-to-serve-django-applications-with-apache-and-mod_wsgi-on-centos-7>How to serve Django Applications with Apache and mode_wsgi on CentOS 7</a></h2><h2 id=graphitehttpwwwaosabookorgengraphitehtml><a href=http://www.aosabook.org/en/graphite.html>Graphite</a></h2><h2 id=httpd-vs-nginx-vs-haproxyhttpblogmetrinkcomblog20140812httpdvsnginxvshaproxy><a href=http://blog.metrink.com/blog/2014/08/12/httpd-vs-nginx-vs-haproxy/>httpd Vs. Nginx Vs. HAProxy</a></h2><h2 id=how-to-configure-nginxhttpswwwlinodecomdocswebsitesnginxhowtoconfigurenginx><a href=https://www.linode.com/docs/websites/nginx/how-to-configure-nginx>How to Configure Nginx</a></h2><h2 id=automated-nginx-reverse-proxy-for-dockerhttpjasonwildercomblog20140325automatednginxreverseproxyfordocker><a href=http://jasonwilder.com/blog/2014/03/25/automated-nginx-reverse-proxy-for-docker/>Automated Nginx Reverse Proxy for Docker</a></h2><h2 id=configuring-haproxy-as-a-swiftstack-load-balancerhttpswwwswiftstackcomwpcontentuploads201506configuringhaproxyloadbalancingpdf><a href=https://www.swiftstack.com/wp-content/uploads/2015/06/ConfiguringHAProxyLoadBalancing.pdf>Configuring HAproxy as a SwiftStack Load Balancer</a></h2><h2 id=load-balancing-mysql-with-haproxyhttpswwwperconacomlivemysqlconference2013sitesdefaultfilesslideshaproxytalkpdf><a href=https://www.percona.com/live/mysql-conference-2013/sites/default/files/slides/haproxy_talk.pdf>Load balancing MySQL with HaProxy</a></h2><h2 id=configuring-https-servershttpnginxorgendocshttpconfiguringhttpsservershtml><a href=http://nginx.org/en/docs/http/configuring_https_servers.html>Configuring HTTPS servers</a></h2><h2 id=confd-templateshttpsgithubcomkelseyhightowerconfdblobc6622ed25cf9a77804542c6d32c9ee306894f14ddocstemplatesmd><a href=https://github.com/kelseyhightower/confd/blob/c6622ed25cf9a77804542c6d32c9ee306894f14d/docs/templates.md>confd templates</a></h2><h2 id=openssl-essentials-working-with-ssl-certificates-private-keys-and-csrshttpswwwdigitaloceancomcommunitytutorialsopensslessentialsworkingwithsslcertificatesprivatekeysandcsrs><a href=https://www.digitalocean.com/community/tutorials/openssl-essentials-working-with-ssl-certificates-private-keys-and-csrs>OpenSSL Essentials: Working with SSL Certificates, Private Keys and CSRs</a></h2><h2 id=how-to-install-zabbix-agent-on-centosrhel-765httptecadminnetinstallzabbixagentoncentosrhel><a href=http://tecadmin.net/install-zabbix-agent-on-centos-rhel/>How to Install Zabbix Agent on CentOS/RHEL 7/6/5</a></h2></div><footer class=post-footer><nav class=post-nav><a class=prev href=/post/tips/fe/><i class="iconfont icon-left"></i><span class="prev-text nav-default">fe</span>
+<span class="prev-text nav-mobile">Prev</span></a>
+<a class=next href=/post/tips/redis/><span class="next-text nav-default">redis</span>
+<span class="next-text nav-mobile">Next</span>
+<i class="iconfont icon-right"></i></a></nav></footer></article></div></div></main><footer id=footer class=footer><div class=social-links><a href=mailto:leowa@outlook.com class="iconfont icon-email" title=email></a><a href=https://github.com/leowa class="iconfont icon-github" title=github></a><a href=http://localhost:1313/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a></div><div class=copyright><span class=copyright-year>&copy;
+2019
+<span class=heart><i class="iconfont icon-heart"></i></span><span class=author>Andy Zhang</span></span></div></footer><div class=back-to-top id=back-to-top><i class="iconfont icon-up"></i></div></div><script src=https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin=anonymous></script><script src=https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin=anonymous></script><script src=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin=anonymous></script><script type=text/javascript src=/dist/even.26188efa.min.js></script></body></html>

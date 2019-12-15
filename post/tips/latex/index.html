@@ -1,0 +1,115 @@
+<!doctype html><html lang=en><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge,chrome=1"><title>latex - Andy's Blog</title><meta name=renderer content="webkit"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1"><meta http-equiv=cache-control content="no-transform"><meta http-equiv=cache-control content="no-siteapp"><meta name=theme-color content="#f8f5ec"><meta name=msapplication-navbutton-color content="#f8f5ec"><meta name=apple-mobile-web-app-capable content="yes"><meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec"><meta name=author content="Andy Zhang"><meta name=description content="Lists format table @{}suppresses the space between columns, that means after the preceding column and before the next. This way it affects also the space before the first column and after the last, if positioned there. NOTE: \\ is very important in latex, as it means new line like \n Set text font size command font size \tiny 5pt 6pt 6pt \scriptsize 7pt 8pt 8pt \footnotesize 8pt 9pt 10pt \small"><meta name=keywords content="linux,SRE,software"><meta name=generator content="Hugo 0.60.1 with theme even"><link rel=canonical href=http://localhost:1313/post/tips/latex/><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=manifest href=/manifest.json><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><link href=/dist/even.c2a46f00.min.css rel=stylesheet><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin=anonymous><meta property="og:title" content="latex"><meta property="og:description" content="Lists format table @{}suppresses the space between columns, that means after the preceding column and before the next. This way it affects also the space before the first column and after the last, if positioned there. NOTE: \\ is very important in latex, as it means new line like \n Set text font size command font size \tiny 5pt 6pt 6pt \scriptsize 7pt 8pt 8pt \footnotesize 8pt 9pt 10pt \small"><meta property="og:type" content="article"><meta property="og:url" content="http://localhost:1313/post/tips/latex/"><meta property="article:published_time" content="2019-09-10T16:35:49+08:00"><meta property="article:modified_time" content="2019-11-04T13:31:55+08:00"><meta itemprop=name content="latex"><meta itemprop=description content="Lists format table @{}suppresses the space between columns, that means after the preceding column and before the next. This way it affects also the space before the first column and after the last, if positioned there. NOTE: \\ is very important in latex, as it means new line like \n Set text font size command font size \tiny 5pt 6pt 6pt \scriptsize 7pt 8pt 8pt \footnotesize 8pt 9pt 10pt \small"><meta itemprop=datePublished content="2019-09-10T16:35:49+08:00"><meta itemprop=dateModified content="2019-11-04T13:31:55+08:00"><meta itemprop=wordCount content="553"><meta itemprop=keywords content><meta name=twitter:card content="summary"><meta name=twitter:title content="latex"><meta name=twitter:description content="Lists format table @{}suppresses the space between columns, that means after the preceding column and before the next. This way it affects also the space before the first column and after the last, if positioned there. NOTE: \\ is very important in latex, as it means new line like \n Set text font size command font size \tiny 5pt 6pt 6pt \scriptsize 7pt 8pt 8pt \footnotesize 8pt 9pt 10pt \small"><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script><script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]--></head><body><div id=mobile-navbar class=mobile-navbar><div class=mobile-header-logo><a href=/ class=logo>Andy's Blog</a></div><div class=mobile-navbar-icon><span></span><span></span><span></span></div></div><nav id=mobile-menu class="mobile-menu slideout-menu"><ul class=mobile-menu-list><a href=/><li class=mobile-menu-item>Home</li></a><a href=/post/><li class=mobile-menu-item>Archives</li></a><a href=/tags/><li class=mobile-menu-item>Tags</li></a><a href=/categories/><li class=mobile-menu-item>Categories</li></a><a href=/about/><li class=mobile-menu-item>About</li></a></ul></nav><div class=container id=mobile-panel><header id=header class=header><div class=logo-wrapper><a href=/ class=logo>Andy's Blog</a></div><nav class=site-navbar><ul id=menu class=menu><li class=menu-item><a class=menu-item-link href=/>Home</a></li><li class=menu-item><a class=menu-item-link href=/post/>Archives</a></li><li class=menu-item><a class=menu-item-link href=/tags/>Tags</a></li><li class=menu-item><a class=menu-item-link href=/categories/>Categories</a></li><li class=menu-item><a class=menu-item-link href=/about/>About</a></li></ul></nav></header><main id=main class=main><div class=content-wrapper><div id=content class=content><article class=post><header class=post-header><h1 class=post-title>latex</h1><div class=post-meta><span class=post-time>2019-09-10</span><div class=post-category><a href=/categories/tip/>tip</a></div><span class=more-meta>553 words</span>
+<span class=more-meta>2 mins read</span></div></header><div class=post-toc id=post-toc><h2 class=post-toc-title>Contents</h2><div class="post-toc-content always-active"><nav id=TableOfContents><ul><li><a href=#listshttpswwwlatextutorialcomtutorialslists>Lists</a></li><li><a href=#format-tablehttpswwwoverleafcomlearnlatextablesreferenceguide>format table</a></li><li><a href=#set-text-font-sizehttpwwwsaschafrankcomlatexfontsizehtml>Set text font size</a></li><li><a href=#how-to-add-an-empty-page>How to add an empty page?</a></li><li><a href=#setting-up-latex-on-mac-os-xhttpswwwpydannycomsettinguplatexonmacosxhtml>Setting up LaTeX on Mac OS X</a></li><li><a href=#install-texlive-quicklyhttpstexstackexchangecomquestions342612texliveinstallationspecifyjusttheschemeonthecommandline>Install texlive quickly</a></li><li><a href=#install-new-packages-with-tlmgrhttpsenwikibooksorgwikilatexinstallingextrapackages>Install new packages with tlmgr</a></li><li><a href=#examples-to-support-chinese-font>Examples to support Chinese font</a></li><li><a href=#about-fontspec1-which-is-worth-reading-for-various-tips-on-latex>About fontspec which is worth reading for various tips on latex</a></li></ul></nav></div></div><div class=post-content><h2 id=listshttpswwwlatextutorialcomtutorialslists><a href=https://www.latex-tutorial.com/tutorials/lists/>Lists</a></h2><h2 id=format-tablehttpswwwoverleafcomlearnlatextablesreferenceguide><a href=https://www.overleaf.com/learn/latex/Tables#Reference_guide>format table</a></h2><blockquote><p>@{}suppresses the space between columns, that means after the preceding column and before the next. This way it affects also the space before the first column and after the last, if positioned there.</p></blockquote><p><em>NOTE</em>: <code>\\</code> is very important in latex, as it means new line like <code>\n</code></p><h2 id=set-text-font-sizehttpwwwsaschafrankcomlatexfontsizehtml><a href=http://www.sascha-frank.com/latex-font-size.html>Set text font size</a></h2><pre><code>command	 font size
+\tiny	5pt	6pt	6pt
+\scriptsize	7pt	8pt	8pt
+\footnotesize	8pt	9pt	10pt
+\small	9pt	10pt	11pt
+\normalsize	10pt	11pt	12pt
+\large	12pt	12pt	14pt
+\Large	14pt	14pt	17pt
+\LARGE	17pt	17pt	20pt
+\huge	20pt	20pt	25pt
+\Huge	25pt	25pt	25pt
+</code></pre><h2 id=how-to-add-an-empty-page>How to add an empty page?</h2><pre><code>% add a empty page for notes
+\clearpage
+\thispagestyle{empty}
+\phantom{a}
+\vfill
+\centering[This page intentionally left blank]
+\vfill
+</code></pre><h2 id=setting-up-latex-on-mac-os-xhttpswwwpydannycomsettinguplatexonmacosxhtml><a href=https://www.pydanny.com/setting-up-latex-on-mac-os-x.html>Setting up LaTeX on Mac OS X</a></h2><blockquote><blockquote><ol><li>Get mactex-basic.pkg from <a href=http://www.ctan.org/pkg/mactex-basic>http://www.ctan.org/pkg/mactex-basic</a></li><li>Click mactex-basic.pkg to install LaTeX.</li><li>Update tlmgr: sudo tlmgr update &ndash;self</li><li>Install the following tools via tlmgr:
+sudo tlmgr install titlesec
+sudo tlmgr install framed
+sudo tlmgr install threeparttable
+sudo tlmgr install wrapfig
+sudo tlmgr install multirow
+sudo tlmgr install enumitem
+sudo tlmgr install bbding
+sudo tlmgr install titling
+sudo tlmgr install tabu
+sudo tlmgr install mdframed
+sudo tlmgr install tcolorbox
+sudo tlmgr install textpos
+sudo tlmgr install import
+sudo tlmgr install varwidth
+sudo tlmgr install needspace
+sudo tlmgr install tocloft
+sudo tlmgr install ntheorem
+sudo tlmgr install environ
+sudo tlmgr install trimspaces</li><li>Install fonts via tlmgr: sudo tlmgr install collection-fontsrecommended</li><li>For other package, install as needed: sudo tlmgr install ctex zhnumber</li></ol></blockquote></blockquote><h2 id=install-texlive-quicklyhttpstexstackexchangecomquestions342612texliveinstallationspecifyjusttheschemeonthecommandline><a href=https://tex.stackexchange.com/questions/342612/tex-live-installation-specify-just-the-scheme-on-the-command-line>Install texlive quickly</a></h2><p>I used <code>./install-tl --repository http://mirrors.ustc.edu.cn/CTAN/systems/texlive/tlnet --profile texlive.profile</code> after creating a sample profile and <code>selected_scheme scheme-small</code></p><h2 id=install-new-packages-with-tlmgrhttpsenwikibooksorgwikilatexinstallingextrapackages><a href=https://en.wikibooks.org/wiki/LaTeX/Installing_Extra_Packages>Install new packages with tlmgr</a></h2><p>Update tlmgr by <code>sudo tlmgr update --self</code></p><p>Install some package by <code>sudo tlmgr install &lt;packagename></code></p><p><strong>NOTE</strong>:latex is case sensitive, so ctex is different than CTEX. Thus you might get error like <em>! LaTeX Error: File `CTEX.sty&rsquo; not found</em> if you use wrong pacakge name as CTEX instead of ctex</p><h2 id=examples-to-support-chinese-font>Examples to support Chinese font</h2><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span><span class=lnt>31
+</span><span class=lnt>32
+</span><span class=lnt>33
+</span><span class=lnt>34
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-tex data-lang=tex><span class=k>\documentclass</span><span class=nb>{</span>article<span class=nb>}</span>
+<span class=k>\usepackage</span><span class=nb>{</span>fontspec<span class=nb>}</span>
+<span class=c>% something in &#34;{}&#34; is the package name, and that in &#34;[]&#34; is the options
+</span><span class=c></span><span class=k>\usepackage</span><span class=nb>{</span>ctex<span class=nb>}</span>[UTF8]
+
+<span class=c>% provided by fontspec
+</span><span class=c></span><span class=k>\setmainfont</span><span class=nb>{</span>Times New Roman<span class=nb>}</span> [Scale=MatchLowercase]
+
+<span class=c>% provided by ctex
+</span><span class=c></span><span class=k>\setCJKmainfont</span><span class=nb>{</span>Heiti SC Light<span class=nb>}</span> [BoldFont=Heiti SC Medium]
+<span class=k>\setCJKsansfont</span><span class=nb>{</span>Heiti SC<span class=nb>}</span>
+<span class=k>\setCJKmonofont</span><span class=nb>{</span>Courier<span class=nb>}</span>[Scale=MatchLowercase]
+<span class=k>\begin</span><span class=nb>{</span>document<span class=nb>}</span>
+<span class=k>\begin</span><span class=nb>{</span>table<span class=nb>}</span>[h]
+	<span class=k>\begin</span><span class=nb>{</span>tabular<span class=nb>}</span><span class=nb>{</span>c|c<span class=nb>}</span>
+			Nanomaterials Synthesis/Characterization <span class=nb>&amp;</span> C, Python, <span class=nb>{</span><span class=k>\LaTeX</span><span class=nb>}</span><span class=k>\\</span>
+			<span class=nb>{</span><span class=k>\fangsong</span> 物理<span class=nb>}</span> <span class=nb>&amp;</span>  化学 <span class=k>\\</span>
+	<span class=k>\end</span><span class=nb>{</span>tabular<span class=nb>}</span>
+<span class=k>\end</span><span class=nb>{</span>table<span class=nb>}</span>
+
+<span class=k>\begin</span><span class=nb>{</span>minipage<span class=nb>}</span><span class=nb>{</span>0.2<span class=k>\textwidth</span><span class=nb>}</span> <span class=c>% http://www.sascha-frank.com/latex-minipage.html
+</span><span class=c></span>	<span class=k>\begin</span><span class=nb>{</span>tabular<span class=nb>}</span><span class=nb>{</span>|c|c|c|<span class=nb>}</span>
+<span class=c>% 	\begin{tabular}{c|c|c} % this will remove the left and right |
+</span><span class=c></span>		<span class=c>%\hline
+</span><span class=c></span>		A <span class=nb>&amp;</span> B <span class=nb>&amp;</span> C <span class=k>\\</span>
+		<span class=k>\hline</span>
+		<span class=nb>{</span><span class=k>\kaishu</span> 这里是楷体显示<span class=nb>}</span> <span class=nb>&amp;</span> <span class=nb>{</span><span class=k>\songti</span> 这里是宋体显示<span class=nb>}</span> <span class=nb>&amp;</span> <span class=nb>{</span><span class=k>\heiti</span> 这里是黑体显示<span class=nb>}</span>  <span class=k>\\</span>
+		<span class=k>\hline</span> 
+		4 <span class=nb>&amp;</span> 5 <span class=nb>&amp;</span> 6 <span class=k>\\</span>
+		<span class=c>%\hline
+</span><span class=c></span>	<span class=k>\end</span><span class=nb>{</span>tabular<span class=nb>}</span>
+<span class=k>\end</span><span class=nb>{</span>minipage<span class=nb>}</span>
+<span class=k>\end</span><span class=nb>{</span>document<span class=nb>}</span>
+
+</code></pre></td></tr></table></div></div><p><strong>NOTE</strong>: <code>luatex</code> or <code>xelatex</code> is better than <code>pdflatex</code> for compiling, and <code>luatex</code> is becoming the Tex engine of the day, because it supports Unicode encodings and OpenType fonts and opens up the internals of TEX via the Lua programming language</p><h2 id=about-fontspec1-which-is-worth-reading-for-various-tips-on-latex>About <a href=http://mirrors-wan.geekpie.club/CTAN/macros/latex/contrib/fontspec/fontspec.pdf>fontspec</a> which is worth reading for various tips on latex</h2><p>Use the following command to look up font info:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-sh data-lang=sh>otfinfo -i <span class=sb>`</span>kpsewhich lmroman10-regular.otf<span class=sb>`</span>
+</code></pre></td></tr></table></div></div><p>REF: <a href=https://www.overleaf.com/learn/latex/Articles/An_introduction_to_Kpathsea_and_how_TeX_engines_search_for_files>An introduction to Kpathsea and how TeX engines search for files</a></p><hr></div><footer class=post-footer><nav class=post-nav><a class=prev href=/post/tips/regex/><i class="iconfont icon-left"></i><span class="prev-text nav-default">regex</span>
+<span class="prev-text nav-mobile">Prev</span></a>
+<a class=next href=/post/tips/coding/><span class="next-text nav-default">coding</span>
+<span class="next-text nav-mobile">Next</span>
+<i class="iconfont icon-right"></i></a></nav></footer></article></div></div></main><footer id=footer class=footer><div class=social-links><a href=mailto:leowa@outlook.com class="iconfont icon-email" title=email></a><a href=https://github.com/leowa class="iconfont icon-github" title=github></a><a href=http://localhost:1313/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a></div><div class=copyright><span class=copyright-year>&copy;
+2019
+<span class=heart><i class="iconfont icon-heart"></i></span><span class=author>Andy Zhang</span></span></div></footer><div class=back-to-top id=back-to-top><i class="iconfont icon-up"></i></div></div><script src=https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin=anonymous></script><script src=https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin=anonymous></script><script src=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin=anonymous></script><script type=text/javascript src=/dist/even.26188efa.min.js></script></body></html>

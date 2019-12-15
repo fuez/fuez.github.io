@@ -1,0 +1,119 @@
+<!doctype html><html lang=en><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge,chrome=1"><title>couchdb - Andy's Blog</title><meta name=renderer content="webkit"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1"><meta http-equiv=cache-control content="no-transform"><meta http-equiv=cache-control content="no-siteapp"><meta name=theme-color content="#f8f5ec"><meta name=msapplication-navbutton-color content="#f8f5ec"><meta name=apple-mobile-web-app-capable content="yes"><meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec"><meta name=author content="Andy Zhang"><meta name=description content="Tips Another REST example to get data, and make a list from result: curl -L -H &amp;quot;Content-Type:application/json&amp;quot; -H &amp;quot;Accept:application/json&amp;quot; -X POST http://ja03:5984/rong/_find -d @t.json | awk -F ':' '{ print $3}' | cut -d '&amp;quot;' -f 2
+REST query on couchdb curl -L -H &amp;quot;Content-Type:application/json&amp;quot; -H &amp;quot;Accept:application/json&amp;quot; -X POST http://192.168.20.143:5984/rong/_find -d @s.json s.json is documented as:
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20  { &amp;#34;selector&amp;#34;: { &amp;#34;data&amp;#34;: { &amp;#34;docType&amp;#34;: &amp;#34;order&amp;#34;, &amp;#34;operations&amp;#34;: { &amp;#34;$elemMatch&amp;#34;: { &amp;#34;time&amp;#34;: { &amp;#34;$gt&amp;#34;: &amp;#34;2017-05-27T08:47:00Z&amp;#34; } } } } }, &amp;#34;fields&amp;#34;: [ &amp;#34;data."><meta name=keywords content="linux,SRE,software"><meta name=generator content="Hugo 0.60.1 with theme even"><link rel=canonical href=http://localhost:1313/post/tips/couchdb/><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=manifest href=/manifest.json><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><link href=/dist/even.c2a46f00.min.css rel=stylesheet><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin=anonymous><meta property="og:title" content="couchdb"><meta property="og:description" content="Tips Another REST example to get data, and make a list from result: curl -L -H &#34;Content-Type:application/json&#34; -H &#34;Accept:application/json&#34; -X POST http://ja03:5984/rong/_find -d @t.json | awk -F ':' '{ print $3}' | cut -d '&#34;' -f 2
+REST query on couchdb curl -L -H &#34;Content-Type:application/json&#34; -H &#34;Accept:application/json&#34; -X POST http://192.168.20.143:5984/rong/_find -d @s.json s.json is documented as:
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20  { &#34;selector&#34;: { &#34;data&#34;: { &#34;docType&#34;: &#34;order&#34;, &#34;operations&#34;: { &#34;$elemMatch&#34;: { &#34;time&#34;: { &#34;$gt&#34;: &#34;2017-05-27T08:47:00Z&#34; } } } } }, &#34;fields&#34;: [ &#34;data."><meta property="og:type" content="article"><meta property="og:url" content="http://localhost:1313/post/tips/couchdb/"><meta property="article:published_time" content="2017-07-06T12:05:25+08:00"><meta property="article:modified_time" content="2017-11-13T15:42:49+08:00"><meta itemprop=name content="couchdb"><meta itemprop=description content="Tips Another REST example to get data, and make a list from result: curl -L -H &#34;Content-Type:application/json&#34; -H &#34;Accept:application/json&#34; -X POST http://ja03:5984/rong/_find -d @t.json | awk -F ':' '{ print $3}' | cut -d '&#34;' -f 2
+REST query on couchdb curl -L -H &#34;Content-Type:application/json&#34; -H &#34;Accept:application/json&#34; -X POST http://192.168.20.143:5984/rong/_find -d @s.json s.json is documented as:
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20  { &#34;selector&#34;: { &#34;data&#34;: { &#34;docType&#34;: &#34;order&#34;, &#34;operations&#34;: { &#34;$elemMatch&#34;: { &#34;time&#34;: { &#34;$gt&#34;: &#34;2017-05-27T08:47:00Z&#34; } } } } }, &#34;fields&#34;: [ &#34;data."><meta itemprop=datePublished content="2017-07-06T12:05:25+08:00"><meta itemprop=dateModified content="2017-11-13T15:42:49+08:00"><meta itemprop=wordCount content="307"><meta itemprop=keywords content><meta name=twitter:card content="summary"><meta name=twitter:title content="couchdb"><meta name=twitter:description content="Tips Another REST example to get data, and make a list from result: curl -L -H &#34;Content-Type:application/json&#34; -H &#34;Accept:application/json&#34; -X POST http://ja03:5984/rong/_find -d @t.json | awk -F ':' '{ print $3}' | cut -d '&#34;' -f 2
+REST query on couchdb curl -L -H &#34;Content-Type:application/json&#34; -H &#34;Accept:application/json&#34; -X POST http://192.168.20.143:5984/rong/_find -d @s.json s.json is documented as:
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20  { &#34;selector&#34;: { &#34;data&#34;: { &#34;docType&#34;: &#34;order&#34;, &#34;operations&#34;: { &#34;$elemMatch&#34;: { &#34;time&#34;: { &#34;$gt&#34;: &#34;2017-05-27T08:47:00Z&#34; } } } } }, &#34;fields&#34;: [ &#34;data."><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script><script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]--></head><body><div id=mobile-navbar class=mobile-navbar><div class=mobile-header-logo><a href=/ class=logo>Andy's Blog</a></div><div class=mobile-navbar-icon><span></span><span></span><span></span></div></div><nav id=mobile-menu class="mobile-menu slideout-menu"><ul class=mobile-menu-list><a href=/><li class=mobile-menu-item>Home</li></a><a href=/post/><li class=mobile-menu-item>Archives</li></a><a href=/tags/><li class=mobile-menu-item>Tags</li></a><a href=/categories/><li class=mobile-menu-item>Categories</li></a><a href=/about/><li class=mobile-menu-item>About</li></a></ul></nav><div class=container id=mobile-panel><header id=header class=header><div class=logo-wrapper><a href=/ class=logo>Andy's Blog</a></div><nav class=site-navbar><ul id=menu class=menu><li class=menu-item><a class=menu-item-link href=/>Home</a></li><li class=menu-item><a class=menu-item-link href=/post/>Archives</a></li><li class=menu-item><a class=menu-item-link href=/tags/>Tags</a></li><li class=menu-item><a class=menu-item-link href=/categories/>Categories</a></li><li class=menu-item><a class=menu-item-link href=/about/>About</a></li></ul></nav></header><main id=main class=main><div class=content-wrapper><div id=content class=content><article class=post><header class=post-header><h1 class=post-title>couchdb</h1><div class=post-meta><span class=post-time>2017-07-06</span><div class=post-category><a href=/categories/tip/>tip</a></div><span class=more-meta>307 words</span>
+<span class=more-meta>2 mins read</span></div></header><div class=post-toc id=post-toc><h2 class=post-toc-title>Contents</h2><div class="post-toc-content always-active"><nav id=TableOfContents><ul><li><ul><li><a href=#tips>Tips</a></li></ul></li><li><a href=#another-rest-example-to-get-data-and-make-a-list-from-result>Another REST example to get data, and make a list from result:</a></li><li><a href=#rest-query-on-couchdb>REST query on couchdb</a></li><li><a href=#complex-mongo-query-on-couchdb-including-and>Complex mongo query on couchdb, including $and:</a></li><li><a href=#how-to-add-mongo-index>How to add mongo index?</a></li><li><a href=#how-to-add-multiple-fields-index-by-curl-and-input-userpassword>How to add multiple fields index by curL and input user/password?</a></li></ul></nav></div></div><div class=post-content><h3 id=tips>Tips</h3><h2 id=another-rest-example-to-get-data-and-make-a-list-from-result>Another REST example to get data, and make a list from result:</h2><p><code>curl -L -H "Content-Type:application/json" -H "Accept:application/json" -X POST http://ja03:5984/rong/_find -d @t.json | awk -F ':' '{ print $3}' | cut -d '"' -f 2</code></p><h2 id=rest-query-on-couchdb>REST query on couchdb</h2><pre><code>curl -L -H &quot;Content-Type:application/json&quot; -H &quot;Accept:application/json&quot;  -X POST http://192.168.20.143:5984/rong/_find -d @s.json
+</code></pre><p>s.json is documented as:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-json data-lang=json><span class=p>{</span>
+  <span class=nt>&#34;selector&#34;</span><span class=p>:</span> <span class=p>{</span>
+    <span class=nt>&#34;data&#34;</span><span class=p>:</span> <span class=p>{</span>
+      <span class=nt>&#34;docType&#34;</span><span class=p>:</span> <span class=s2>&#34;order&#34;</span><span class=p>,</span>
+      <span class=nt>&#34;operations&#34;</span><span class=p>:</span> <span class=p>{</span>
+        <span class=nt>&#34;$elemMatch&#34;</span><span class=p>:</span> <span class=p>{</span>
+          <span class=nt>&#34;time&#34;</span><span class=p>:</span> <span class=p>{</span>
+            <span class=nt>&#34;$gt&#34;</span><span class=p>:</span> <span class=s2>&#34;2017-05-27T08:47:00Z&#34;</span>
+          <span class=p>}</span>
+        <span class=p>}</span>
+      <span class=p>}</span>
+    <span class=p>}</span>
+  <span class=p>}</span><span class=p>,</span>
+
+  <span class=nt>&#34;fields&#34;</span><span class=p>:</span> <span class=p>[</span>
+    <span class=s2>&#34;data.id&#34;</span>
+  <span class=p>]</span><span class=p>,</span>
+  <span class=nt>&#34;limit&#34;</span><span class=p>:</span> <span class=mi>10000</span><span class=p>,</span>
+  <span class=nt>&#34;skip&#34;</span><span class=p>:</span> <span class=mi>0</span>
+<span class=p>}</span>
+</code></pre></td></tr></table></div></div><h2 id=complex-mongo-query-on-couchdb-including-and>Complex mongo query on couchdb, including <em>$and</em>:</h2><pre><code>{
+&quot;submissionTime&quot;: {
+        &quot;$and&quot;: [
+          {
+            &quot;$gt&quot;: &quot;2017-05-25T07:19:19Z&quot;
+          },
+          {
+            &quot;$lt&quot;: &quot;2017-05-25T08:19:19Z&quot;
+          }
+        ]
+      }
+}
+or:
+
+{
+  &quot;$and&quot;: [
+    {
+      &quot;submissionTime&quot;: {
+        &quot;$gt&quot;: &quot;2017-05-25T07:19:19Z&quot;
+      }
+    },
+    {
+      &quot;submissionTime&quot;: {
+        &quot;$lt&quot;: &quot;2017-05-25T08:19:19Z&quot;
+      }
+    }
+  ]
+}
+</code></pre><h2 id=how-to-add-mongo-index>How to add mongo index?</h2><p>From <a href=http://host:5894/_utils/>admin portal</a>, Choose Databases, some db, <em>Design Documents</em>, <em>plus button</em>, <em>mongo indexes</em>,
+and then add an index like the following:</p><pre><code>{
+  &quot;index&quot;: {
+    &quot;fields&quot;: [
+      &quot;data.docType&quot;
+    ]
+  },
+  &quot;type&quot;: &quot;json&quot;
+}
+</code></pre><h2 id=how-to-add-multiple-fields-index-by-curl-and-input-userpassword>How to add multiple fields index by curL and input user/password?</h2><pre><code>
+curl -H 'Content-Type: application/json' \
+            -X POST http://admin:password@ja03:5984/rong/_index  \
+            -d '{ &quot;index&quot;: { &quot;fields&quot;: [ &quot;data.orderFormId&quot;,&quot;data.contractId&quot;, &quot;data.docType&quot;] },&quot;type&quot;: &quot;json&quot;}'
+
+curl -H 'Content-Type: application/json' \
+            -X POST http://admin:password@ja03:5984/rong/_index  \
+            -d '{ &quot;index&quot;: { &quot;fields&quot;: [ &quot;data.orderFormId&quot;,&quot;data.docType&quot;] },&quot;type&quot;: &quot;json&quot;}'
+
+curl -H 'Content-Type: application/json' \
+            -X POST http://admin:password@ja03:5984/rong/_index  \
+            -d '{ &quot;index&quot;: { &quot;fields&quot;: [ &quot;data.orderFormId&quot;,&quot;data.contractId&quot;, &quot;data.status&quot;] },&quot;type&quot;: &quot;json&quot;}'
+
+curl -H 'Content-Type: application/json' \
+            -X POST http://admin:password@ja03:5984/rong/_index  \
+            -d '{ &quot;index&quot;: { &quot;fields&quot;: [ &quot;data.deliveryRecordFormId&quot;,&quot;data.contractId&quot;, &quot;data.status&quot;] },&quot;type&quot;: &quot;json&quot;}'
+
+curl -H 'Content-Type: application/json' \
+            -X POST http://admin:password@ja03:5984/rong/_index  \
+            -d '{ &quot;index&quot;: { &quot;fields&quot;: [ &quot;data.docType&quot;,&quot;data.buyerId&quot;] },&quot;type&quot;: &quot;json&quot;}'
+
+curl -H 'Content-Type: application/json' \
+            -X POST http://admin:password@ja03:5984/rong/_index  \
+            -d '{ &quot;index&quot;: { &quot;fields&quot;: [ &quot;data.docType&quot;,&quot;data.sellerId&quot;] },&quot;type&quot;: &quot;json&quot;}'
+
+</code></pre></div><footer class=post-footer><nav class=post-nav><a class=prev href=/post/tips/angularjs/><i class="iconfont icon-left"></i><span class="prev-text nav-default">angularjs</span>
+<span class="prev-text nav-mobile">Prev</span></a>
+<a class=next href=/post/tips/gradle/><span class="next-text nav-default">gradle</span>
+<span class="next-text nav-mobile">Next</span>
+<i class="iconfont icon-right"></i></a></nav></footer></article></div></div></main><footer id=footer class=footer><div class=social-links><a href=mailto:leowa@outlook.com class="iconfont icon-email" title=email></a><a href=https://github.com/leowa class="iconfont icon-github" title=github></a><a href=http://localhost:1313/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a></div><div class=copyright><span class=copyright-year>&copy;
+2019
+<span class=heart><i class="iconfont icon-heart"></i></span><span class=author>Andy Zhang</span></span></div></footer><div class=back-to-top id=back-to-top><i class="iconfont icon-up"></i></div></div><script src=https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin=anonymous></script><script src=https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin=anonymous></script><script src=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin=anonymous></script><script type=text/javascript src=/dist/even.26188efa.min.js></script></body></html>
