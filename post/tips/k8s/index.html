@@ -1,0 +1,570 @@
+<!doctype html><html lang=en><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge,chrome=1"><title>k8s - Andy's Blog</title><meta name=renderer content="webkit"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1"><meta http-equiv=cache-control content="no-transform"><meta http-equiv=cache-control content="no-siteapp"><meta name=theme-color content="#f8f5ec"><meta name=msapplication-navbutton-color content="#f8f5ec"><meta name=apple-mobile-web-app-capable content="yes"><meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec"><meta name=author content="Andy Zhang"><meta name=description content="Enable tls on ingress 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 apiVersion:extensions/v1beta1kind:Ingressmetadata:name:nginx-testspec:tls:-hosts:-foo.bar.com# This assumes tls-secret exists and the SSL # certificate contains a CN for foo.bar.comsecretName:tls-secretrules:-host:foo.bar.comhttp:paths:-path:/backend:# This assumes http-svc exists and routes to healthy endpointsserviceName:http-svcservicePort:80 NOTE: create tls secret: kubectl create secret tls test-tls --key=&amp;quot;tls.key&amp;quot; --cert=&amp;quot;tls.crt&amp;quot; kubectl get &amp;lt;&amp;gt; -o name just output name for some type"><meta name=keywords content="linux,SRE,software"><meta name=generator content="Hugo 0.60.1 with theme even"><link rel=canonical href=http://localhost:1313/post/tips/k8s/><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=manifest href=/manifest.json><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><link href=/dist/even.c2a46f00.min.css rel=stylesheet><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin=anonymous><meta property="og:title" content="k8s"><meta property="og:description" content="Enable tls on ingress 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 apiVersion:extensions/v1beta1kind:Ingressmetadata:name:nginx-testspec:tls:-hosts:-foo.bar.com# This assumes tls-secret exists and the SSL # certificate contains a CN for foo.bar.comsecretName:tls-secretrules:-host:foo.bar.comhttp:paths:-path:/backend:# This assumes http-svc exists and routes to healthy endpointsserviceName:http-svcservicePort:80 NOTE: create tls secret: kubectl create secret tls test-tls --key=&#34;tls.key&#34; --cert=&#34;tls.crt&#34; kubectl get <> -o name just output name for some type"><meta property="og:type" content="article"><meta property="og:url" content="http://localhost:1313/post/tips/k8s/"><meta property="article:published_time" content="2017-10-30T14:04:16+08:00"><meta property="article:modified_time" content="2019-12-09T17:48:47+08:00"><meta itemprop=name content="k8s"><meta itemprop=description content="Enable tls on ingress 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 apiVersion:extensions/v1beta1kind:Ingressmetadata:name:nginx-testspec:tls:-hosts:-foo.bar.com# This assumes tls-secret exists and the SSL # certificate contains a CN for foo.bar.comsecretName:tls-secretrules:-host:foo.bar.comhttp:paths:-path:/backend:# This assumes http-svc exists and routes to healthy endpointsserviceName:http-svcservicePort:80 NOTE: create tls secret: kubectl create secret tls test-tls --key=&#34;tls.key&#34; --cert=&#34;tls.crt&#34; kubectl get <> -o name just output name for some type"><meta itemprop=datePublished content="2017-10-30T14:04:16+08:00"><meta itemprop=dateModified content="2019-12-09T17:48:47+08:00"><meta itemprop=wordCount content="2890"><meta itemprop=keywords content><meta name=twitter:card content="summary"><meta name=twitter:title content="k8s"><meta name=twitter:description content="Enable tls on ingress 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 apiVersion:extensions/v1beta1kind:Ingressmetadata:name:nginx-testspec:tls:-hosts:-foo.bar.com# This assumes tls-secret exists and the SSL # certificate contains a CN for foo.bar.comsecretName:tls-secretrules:-host:foo.bar.comhttp:paths:-path:/backend:# This assumes http-svc exists and routes to healthy endpointsserviceName:http-svcservicePort:80 NOTE: create tls secret: kubectl create secret tls test-tls --key=&#34;tls.key&#34; --cert=&#34;tls.crt&#34; kubectl get <> -o name just output name for some type"><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script><script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]--></head><body><div id=mobile-navbar class=mobile-navbar><div class=mobile-header-logo><a href=/ class=logo>Andy's Blog</a></div><div class=mobile-navbar-icon><span></span><span></span><span></span></div></div><nav id=mobile-menu class="mobile-menu slideout-menu"><ul class=mobile-menu-list><a href=/><li class=mobile-menu-item>Home</li></a><a href=/post/><li class=mobile-menu-item>Archives</li></a><a href=/tags/><li class=mobile-menu-item>Tags</li></a><a href=/categories/><li class=mobile-menu-item>Categories</li></a><a href=/about/><li class=mobile-menu-item>About</li></a></ul></nav><div class=container id=mobile-panel><header id=header class=header><div class=logo-wrapper><a href=/ class=logo>Andy's Blog</a></div><nav class=site-navbar><ul id=menu class=menu><li class=menu-item><a class=menu-item-link href=/>Home</a></li><li class=menu-item><a class=menu-item-link href=/post/>Archives</a></li><li class=menu-item><a class=menu-item-link href=/tags/>Tags</a></li><li class=menu-item><a class=menu-item-link href=/categories/>Categories</a></li><li class=menu-item><a class=menu-item-link href=/about/>About</a></li></ul></nav></header><main id=main class=main><div class=content-wrapper><div id=content class=content><article class=post><header class=post-header><h1 class=post-title>k8s</h1><div class=post-meta><span class=post-time>2017-10-30</span><div class=post-category><a href=/categories/tip/>tip</a></div><span class=more-meta>2890 words</span>
+<span class=more-meta>6 mins read</span></div></header><div class=post-toc id=post-toc><h2 class=post-toc-title>Contents</h2><div class="post-toc-content always-active"><nav id=TableOfContents><ul><li><a href=#enable-tls-on-ingresshttpskubernetesgithubioingressnginxexamplestlstermination>Enable tls on ingress</a></li><li><a href=#kubectl-get--o-name-just-output-name-for-some-type-of-resource-useful-for-shell-programming>kubectl get <> -o name just output name for some type of resource, useful for shell programming</a></li><li><a href=#kubectl-get-apiservices-to-get-all-apis-including-those-provided-by-crd>kubectl get apiservices to get all apis including those provided by CRD</a></li><li><a href=#use-kubectl-describe-to-get-humanreadable-information-about-some-resouce-such-as-secret>Use kubectl describe to get human-readable information about some resouce such as secret</a></li><li><a href=#how-to-trigger-a-kubernetes-cronjob-manuallyhttpswwwcraftypenguinsnethowtotriggerakubernetescronjobmanually>How to trigger a Kubernetes cronjob manually?</a></li><li><a href=#quick-way-to-create-configmap-based-on-files>Quick way to create configmap based on files</a></li><li><a href=#k8s-backupmigration-tool-velerohttpsgithubcomvmwaretanzuvelero>k8s backup/migration tool: velero</a></li><li><a href=#how-to-fix-api-server-down-issue-on-k8s-master-node>How to fix API Server down issue on k8s master node?</a></li><li><a href=#how-to-show-all-crd-resources>How to show all CRD resources?</a></li><li><a href=#kubernetes-configmap-reloadhttpsgithubcomjimmidysonconfigmapreload>Kubernetes ConfigMap Reload</a></li><li><a href=#difference-between-requirementsyaml-and-requirementslockshttpsdocsbitnamicomkuberneteshowtocreateyourfirsthelmchart>Difference between requirements.yaml and requirements.locks</a></li><li><a href=#about-node-affinity>About Node affinity</a></li><li><a href=#what-does-mi-means-simply-means-powertwo>What does Mi means? Simply means power-two</a></li><li><a href=#kubectx-and-kubenshttpsgithubcomahmetbkubectx-command-for-easy-cluster-switch-and-namespace-switch>kubectx and kubens command for easy cluster switch and namespace switch</a></li><li><a href=#set-default-storage-classhttpskubernetesiodocstasksadministerclusterchangedefaultstorageclass>Set default storage class</a></li><li><a href=#notes-about-pvpvc>Notes about PV/PVC</a></li><li><a href=#get-host-ip-in-the-pod>Get host IP in the POD;</a></li><li><a href=#add-checksum-to-annotation-to-trigger-deploymentsts-to-upgrade-when-configmapsecret-changed>Add checksum to annotation to trigger deployment/sts to upgrade when configmap/secret changed</a></li><li><a href=#load-all-environment-configurations-from-configmap>Load all environment configurations from configmap</a></li><li><a href=#configmap-reloadhttpsgithubcomjimmidysonconfigmapreload-is-quite-useful-to-provide-no-downtime-configuration-reload-if-service-provides-http-interface-to-trigger-that>configmap reload is quite useful to provide no downtime configuration reload if service provides http interface to trigger that</a></li><li><a href=#helm-command-to-search-chart-repository-helm-search-keyword-like-helm-search-stable>Helm command to search chart repository: helm search <keyword>like helm search stable</a></li><li><a href=#trouble-shooting-deployment-issue>Trouble shooting deployment issue</a></li><li><a href=#access-docker-inside-minikube-eval-minikube-dockerenv>Access docker inside minikube: eval $(minikube docker-env)</a></li><li><a href=#use-envfromhttpskubernetesiodocstasksconfigurepodcontainerconfigurepodconfigmap>Use envFrom</a></li><li><a href=#it-is-good-reading-herding-pods-taints-tolerations-and-affinity-in-kuberneteshttpsmediumcombetzmarkherdingpodstaintstolerationsandaffinityinkubernetes2279cef1f982>It is good reading: Herding pods: taints, tolerations and affinity in kubernetes</a></li><li><a href=#learn-more-about-designing-distributed-systems-based-on-k8s>Learn more about Designing Distributed Systems based on k8s</a></li><li><a href=#headless-service>Headless service</a></li><li><a href=#top-10-kubernetes-tips-and-trickshttpshackernooncomtop10kubernetestipsandtricks27528c2d0222>top 10 kubernetes tips and tricks</a></li><li><a href=#it-is-possible-to-remove-a-value-by-setting-its-value-to-null-per-this-issuehttpsgithubcomhelmhelmpull2648>It is possible to remove a value by setting its value to null per this issue</a></li><li><a href=#semvercompare-functionhttpmastermindsgithubiosprigsemverhtml-syntax>semverCompare function syntax</a></li><li><a href=#how-to-check-upgrade-diff-by-helm>How to check upgrade diff by helm?</a></li><li><a href=#upgrade-local-added-helm-chart-repo-by-helm-repo-update>Upgrade local added helm chart repo by helm repo update</a></li><li><a href=#securitycontext-can-be-configured-on-pod-or-container-not-just-container>securityContext can be configured on POD or container, not just container</a></li><li><a href=#komposehttpsgithubcomkuberneteskomposeblobmasterdocsuserguidemd-is-a-cool-tool-to-convert-dockercompose-file-to-k8s-manifest-file-and-could-even-be-used-to-deploy-directly-to-k8s-cluster>kompose is a cool tool to convert docker-compose file to k8s manifest file, and could even be used to deploy directly to k8s cluster</a></li><li><a href=#networkpolicyhttpskubernetesiodocsconceptsservicesnetworkingnetworkpolicies>NetworkPolicy</a></li><li><a href=#adding-entries-to-pod-etchosts-with-hostaliaseshttpskubernetesiodocsconceptsservicesnetworkingaddentriestopodetchostswithhostaliases>Adding entries to Pod /etc/hosts with HostAliases</a></li><li><a href=#use-podaffinity-to-schedule-a-new-cronjob-pod-to-run-together-with-some-named-pod>Use podAffinity to schedule a new cronjob POD to run together with some named POD</a></li><li><a href=#it-is-possible-to-load-etchosts-or-directly-add-entry-to-coredns-corefilehttpsgithubcomcorednscorednstreemasterpluginhosts>It is possible to load /etc/hosts or directly add entry to coreDNS corefile</a></li><li><a href=#it-is-possible-to-install-k8s-node-problem-detectorhttpskubernetesiodocstasksdebugapplicationclustermonitornodehealth-to-check-node-health-but-so-far-seems-there-is-no-good-upstream-app-to-consume-data-emitted-from-detector>It is possible to install k8s node problem detector to check node health. But so far, seems there is no good upstream app to consume data emitted from detector.</a></li><li><a href=#manually-install-helm>Manually install helm</a></li><li><a href=#fix-crashloopbackoff-kubeapiserverkubecontrollermanager-pod>Fix CrashLoopBackOff kube-apiserver/kube-controller-manager POD</a></li><li><a href=#fix-problem-of-failing-to-start-nginxproxy-on-k8s-node>Fix problem of failing to start nginx-proxy on k8s node</a></li><li><a href=#how-to-configure-ingress-nginx-controller>How to configure ingress nginx controller?</a></li><li><a href=#is-it-possible-to-create-secret-accross-multiple-namespaces>Is it possible to create secret accross multiple namespaces?</a></li><li><a href=#attach-handlers-to-container-lifecycle-eventshttpskubernetesiodocstasksconfigurepodcontainerattachhandlerlifecycleevent>Attach Handlers to Container Lifecycle Events</a></li><li><a href=#an-easy-way-to-check-logs-from-pods-check-logs-on-sts-or-deployment-like-this-kubectl-n-staging-get-deploybass>An easy way to check logs from pods: check logs on sts or deployment like this: kubectl -n staging get deploy/bass</a></li><li><a href=#syntax-to-set-env-variable-value-from-meta-configmap-and-secret>Syntax to set env variable value from meta, configmap, and secret</a></li><li><a href=#supported-functions-in-helm-chart-template>Supported functions in helm chart template:</a></li><li><a href=#naming-convention-for-k8s-resourceshttpskubernetesiodocsconceptsoverviewworkingwithobjectsnames>Naming convention for k8s resources</a></li><li><a href=#how-to-serve-a-local-helm-chart-repo>How to serve a local helm chart repo?</a></li><li><a href=#how-to-create-secret-by-a-pod>How to create secret by a POD?</a></li><li><a href=#how-to-delete-resource-by-pod>How to delete resource by pod?</a></li><li><a href=#how-to-mount-secret-as-file>How to mount secret as file?</a></li><li><a href=#how-to-mount-configmap-as-file>How to mount configmap as file?</a></li><li><a href=#install-a-sample-application-on-k8shttpskubernetesiodocssetupindependentcreateclusterkubeadm>Install a sample application on k8s</a></li><li><a href=#how-to-call-rest-api-by-curlhttpskubernetesiodocstasksaccessapplicationclusteraccessclusterwithoutkubectlproxypostv13x>How to call rest API by curl</a></li><li><a href=#guides>Guides</a><ul><li><a href=#workings-steps-for-v180>Workings steps for v1.8.0</a></li></ul></li><li><a href=#install-docker-and-enablestart-docker>Install docker and enable/start docker</a></li><li><a href=#add-a-kubernets-yum-repo>Add a kubernets yum repo:</a></li><li><a href=#on-master-node-install-kube-components-locked-to-v180>On master node, install kube components (locked to v1.8.0)</a></li><li><a href=#on-master-node-enable-kubelet-system-service>On master node, enable kubelet system service</a></li><li><a href=#on-master-node-init-the-cluster>On master node, init the cluster:</a></li><li><a href=#copy-adminconf-file-to-home-for-kubectl-command-to-work>Copy admin.conf file to $HOME for kubectl command to work:</a></li><li><a href=#install-flannel-network>Install flannel network</a><ul><li><a href=#set-up-kube-on-aliyun>set up kube on aliyun</a></li></ul></li><li><a href=#create-cluster-by-kubeadmhttpskubernetesiodocssetupindependentcreateclusterkubeadm>create cluster by kubeadm</a></li><li><a href=#pull-and-tag-imageshttpsmritdme20161130setupkubernetesclusterbyflannel>Pull and tag images:</a></li><li><a href=#on-the-master-node-need-the-following-container-images>On the master node, need the following container images:</a></li><li><a href=#on-the-slave-node-need-the-following-container-images>On the slave node, need the following container images:</a></li><li><a href=#trouble-shooting-kubelet-fails-to-start>Trouble shooting kubelet fails to start</a><ul><li><a href=#try-out-minikubehttpsgithubcomkubernetesminikube>Try out minikube</a></li></ul></li><li><a href=#install-minikube--and-kubectl-on-linux>Install minikube and kubectl on linux:</a></li><li><a href=#trouble-shooting-minikube-failed-to-start-due-to--anonymousauth-is-not-allowed-with-the-allowall-authorizer>Trouble shooting minikube failed to start due to AnonymousAuth is not allowed with the AllowAll authorizer</a></li><li><a href=#links>Links</a></li><li><a href=#add-prestart-and-poststart-handler-to-podhttpskubernetesiodocstasksconfigurepodcontainerattachhandlerlifecycleevent>Add preStart and postStart handler to pod</a></li></ul></nav></div></div><div class=post-content><h2 id=enable-tls-on-ingresshttpskubernetesgithubioingressnginxexamplestlstermination><a href=https://kubernetes.github.io/ingress-nginx/examples/tls-termination/>Enable tls on ingress</a></h2><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-yaml data-lang=yaml>apiVersion<span class=p>:</span><span class=w> </span>extensions/v1beta1<span class=w>
+</span><span class=w></span>kind<span class=p>:</span><span class=w> </span>Ingress<span class=w>
+</span><span class=w></span>metadata<span class=p>:</span><span class=w>
+</span><span class=w>  </span>name<span class=p>:</span><span class=w> </span>nginx-test<span class=w>
+</span><span class=w></span>spec<span class=p>:</span><span class=w>
+</span><span class=w>  </span>tls<span class=p>:</span><span class=w>
+</span><span class=w>    </span>-<span class=w> </span>hosts<span class=p>:</span><span class=w>
+</span><span class=w>      </span>-<span class=w> </span>foo.bar.com<span class=w>
+</span><span class=w>      </span><span class=c># This assumes tls-secret exists and the SSL </span><span class=w>
+</span><span class=w>      </span><span class=c># certificate contains a CN for foo.bar.com</span><span class=w>
+</span><span class=w>      </span>secretName<span class=p>:</span><span class=w> </span>tls-secret<span class=w>
+</span><span class=w>  </span>rules<span class=p>:</span><span class=w>
+</span><span class=w>    </span>-<span class=w> </span>host<span class=p>:</span><span class=w> </span>foo.bar.com<span class=w>
+</span><span class=w>      </span>http<span class=p>:</span><span class=w>
+</span><span class=w>        </span>paths<span class=p>:</span><span class=w>
+</span><span class=w>        </span>-<span class=w> </span>path<span class=p>:</span><span class=w> </span>/<span class=w>
+</span><span class=w>          </span>backend<span class=p>:</span><span class=w>
+</span><span class=w>            </span><span class=c># This assumes http-svc exists and routes to healthy endpoints</span><span class=w>
+</span><span class=w>            </span>serviceName<span class=p>:</span><span class=w> </span>http-svc<span class=w>
+</span><span class=w>            </span>servicePort<span class=p>:</span><span class=w> </span><span class=m>80</span><span class=w>
+</span></code></pre></td></tr></table></div></div><p>NOTE: <a href=https://shocksolution.com/2018/12/14/creating-kubernetes-secrets-using-tls-ssl-as-an-example/>create tls secret</a>: <code>kubectl create secret tls test-tls --key="tls.key" --cert="tls.crt"</code></p><h2 id=kubectl-get--o-name-just-output-name-for-some-type-of-resource-useful-for-shell-programming><code>kubectl get &lt;> -o name</code> just output name for some type of resource, useful for shell programming</h2><h2 id=kubectl-get-apiservices-to-get-all-apis-including-those-provided-by-crd><code>kubectl get apiservices</code> to get all apis including those provided by CRD</h2><h2 id=use-kubectl-describe-to-get-humanreadable-information-about-some-resouce-such-as-secret>Use <code>kubectl describe</code> to get human-readable information about some resouce such as secret</h2><p>For secret, it will decode content from base64 actaully.</p><h2 id=how-to-trigger-a-kubernetes-cronjob-manuallyhttpswwwcraftypenguinsnethowtotriggerakubernetescronjobmanually><a href=https://www.craftypenguins.net/how-to-trigger-a-kubernetes-cronjob-manually/>How to trigger a Kubernetes cronjob manually?</a></h2><p>Like this: <code>kubectl create job --from=cronjob/&lt;name of cronjob> &lt;name of job></code></p><h2 id=quick-way-to-create-configmap-based-on-files>Quick way to create configmap based on files</h2><p>This is from <code>charts/stable/mongodb</code>:</p><pre><code>data:
+{{ tpl (.Files.Glob &quot;files/docker-entrypoint-initdb.d/*[sh|js|json]&quot;).AsConfig . | indent 2 }}
+</code></pre><h2 id=k8s-backupmigration-tool-velerohttpsgithubcomvmwaretanzuvelero>k8s backup/migration tool: <a href=https://github.com/vmware-tanzu/velero>velero</a></h2><h2 id=how-to-fix-api-server-down-issue-on-k8s-master-node>How to fix API Server down issue on k8s master node?</h2><p>Looks like the easiest way is just restart the machine</p><h2 id=how-to-show-all-crd-resources>How to show all CRD resources?</h2><p><code>kubectl --all-namespaces=true get crd</code> to list all resources, and then <code>kubectl --all-namespaces=true delete crd &lt;crd-resource-id></code> to delete it.</p><h2 id=kubernetes-configmap-reloadhttpsgithubcomjimmidysonconfigmapreload><a href=https://github.com/jimmidyson/configmap-reload>Kubernetes ConfigMap Reload</a></h2><h2 id=difference-between-requirementsyaml-and-requirementslockshttpsdocsbitnamicomkuberneteshowtocreateyourfirsthelmchart><a href=https://docs.bitnami.com/kubernetes/how-to/create-your-first-helm-chart/>Difference between requirements.yaml and requirements.locks</a></h2><blockquote><p>Much like a runtime language dependency file (such as Python’s requirements.txt), the requirements.yaml file allows you to manage your chart’s dependencies and their versions. When updating dependencies, a lockfile is generated so that subsequent fetching of dependencies use a known, working version.</p><p>The requirements.yaml file lists only the immediate dependencies that your chart needs. This makes it easier for you to focus on your chart.</p><p>The requirements.lock file lists the exact versions of immediate dependencies and their dependencies and their dependencies and so forth. This allows helm to precisely track the entire dependency tree and recreate it exactly as it last worked&ndash;even if some of the dependencies (or their dependencies) are updated later.</p><p>Here's roughly how it works:</p><p>You create the initial requirements.yaml file. You run helm install and helm creates the requirements.lock file as it builds the dependency tree.
+On the next helm install, helm will ensure that it uses the same versions identified in the requirements.lock file.
+At some later date, you update the requirements.yaml file. You run helm install (or helm upgrade) and helm will notice your changes and update the requirements.lock file to reflect them.</p></blockquote><h2 id=about-node-affinity>About <em>Node affinity</em></h2><blockquote><p>Node affinity is conceptually similar to nodeSelector – it allows you to constrain which nodes your pod is eligible to be scheduled on, based on labels on the node.
+There are currently two types of node affinity, called requiredDuringSchedulingIgnoredDuringExecution and preferredDuringSchedulingIgnoredDuringExecution. You can think of them as “hard” and “soft” respectively</p></blockquote><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-yaml data-lang=yaml><span class=w>  </span>affinity<span class=p>:</span><span class=w>
+</span><span class=w>    </span>nodeAffinity<span class=p>:</span><span class=w>
+</span><span class=w>      </span>requiredDuringSchedulingIgnoredDuringExecution<span class=p>:</span><span class=w>
+</span><span class=w>        </span>nodeSelectorTerms<span class=p>:</span><span class=w>
+</span><span class=w>        </span>-<span class=w> </span>matchExpressions<span class=p>:</span><span class=w>
+</span><span class=w>          </span>-<span class=w> </span>key<span class=p>:</span><span class=w> </span>kubernetes.io/e2e-az-name<span class=w>
+</span><span class=w>            </span>operator<span class=p>:</span><span class=w> </span>In<span class=w>
+</span><span class=w>            </span>values<span class=p>:</span><span class=w>
+</span><span class=w>            </span>-<span class=w> </span>e2e-az1<span class=w>
+</span><span class=w>            </span>-<span class=w> </span>e2e-az2<span class=w>
+</span><span class=w>      </span>preferredDuringSchedulingIgnoredDuringExecution<span class=p>:</span><span class=w>
+</span><span class=w>      </span>-<span class=w> </span>weight<span class=p>:</span><span class=w> </span><span class=m>1</span><span class=w>
+</span><span class=w>        </span>preference<span class=p>:</span><span class=w>
+</span><span class=w>          </span>matchExpressions<span class=p>:</span><span class=w>
+</span><span class=w>          </span>-<span class=w> </span>key<span class=p>:</span><span class=w> </span>another-node-label-key<span class=w>
+</span><span class=w>            </span>operator<span class=p>:</span><span class=w> </span>In<span class=w>
+</span><span class=w>            </span>values<span class=p>:</span><span class=w>
+</span><span class=w>            </span>-<span class=w> </span>another-node-label-value<span class=w>
+</span><span class=w>
+</span></code></pre></td></tr></table></div></div><h2 id=what-does-mi-means-simply-means-powertwo>What does Mi means? Simply means power-two</h2><blockquote><p>Limits and requests for memory are measured in bytes. You can express memory as a plain integer or as a fixed-point integer using one of these suffixes: E, P, T, G, M, K. You can also use the power-of-two equivalents: Ei, Pi, Ti, Gi, Mi, Ki.</p></blockquote><h2 id=kubectx-and-kubenshttpsgithubcomahmetbkubectx-command-for-easy-cluster-switch-and-namespace-switch><a href=https://github.com/ahmetb/kubectx>kubectx and kubens</a> command for easy cluster switch and namespace switch</h2><p>Install on mac: <code>brew install kubectx</code> and add an alias for kubens: <code>alias kn="kubens"</code></p><h2 id=set-default-storage-classhttpskubernetesiodocstasksadministerclusterchangedefaultstorageclass><a href=https://kubernetes.io/docs/tasks/administer-cluster/change-default-storage-class/>Set default storage class</a></h2><p>Simply patch the one you wish to set as default with annotation like this:</p><p><code>kubectl patch storageclass ceph-rbd -p '{"metadata": {"annotations":{"storageclass.kubernetes.io/is-default-class":"true"}}}'</code></p><h2 id=notes-about-pvpvc>Notes about PV/PVC</h2><blockquote><p>After a PV has been bound to a PVC, however, that PV cannot then be bound to additional PVCs. This has the effect of scoping a bound PV to a single namespace (that of the binding project).</p><p>PVs are defined by a PersistentVolume API object, which represents a piece of existing networked storage in the cluster that has been provisioned by an administrator.PV objects capture the details of the implementation of the storage, be that NFS, iSCSI, or a cloud-provider-specific storage system.</p><p>PVCs are defined by a PersistentVolumeClaim API object, which represents a request for storage by a developer. It is similar to a pod in that pods consume node resources and PVCs consume PV resources. For example, pods can request specific levels of resources (e.g., CPU and memory), while PVCs can request specific storage capacity and access modes (e.g, they can be mounted once read/write or many times read-only).</p></blockquote><h2 id=get-host-ip-in-the-pod>Get host IP in the POD;</h2><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-yaml data-lang=yaml><span class=w>        </span>env<span class=p>:</span><span class=w>
+</span><span class=w>        </span>-<span class=w> </span>name<span class=p>:</span><span class=w> </span>JAEGER_SERVICE_NAME<span class=w>
+</span><span class=w>          </span>value<span class=p>:</span><span class=w> </span>myapp<span class=w>
+</span><span class=w>        </span>-<span class=w> </span>name<span class=p>:</span><span class=w> </span>JAEGER_AGENT_HOST<span class=w>   </span><span class=c># NOTE: Point to the Agent daemon on the Node</span><span class=w>
+</span><span class=w>          </span>valueFrom<span class=p>:</span><span class=w>
+</span><span class=w>            </span>fieldRef<span class=p>:</span><span class=w>
+</span><span class=w>              </span>fieldPath<span class=p>:</span><span class=w> </span>status.hostIP<span class=w>
+</span><span class=w>
+</span></code></pre></td></tr></table></div></div><h2 id=add-checksum-to-annotation-to-trigger-deploymentsts-to-upgrade-when-configmapsecret-changed>Add checksum to annotation to trigger deployment/sts to upgrade when configmap/secret changed</h2><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-yaml data-lang=yaml><span class=w>      </span>annotations<span class=p>:</span><span class=w>
+</span><span class=w>        </span>checksum/config<span class=p>:</span><span class=w> </span>{{<span class=w> </span>include<span class=w> </span>(print<span class=w> </span>$.Template.BasePath<span class=w> </span><span class=s2>&#34;/configmap.yaml&#34;</span>)<span class=w> </span>.<span class=w> </span>|<span class=w> </span>sha256sum<span class=w> </span>}}<span class=w>
+</span><span class=w>        </span>checksum/dashboards-json-config<span class=p>:</span><span class=w> </span>{{<span class=w> </span>include<span class=w> </span>(print<span class=w> </span>$.Template.BasePath<span class=w> </span><span class=s2>&#34;/dashboards-json-configmap.yaml&#34;</span>)<span class=w> </span>.<span class=w> </span>|<span class=w> </span>sha256sum<span class=w> </span>}}<span class=w>
+</span></code></pre></td></tr></table></div></div><h2 id=load-all-environment-configurations-from-configmap>Load all environment configurations from configmap</h2><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-yaml data-lang=yaml><span class=w>          </span>envFrom<span class=p>:</span><span class=w>
+</span><span class=w>            </span>-<span class=w> </span>configMapRef<span class=p>:</span><span class=w>
+</span><span class=w>                </span>name<span class=p>:</span><span class=w> </span>{{<span class=w> </span>include<span class=w> </span><span class=s2>&#34;emqx.fullname&#34;</span><span class=w> </span>.<span class=w> </span>}}-env<span class=w> 
+</span></code></pre></td></tr></table></div></div><h2 id=configmap-reloadhttpsgithubcomjimmidysonconfigmapreload-is-quite-useful-to-provide-no-downtime-configuration-reload-if-service-provides-http-interface-to-trigger-that><a href=https://github.com/jimmidyson/configmap-reload>configmap reload</a> is quite useful to provide no downtime configuration reload if service provides http interface to trigger that</h2><h2 id=helm-command-to-search-chart-repository-helm-search-keyword-like-helm-search-stable>Helm command to search chart repository: <code>helm search &lt;keyword></code> like <code>helm search stable</code></h2><h2 id=trouble-shooting-deployment-issue>Trouble shooting deployment issue</h2><p>When trying to deploy tiller to minikube, I found that tiller-deploy is stuck. To trouble shooting such issues, you can get detail log from controller manager POD like this: <code>kk logs -f kube-controller-manager-minikube --tail 100</code></p><h2 id=access-docker-inside-minikube-eval-minikube-dockerenv>Access docker inside minikube: <code>eval $(minikube docker-env)</code></h2><h2 id=use-envfromhttpskubernetesiodocstasksconfigurepodcontainerconfigurepodconfigmap>Use <a href=https://kubernetes.io/docs/tasks/configure-pod-container/configure-pod-configmap/>envFrom</a></h2><blockquote><p>Use envFrom to define all of the ConfigMap’s data as container environment variables. The key from the ConfigMap becomes the environment variable name in the Pod</p></blockquote><h2 id=it-is-good-reading-herding-pods-taints-tolerations-and-affinity-in-kuberneteshttpsmediumcombetzmarkherdingpodstaintstolerationsandaffinityinkubernetes2279cef1f982>It is good reading: <a href=https://medium.com/@betz.mark/herding-pods-taints-tolerations-and-affinity-in-kubernetes-2279cef1f982>Herding pods: taints, tolerations and affinity in kubernetes</a></h2><blockquote><p>Taints are repulsion and are targeted at the pods we don’t want.</p></blockquote><p>This article explains well how k8s node's taints and POD's toleration affect POD scheduling, and how to write podAntiAffinity affinity to avoid collocate on the same node.</p><h2 id=learn-more-about-designing-distributed-systems-based-on-k8s>Learn more about <em>Designing Distributed Systems</em> based on k8s</h2><p>Read more about <a href=https://azure.microsoft.com/en-us/resources/designing-distributed-systems/en-us/>this book</a></p><h2 id=headless-service>Headless service</h2><p>Headless service is needed to access individual POD in a statefulset, which is important to create replica set for mongodb clustering, and nats clustering.
+The only difference between headless service and noraml k8s service is that it will set clusterIP to <code>None</code></p><h2 id=top-10-kubernetes-tips-and-trickshttpshackernooncomtop10kubernetestipsandtricks27528c2d0222><a href=https://hackernoon.com/top-10-kubernetes-tips-and-tricks-27528c2d0222>top 10 kubernetes tips and tricks</a></h2><pre><code>- bash completion is buit-in when kubectl is installed via brew on mac
+- add default memory and cpu limits to namespace
+- Use PodDisruptionBudget to protect your service from drained
+- Label is your friend in k8s world
+</code></pre><h2 id=it-is-possible-to-remove-a-value-by-setting-its-value-to-null-per-this-issuehttpsgithubcomhelmhelmpull2648>It is possible to remove a value by setting its value to <code>null</code> per <a href=https://github.com/helm/helm/pull/2648>this issue</a></h2><p>Example: <code>helm upgrade staging-0 --reuse-values gezhi/fabric --set msc-java.image.processTag=null</code></p><h2 id=semvercompare-functionhttpmastermindsgithubiosprigsemverhtml-syntax><a href=http://masterminds.github.io/sprig/semver.html>semverCompare function</a> syntax</h2><p>The first argument to this function is version assertion, not just a version, and this function will return bool instead of an integer. Example usage is like this (which is quite similar to syntax used in requirements file)</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-yaml data-lang=yaml>{{-<span class=w> </span>if<span class=w> </span>semverCompare<span class=w> </span><span class=s2>&#34;&gt;=1.4-0, &lt;1.7-0&#34;</span><span class=w> </span>.Capabilities.KubeVersion.GitVersion<span class=w> </span>-}}<span class=w>
+</span></code></pre></td></tr></table></div></div><p>or one I crafted but is not logically correct:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-yaml data-lang=yaml>{{/*<span class=w>
+</span><span class=w>  </span>decide<span class=w> </span>which<span class=w> </span>version<span class=w> </span>should<span class=w> </span>be<span class=w> </span>used<span class=w> </span>for<span class=w> </span>process<span class=w>
+</span><span class=w></span><span class=cp>*/}}</span><span class=w>
+</span><span class=w></span>{{-<span class=w> </span>define<span class=w> </span><span class=s2>&#34;tide-process.version&#34;</span><span class=w> </span>-}}<span class=w>
+</span><span class=w></span>{{-<span class=w> </span>if<span class=w> </span>or<span class=w> </span>(not<span class=w> </span>.Values.image.processTag)<span class=w> </span>((semverCompare<span class=w> </span>(join<span class=w> </span><span class=s2>&#34;&gt;=&#34;</span><span class=w> </span>.Values.image.processTag)<span class=w> </span>.Values.image.tag<span class=w> </span>))<span class=w> </span>-}}<span class=w>
+</span><span class=w></span>{{-<span class=w> </span>printf<span class=w> </span><span class=s2>&#34;%s&#34;</span><span class=w> </span>.Values.image.tag<span class=w> </span>-}}<span class=w>
+</span><span class=w></span>{{-<span class=w> </span>else<span class=w> </span>-}}<span class=w>
+</span><span class=w></span>{{-<span class=w> </span>printf<span class=w> </span><span class=s2>&#34;%s&#34;</span><span class=w> </span>.Values.image.processTag<span class=w> </span>-}}<span class=w>
+</span><span class=w></span>{{-<span class=w> </span>end<span class=w> </span>-}}<span class=w>
+</span><span class=w></span>{{-<span class=w> </span>end<span class=w> </span>-}}<span class=w>
+</span></code></pre></td></tr></table></div></div><h2 id=how-to-check-upgrade-diff-by-helm>How to check upgrade diff by <code>helm</code>?</h2><p>There is helm plugin called <a href=https://github.com/databus23/helm-diff>helm-diff</a> to do that.
+Install by: <code>helm plugin install https://github.com/databus23/helm-diff --version master</code>.
+Example usage:
+- Show upgrade diff: <code>helm diff upgrade ar-0 gezhi/fabric</code>
+- Show rollback diff: <code>helm diff rollback ar-0 5</code></p><h2 id=upgrade-local-added-helm-chart-repo-by-helm-repo-update>Upgrade local added helm chart repo by <code>helm repo update</code></h2><h2 id=securitycontext-can-be-configured-on-pod-or-container-not-just-container>securityContext can be configured on POD or container, not just container</h2><h2 id=komposehttpsgithubcomkuberneteskomposeblobmasterdocsuserguidemd-is-a-cool-tool-to-convert-dockercompose-file-to-k8s-manifest-file-and-could-even-be-used-to-deploy-directly-to-k8s-cluster><a href=https://github.com/kubernetes/kompose/blob/master/docs/user-guide.md>kompose</a> is a cool tool to convert docker-compose file to k8s manifest file, and could even be used to deploy directly to k8s cluster</h2><h2 id=networkpolicyhttpskubernetesiodocsconceptsservicesnetworkingnetworkpolicies><a href=https://kubernetes.io/docs/concepts/services-networking/network-policies/>NetworkPolicy</a></h2><blockquote><p>A network policy is a specification of how groups of pods are allowed to communicate with each other and other network endpoints.
+NetworkPolicy resources use labels to select pods and define rules which specify what traffic is allowed to the selected pods.</p></blockquote><p>An example from jenkins deployment to allow only its agent to communicate with it:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-yaml data-lang=yaml>kind<span class=p>:</span><span class=w> </span>NetworkPolicy<span class=w>
+</span><span class=w></span>apiVersion<span class=p>:</span><span class=w> </span>{{<span class=w> </span>.Values.networkPolicy.apiVersion<span class=w> </span>}}<span class=w>
+</span><span class=w></span>metadata<span class=p>:</span><span class=w>
+</span><span class=w>  </span>name<span class=p>:</span><span class=w> </span><span class=s2>&#34;{{ .Release.Name }}-{{ .Values.master.componentName }}&#34;</span><span class=w>
+</span><span class=w></span>spec<span class=p>:</span><span class=w>
+</span><span class=w>  </span>podSelector<span class=p>:</span><span class=w>
+</span><span class=w>    </span>matchLabels<span class=p>:</span><span class=w>
+</span><span class=w>      </span><span class=s2>&#34;app.kubernetes.io/component&#34;</span><span class=p>:</span><span class=w> </span><span class=s2>&#34;{{ .Values.master.componentName }}&#34;</span><span class=w>
+</span><span class=w>      </span><span class=s2>&#34;app.kubernetes.io/instance&#34;</span><span class=p>:</span><span class=w> </span><span class=s2>&#34;{{ .Release.Name }}&#34;</span><span class=w>
+</span><span class=w>  </span>ingress<span class=p>:</span><span class=w>
+</span><span class=w>    </span><span class=c># Allow web access to the UI</span><span class=w>
+</span><span class=w>    </span>-<span class=w> </span>ports<span class=p>:</span><span class=w>
+</span><span class=w>      </span>-<span class=w> </span>port<span class=p>:</span><span class=w> </span><span class=m>8080</span><span class=w>
+</span><span class=w>    </span><span class=c># Allow inbound connections from slave</span><span class=w>
+</span><span class=w>    </span>-<span class=w> </span>from<span class=p>:</span><span class=w>
+</span><span class=w>      </span>-<span class=w> </span>podSelector<span class=p>:</span><span class=w>
+</span><span class=w>          </span>matchLabels<span class=p>:</span><span class=w>
+</span><span class=w>            </span><span class=s2>&#34;jenkins/{{ .Release.Name }}-{{ .Values.agent.componentName }}&#34;</span><span class=p>:</span><span class=w> </span><span class=s2>&#34;true&#34;</span><span class=w>
+</span><span class=w>      </span>ports<span class=p>:</span><span class=w>
+</span><span class=w>      </span>-<span class=w> </span>port<span class=p>:</span><span class=w> </span>{{<span class=w> </span>.Values.master.slaveListenerPort<span class=w> </span>}}<span class=w>
+</span></code></pre></td></tr></table></div></div><h2 id=adding-entries-to-pod-etchosts-with-hostaliaseshttpskubernetesiodocsconceptsservicesnetworkingaddentriestopodetchostswithhostaliases><a href=https://kubernetes.io/docs/concepts/services-networking/add-entries-to-pod-etc-hosts-with-host-aliases/>Adding entries to Pod /etc/hosts with HostAliases</a></h2><h2 id=use-podaffinity-to-schedule-a-new-cronjob-pod-to-run-together-with-some-named-pod>Use podAffinity to schedule a new cronjob POD to run together with some named POD</h2><p>The following affinity tries to put backup cron job POD together with jenkins master to match <code>topologyKey</code> as <code>hostname</code>; and labelSelector works as filter; limitation here is that only one host can be selected.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-yaml data-lang=yaml><span class=w>        </span>affinity<span class=p>:</span><span class=w>
+</span><span class=w>          </span>podAffinity<span class=p>:</span><span class=w>
+</span><span class=w>            </span>preferredDuringSchedulingIgnoredDuringExecution<span class=p>:</span><span class=w>
+</span><span class=w>            </span>-<span class=w> </span>labelSelector<span class=p>:</span><span class=w>
+</span><span class=w>                </span>matchExpressions<span class=p>:</span><span class=w>
+</span><span class=w>                </span>-<span class=w> </span>key<span class=p>:</span><span class=w> </span><span class=s2>&#34;app.kubernetes.io/name&#34;</span><span class=w>
+</span><span class=w>                  </span>operator<span class=p>:</span><span class=w> </span>In<span class=w>
+</span><span class=w>                  </span>values<span class=p>:</span><span class=w>
+</span><span class=w>                  </span>-<span class=w> </span><span class=s2>&#34;{{ template &#34;</span>jenkins.name<span class=s2>&#34; . }}&#34;</span><span class=w>
+</span><span class=w>                </span>-<span class=w> </span>key<span class=p>:</span><span class=w> </span><span class=s2>&#34;app.kubernetes.io/instance&#34;</span><span class=w>
+</span><span class=w>                  </span>operator<span class=p>:</span><span class=w> </span>In<span class=w>
+</span><span class=w>                  </span>values<span class=p>:</span><span class=w>
+</span><span class=w>                  </span>-<span class=w> </span><span class=s2>&#34;{{ .Release.Name }}&#34;</span><span class=w>
+</span><span class=w>              </span>topologyKey<span class=p>:</span><span class=w> </span><span class=s2>&#34;kubernetes.io/hostname&#34;</span><span class=w>
+</span></code></pre></td></tr></table></div></div><h2 id=it-is-possible-to-load-etchosts-or-directly-add-entry-to-coredns-corefilehttpsgithubcomcorednscorednstreemasterpluginhosts>It is possible to load <code>/etc/hosts</code> or directly add entry to <a href=https://github.com/coredns/coredns/tree/master/plugin/hosts>coreDNS corefile</a></h2><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-ini data-lang=ini><span class=na>hosts [FILE [ZONES...]] {</span>
+    <span class=k>[INLINE]</span>
+    <span class=na>ttl SECONDS</span>
+    <span class=na>no_reverse</span>
+    <span class=na>reload DURATION</span>
+    <span class=na>fallthrough [ZONES...]</span>
+<span class=na>}</span>
+</code></pre></td></tr></table></div></div><p>Just load host <code>/etc/hosts</code> file:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-ini data-lang=ini><span class=na>. {</span>
+    <span class=na>hosts</span>
+<span class=na>}</span>
+</code></pre></td></tr></table></div></div><p>An example of inlining some internal dns entries into <em>hosts</em> section after <code>kk edit cm coredns</code>:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-yaml data-lang=yaml><span class=w>  </span>Corefile<span class=p>:</span><span class=w> </span><span class=sd>|
+</span><span class=sd>   </span><span class=sd> </span><span class=sd>.:53 {</span><span class=w>
+</span><span class=w>        </span>errors<span class=w>
+</span><span class=w>        </span>health<span class=w>
+</span><span class=w>        </span>kubernetes<span class=w> </span>cluster.local<span class=w> </span>in-addr.arpa<span class=w> </span>ip6.arpa<span class=w> </span>{<span class=w>
+</span><span class=w>          </span>pods<span class=w> </span>insecure<span class=w>
+</span><span class=w>          </span>upstream<span class=w> </span>/etc/resolv.conf<span class=w>
+</span><span class=w>          </span>fallthrough<span class=w> </span>in-addr.arpa<span class=w> </span>ip6.arpa<span class=w>
+</span><span class=w>        </span>}<span class=w>
+</span><span class=w>        </span>hosts<span class=w> </span>{<span class=w>
+</span><span class=w>            </span><span class=m>10.0</span><span class=m>.0</span><span class=m>.8</span><span class=w> </span>git.gezhitech.cn<span class=w>
+</span><span class=w>            </span><span class=m>10.0</span><span class=m>.0</span><span class=m>.5</span><span class=w> </span>registry.gezhitech.cn<span class=w>
+</span><span class=w>            </span>fallthrough<span class=w>
+</span><span class=w>        </span>}<span class=w>
+</span><span class=w>        </span>prometheus<span class=w> </span><span class=p>:</span><span class=m>9153</span><span class=w>
+</span><span class=w>        </span>proxy<span class=w> </span>.<span class=w> </span>/etc/resolv.conf<span class=w>
+</span><span class=w>        </span>cache<span class=w> </span><span class=m>30</span><span class=w>
+</span><span class=w>        </span>loop<span class=w>
+</span><span class=w>        </span>reload<span class=w>
+</span><span class=w>        </span>loadbalance<span class=w>
+</span><span class=w>    </span>}<span class=w>
+</span><span class=w>
+</span></code></pre></td></tr></table></div></div><h2 id=it-is-possible-to-install-k8s-node-problem-detectorhttpskubernetesiodocstasksdebugapplicationclustermonitornodehealth-to-check-node-health-but-so-far-seems-there-is-no-good-upstream-app-to-consume-data-emitted-from-detector>It is possible to install <a href=https://kubernetes.io/docs/tasks/debug-application-cluster/monitor-node-health/>k8s node problem detector</a> to check node health. But so far, seems there is no good upstream app to consume data emitted from detector.</h2><p>Simply apply like this <code>kubectl apply -f https://k8s.io/examples/debug/node-problem-detector.yaml</code>, or put into kubernetes addon pods directory: <code>/etc/kubernetes/addons/node-problem-detector</code></p><h2 id=manually-install-helm>Manually install <code>helm</code></h2><p>First create sa, rolebinding for tiller service account by apply the following manifests:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-yml data-lang=yml>---<span class=w>
+</span><span class=w></span><span class=c># rbac-config.yaml</span><span class=w>
+</span><span class=w></span>apiVersion<span class=p>:</span><span class=w> </span>v1<span class=w>
+</span><span class=w></span>kind<span class=p>:</span><span class=w> </span>ServiceAccount<span class=w>
+</span><span class=w></span>metadata<span class=p>:</span><span class=w>
+</span><span class=w>  </span>name<span class=p>:</span><span class=w> </span>tiller<span class=w>
+</span><span class=w>  </span>namespace<span class=p>:</span><span class=w> </span>kube-system<span class=w>
+</span><span class=w></span>---<span class=w>
+</span><span class=w></span>apiVersion<span class=p>:</span><span class=w> </span>rbac.authorization.k8s.io/v1<span class=w>
+</span><span class=w></span>kind<span class=p>:</span><span class=w> </span>ClusterRoleBinding<span class=w>
+</span><span class=w></span>metadata<span class=p>:</span><span class=w>
+</span><span class=w>  </span>name<span class=p>:</span><span class=w> </span>tiller<span class=w>
+</span><span class=w></span>roleRef<span class=p>:</span><span class=w>
+</span><span class=w>  </span>apiGroup<span class=p>:</span><span class=w> </span>rbac.authorization.k8s.io<span class=w>
+</span><span class=w>  </span>kind<span class=p>:</span><span class=w> </span>ClusterRole<span class=w>
+</span><span class=w>  </span>name<span class=p>:</span><span class=w> </span>cluster-admin<span class=w>
+</span><span class=w></span>subjects<span class=p>:</span><span class=w>
+</span><span class=w>  </span>-<span class=w> </span>kind<span class=p>:</span><span class=w> </span>ServiceAccount<span class=w>
+</span><span class=w>    </span>name<span class=p>:</span><span class=w> </span>tiller<span class=w>
+</span><span class=w>    </span>namespace<span class=p>:</span><span class=w> </span>kube-system<span class=w>
+</span></code></pre></td></tr></table></div></div><p>Then init helm with <code>helm init --service-account tiller --stable-repo-url http://mirror.azure.cn/kubernetes/charts/ --tiller-image=docker.io/googlecontainer/tiller:v2.13.1</code>.</p><h2 id=fix-crashloopbackoff-kubeapiserverkubecontrollermanager-pod>Fix CrashLoopBackOff kube-apiserver/kube-controller-manager POD</h2><p>When reboot master server, sometimes, I guess due to race condition in starting sequence of kubelet and other core components containers. Those core containers might fail to start due to port is already being used ( such as 6443 for api server, 10251 for controller manager), the fix is also to first stop kubelet, kill process that is using conflict port, and restart kubelet again.</p><h2 id=fix-problem-of-failing-to-start-nginxproxy-on-k8s-node>Fix problem of failing to start <em>nginx-proxy</em> on k8s node</h2><p>Error might like this: failed to create listener: failed to listen on 0.0.0.0:6443: listen tcp 0.0.0.0:6443: bind: address already in use.</p><p>To fix this:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-sh data-lang=sh>netstat -lutpn <span class=p>|</span> grep <span class=m>6443</span>
+<span class=nb>kill</span> &lt;pid&gt;
+systemctl restart kubelet
+</code></pre></td></tr></table></div></div><h2 id=how-to-configure-ingress-nginx-controller>How to configure ingress nginx controller?</h2><p>It is possible to pass a configmap name for additional nginx configuration for controller as mentioned <a href=https://kubernetes.github.io/ingress-nginx/user-guide/cli-arguments/>here</a>.
+And <a href=https://kubernetes.github.io/ingress-nginx/user-guide/nginx-configuration/configmap/>supported options</a> is quite comprehensive.</p><h2 id=is-it-possible-to-create-secret-accross-multiple-namespaces>Is it possible to create secret accross multiple namespaces?</h2><blockquote><p>Secret API objects reside in a namespace. They can only be referenced by pods in that same namespace. Basically, you will have to create the secrete for every namespace. Referecen <a href=https://kubernetes.io/docs/concepts/configuration/secret/>k8s secret</a> for more detail.</p></blockquote><h2 id=attach-handlers-to-container-lifecycle-eventshttpskubernetesiodocstasksconfigurepodcontainerattachhandlerlifecycleevent><a href=https://kubernetes.io/docs/tasks/configure-pod-container/attach-handler-lifecycle-event/>Attach Handlers to Container Lifecycle Events</a></h2><blockquote><p>Kubernetes supports the postStart and preStop events. Kubernetes sends the postStart event immediately after a Container is started, and it sends the preStop event immediately before the Container is terminated.</p></blockquote><h2 id=an-easy-way-to-check-logs-from-pods-check-logs-on-sts-or-deployment-like-this-kubectl-n-staging-get-deploybass>An easy way to check logs from pods: check logs on sts or deployment like this: <code>kubectl -n staging get deploy/bass</code></h2><h2 id=syntax-to-set-env-variable-value-from-meta-configmap-and-secret>Syntax to set env variable value from meta, configmap, and secret</h2><p>To configure an env from configmap:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-yaml data-lang=yaml><span class=w>   </span>-<span class=w> </span>name<span class=p>:</span><span class=w> </span>LOG_LEVEL<span class=w>
+</span><span class=w>     </span>valueFrom<span class=p>:</span><span class=w>
+</span><span class=w>       </span>configMapKeyRef<span class=p>:</span><span class=w>
+</span><span class=w>         </span>name<span class=p>:</span><span class=w> </span>env-config<span class=w>
+</span><span class=w>         </span>key<span class=p>:</span><span class=w> </span>log_level<span class=w>
+</span><span class=w>
+</span></code></pre></td></tr></table></div></div><p>To configure an env from secret:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-yaml data-lang=yaml><span class=w>    </span>-<span class=w> </span>name<span class=p>:</span><span class=w> </span>SECRET_PASSWORD<span class=w>
+</span><span class=w>      </span>valueFrom<span class=p>:</span><span class=w>
+</span><span class=w>        </span>secretKeyRef<span class=p>:</span><span class=w>
+</span><span class=w>          </span>name<span class=p>:</span><span class=w> </span>test-secret<span class=w>
+</span><span class=w>          </span>key<span class=p>:</span><span class=w> </span>password<span class=w>
+</span></code></pre></td></tr></table></div></div><p>To configure an env from meta:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-yaml data-lang=yaml><span class=w>    </span>-<span class=w> </span>name<span class=p>:</span><span class=w> </span>POD_NAMESPACE<span class=w>
+</span><span class=w>      </span>valueFrom<span class=p>:</span><span class=w>
+</span><span class=w>        </span>fieldRef<span class=p>:</span><span class=w>
+</span><span class=w>          </span>apiVersion<span class=p>:</span><span class=w> </span>v1<span class=w>
+</span><span class=w>          </span>fieldPath<span class=p>:</span><span class=w> </span>metadata.namespace<span class=w>
+</span></code></pre></td></tr></table></div></div><h2 id=supported-functions-in-helm-chart-template>Supported functions in <em>helm</em> chart template:</h2><p>Some are defined in <a href=https://godoc.org/text/template>golang template package</a>, and others are defined in <a href=https://godoc.org/github.com/Masterminds/sprig>sprig package</a>
+And a quick reference for <em>sprig</em> functions is <a href=https://github.com/Masterminds/sprig/blob/master/functions.go>here</a></p><h2 id=naming-convention-for-k8s-resourceshttpskubernetesiodocsconceptsoverviewworkingwithobjectsnames><a href=https://kubernetes.io/docs/concepts/overview/working-with-objects/names/>Naming convention for k8s resources</a></h2><blockquote><p>By convention, the names of Kubernetes resources should be up to maximum length of 253 characters and consist of lower case alphanumeric characters, -, and ., but certain resources have more specific restrictions.</p></blockquote><h2 id=how-to-serve-a-local-helm-chart-repo>How to serve a local helm chart repo?</h2><p>First, package local charts by <code>helm package</code> command, and then create <em>index.yaml</em> file by calling <code>helm repo index</code>, and finally run <code>helm serve --repo-path .</code> in the chart root directory.</p><h2 id=how-to-create-secret-by-a-pod>How to create secret by a POD?</h2><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-yaml data-lang=yaml>containers<span class=p>:</span><span class=w>
+</span><span class=w>  </span>-<span class=w> </span>name<span class=p>:</span><span class=w> </span>create-block-secret<span class=w>
+</span><span class=w>    </span>image<span class=p>:</span><span class=w> </span>{{<span class=w> </span>.Values.image.kubectl<span class=w> </span>}}<span class=w>
+</span><span class=w>    </span>volumeMounts<span class=p>:</span><span class=w>
+</span><span class=w>      </span>-<span class=w> </span>name<span class=p>:</span><span class=w> </span>shared<span class=w>
+</span><span class=w>        </span>mountPath<span class=p>:</span><span class=w> </span>/shared<span class=w>
+</span><span class=w>      </span>-<span class=w> </span>mountPath<span class=p>:</span><span class=w> </span>/orderer-data<span class=w>
+</span><span class=w>        </span>name<span class=p>:</span><span class=w> </span>orderer-home<span class=w>
+</span><span class=w>    </span>env<span class=p>:</span><span class=w>
+</span><span class=w>      </span>-<span class=w> </span>name<span class=p>:</span><span class=w> </span>CHANNEL_ID<span class=w>
+</span><span class=w>        </span>value<span class=p>:</span><span class=w> </span>composer-channel<span class=w>
+</span><span class=w>      </span>-<span class=w> </span>name<span class=p>:</span><span class=w> </span>NAMESPACE<span class=w>
+</span><span class=w>        </span>value<span class=p>:</span><span class=w> </span>{{<span class=w> </span>.Release.Namespace<span class=w> </span>}}<span class=w>
+</span><span class=w>      </span>-<span class=w> </span>name<span class=p>:</span><span class=w> </span>CHANNEL_BLOCK_SECRET_NAME<span class=w>
+</span><span class=w>        </span>value<span class=p>:</span><span class=w> </span>{{<span class=w> </span>.Release.Name<span class=w> </span>}}-channel-block<span class=w>
+</span><span class=w>    </span>workingDir<span class=p>:</span><span class=w> </span>/shared<span class=w>
+</span><span class=w>    </span>command<span class=p>:</span><span class=w>
+</span><span class=w>      </span>-<span class=w> </span>sh<span class=w>
+</span><span class=w>      </span>-<span class=w> </span>-c<span class=w>
+</span><span class=w>      </span>-<span class=w> </span><span class=sd>&gt;
+</span><span class=sd>       </span><span class=sd> </span><span class=sd>kubectl --namespace $NAMESPACE get secret $CHANNEL_BLOCK_SECRET_NAME &amp;&gt;/dev/null || kubectl --namespace $NAMESPACE create secret generic $CHANNEL_BLOCK_SECRET_NAME --from-file &#34;block=/orderer-data/configtx/${CHANNEL_ID}.block&#34;</span><span class=w>
+</span><span class=w>
+</span></code></pre></td></tr></table></div></div><h2 id=how-to-delete-resource-by-pod>How to delete resource by pod?</h2><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-yaml data-lang=yaml><span class=w>   </span>-<span class=w> </span>name<span class=p>:</span><span class=w> </span>clean-up-k8s-resources<span class=w>
+</span><span class=w>     </span>image<span class=p>:</span><span class=w> </span>{{<span class=w> </span>.Values.image.kubectl<span class=w> </span>}}<span class=w>
+</span><span class=w>     </span>env<span class=p>:</span><span class=w> 
+</span><span class=w>       </span>-<span class=w> </span>name<span class=p>:</span><span class=w> </span>NAMESPACE<span class=w>
+</span><span class=w>         </span>value<span class=p>:</span><span class=w> </span>{{<span class=w> </span>.Release.Namespace<span class=w> </span>}}<span class=w>
+</span><span class=w>       </span>-<span class=w> </span>name<span class=p>:</span><span class=w> </span>CHANNEL_BLOCK_SECRET_NAME<span class=w>
+</span><span class=w>         </span>value<span class=p>:</span><span class=w> </span>{{<span class=w> </span>.Release.Name<span class=w> </span>}}-channel-block<span class=w>
+</span><span class=w>     </span>workingDir<span class=p>:</span><span class=w> </span>/shared<span class=w>
+</span><span class=w>     </span>command<span class=p>:</span><span class=w>
+</span><span class=w>       </span>-<span class=w> </span>sh<span class=w>
+</span><span class=w>       </span>-<span class=w> </span>-c<span class=w>
+</span><span class=w>       </span>-<span class=w> </span><span class=sd>&gt;
+</span><span class=sd>        </span><span class=sd> </span><span class=sd>kubectl --namespace $NAMESPACE delete secret $CHANNEL_BLOCK_SECRET_NAME &amp;&gt;/dev/null || true</span><span class=w>
+</span></code></pre></td></tr></table></div></div><h2 id=how-to-mount-secret-as-file>How to mount secret as file?</h2><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-yaml data-lang=yaml><span class=w>   </span>-<span class=w> </span>name<span class=p>:</span><span class=w> </span>channel-block<span class=w>
+</span><span class=w>     </span>secret<span class=p>:</span><span class=w>
+</span><span class=w>       </span>secretName<span class=p>:</span><span class=w> </span>{{<span class=w> </span>.Release.Name<span class=w> </span>}}-channel-block<span class=w>
+</span><span class=w>       </span>items<span class=p>:</span><span class=w>
+</span><span class=w>         </span>-<span class=w> </span>key<span class=p>:</span><span class=w> </span>block<span class=w>
+</span><span class=w>           </span>path<span class=p>:</span><span class=w> </span>channel.block<span class=w>
+</span></code></pre></td></tr></table></div></div><h2 id=how-to-mount-configmap-as-file>How to mount configmap as file?</h2><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span><span class=lnt>9
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-yaml data-lang=yaml><span class=w>   </span>-<span class=w> </span>name<span class=p>:</span><span class=w> </span>fabric-ops-scripts<span class=w>
+</span><span class=w>     </span>configMap<span class=p>:</span><span class=w>
+</span><span class=w>       </span>name<span class=p>:</span><span class=w> </span>fabric-ops-scripts<span class=w>
+</span><span class=w>       </span>items<span class=p>:</span><span class=w>
+</span><span class=w>       </span>-<span class=w> </span>key<span class=p>:</span><span class=w> </span>create-channel.sh<span class=w>
+</span><span class=w>        </span><span class=c># path: create-channel.sh</span><span class=w>
+</span><span class=w>       </span>-<span class=w> </span>key<span class=p>:</span><span class=w> </span>join-channel.sh<span class=w>
+</span><span class=w>        </span><span class=c># path: join-channel.sh</span><span class=w>
+</span><span class=w>
+</span></code></pre></td></tr></table></div></div><h2 id=install-a-sample-application-on-k8shttpskubernetesiodocssetupindependentcreateclusterkubeadm><a href=https://kubernetes.io/docs/setup/independent/create-cluster-kubeadm/>Install a sample application on k8s</a></h2><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-sh data-lang=sh>kubectl create namespace sock-shop
+kubectl apply -n sock-shop -f <span class=s2>&#34;</span><span class=s2>https://github.com/microservices-demo/microservices-demo/blob/master/deploy/kubernetes/complete-demo.yaml?raw=true
+</span></code></pre></td></tr></table></div></div><h2 id=how-to-call-rest-api-by-curlhttpskubernetesiodocstasksaccessapplicationclusteraccessclusterwithoutkubectlproxypostv13x><a href=https://kubernetes.io/docs/tasks/access-application-cluster/access-cluster/#without-kubectl-proxy-post-v13x>How to call rest API by curl</a></h2><p>The basic idea here is to first get token from secret for some service account with proper access to API corresponding resource. With this token as Bearer in <em>Authorization</em> HTTP header, you can access REST resource on k8s API server</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-sh data-lang=sh>$ <span class=nv>APISERVER</span><span class=o>=</span><span class=k>$(</span>kubectl config view <span class=p>|</span> grep server <span class=p>|</span> cut -f 2- -d <span class=s2>&#34;:&#34;</span> <span class=p>|</span> tr -d <span class=s2>&#34; &#34;</span><span class=k>)</span>
+$ <span class=nv>TOKEN</span><span class=o>=</span><span class=k>$(</span>kubectl describe secret <span class=k>$(</span>kubectl get secrets <span class=p>|</span> grep default <span class=p>|</span> cut -f1 -d <span class=s1>&#39; &#39;</span><span class=k>)</span> <span class=p>|</span> grep -E <span class=s1>&#39;^token&#39;</span> <span class=p>|</span> cut -f2 -d<span class=s1>&#39;:&#39;</span> <span class=p>|</span> tr -d <span class=s1>&#39;\t&#39;</span><span class=k>)</span>
+$ curl <span class=nv>$APISERVER</span>/api --header <span class=s2>&#34;</span><span class=s2>Authorization: Bearer </span><span class=nv>$TOKEN</span><span class=s2>&#34;</span> --insecure
+</code></pre></td></tr></table></div></div><ul><li><a href=https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG-1.8.md#behavioral-changes>How to re-create Bootstrap token?</a></li></ul><blockquote><p>The default Bootstrap Token created with kubeadm init v1.8 expires and is deleted after 24 hours by default to limit the exposure of the valuable credential. You can create a new Bootstrap Token with kubeadm token create or make the default token permanently valid by specifying &ndash;token-ttl 0 to kubeadm init. The default token can later be deleted with kubeadm token delete.</p></blockquote><p>Be sure to add token to groups for node anthorization like this: <code>kubeadm token create --groups system:bootstrappers:kubeadm:deafult-node-token</code></p><h2 id=guides>Guides</h2><h3 id=workings-steps-for-v180>Workings steps for v1.8.0</h3><h2 id=install-docker-and-enablestart-docker>Install docker and enable/start docker</h2><h2 id=add-a-kubernets-yum-repo>Add a kubernets yum repo:</h2><pre><code>cat &lt;&lt;EOF &gt; /etc/yum.repos.d/kubernetes.repo
+[kubernetes]
+name=Kubernetes
+baseurl=http://yum.kubernetes.io/repos/kubernetes-el7-x86_64
+enabled=1
+gpgcheck=1
+repo_gpgcheck=1
+gpgkey=https://packages.cloud.google.com/yum/doc/yum-key.gpg
+        https://packages.cloud.google.com/yum/doc/rpm-package-key.gpg
+EOF
+
+</code></pre><h2 id=on-master-node-install-kube-components-locked-to-v180>On master node, install kube components (locked to v1.8.0)</h2><pre><code>#yum install -y kubelet kubeadm kubectl kubernetes-cni
+yum install -y kubelet-1.8.0-0 kubeadm-1.8.0-0 kubectl-1.8.0-0 kubernetes-cni-1.8.0-0
+</code></pre><h2 id=on-master-node-enable-kubelet-system-service>On master node, enable kubelet system service</h2><pre><code>systemctl enable kubelet
+
+</code></pre><h2 id=on-master-node-init-the-cluster>On master node, init the cluster:</h2><pre><code>kubeadm init  --pod-network-cidr 10.244.0.0/16
+</code></pre><p>Write down join token from output like this:</p><pre><code>kubeadm join --token 7e4e01.b13d9c3559730fa1 10.112.80.131:6443 --discovery-token-ca-cert-hash sha256:c66d6fae56d5347a018751079f18855dd65b73d965aeaa025d5151d159398c49
+
+</code></pre><h2 id=copy-adminconf-file-to-home-for-kubectl-command-to-work>Copy admin.conf file to $HOME for <code>kubectl</code> command to work:</h2><pre><code>sudo cp /etc/kubernetes/admin.conf $HOME/
+sudo chown $(id -u):$(id -g) $HOME/admin.conf
+export KUBECONFIG=$HOME/admin.conf
+</code></pre><h2 id=install-flannel-network>Install flannel network</h2><pre><code>kubectl create -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml
+</code></pre><h3 id=set-up-kube-on-aliyun>set up kube on aliyun</h3><h2 id=create-cluster-by-kubeadmhttpskubernetesiodocssetupindependentcreateclusterkubeadm><a href=https://kubernetes.io/docs/setup/independent/create-cluster-kubeadm/>create cluster by kubeadm</a></h2><p>First <a href=https://kubernetes.io/docs/setup/independent/install-kubeadm/>install kubeadm</a></p><h2 id=pull-and-tag-imageshttpsmritdme20161130setupkubernetesclusterbyflannel><a href=https://mritd.me/2016/11/30/set-up-kubernetes-cluster-by-flannel/>Pull and tag images</a>:</h2><pre><code># load 镜像
+images=(kube-proxy-amd64:v1.4.6 kube-discovery-amd64:1.0 kubedns-amd64:1.7 kube-scheduler-amd64:v1.4.6 kube-controller-manager-amd64:v1.4.6 kube-apiserver-amd64:v1.4.6 etcd-amd64:2.2.5 kube-dnsmasq-amd64:1.3 exechealthz-amd64:1.1 pause-amd64:3.0 kubernetes-dashboard-amd64:v1.4.1)
+for imageName in ${images[@]} ; do
+  docker pull mritd/$imageName
+  docker tag mritd/$imageName gcr.io/google_containers/$imageName
+  docker rmi mritd/$imageName
+done
+
+# 其他的什么 dns、etcd 搞完了直接初始化
+kubeadm init --api-advertise-addresses 192.168.1.101 --external-etcd-endpoints http://192.168.1.102:2379 --use-kubernetes-version v1.4.6 --pod-network-cidr 10.244.0.0/16
+
+</code></pre><h2 id=on-the-master-node-need-the-following-container-images>On the master node, need the following container images:</h2><pre><code>    gcr.io/google_containers/kube-apiserver-amd64:v1.8.0
+    gcr.io/google_containers/kube-controller-manager-amd64:v1.8.0
+    gcr.io/google_containers/kube-scheduler-amd64:v1.8.0
+    gcr.io/google_containers/kube-proxy-amd64:v1.8.0
+    gcr.io/google_containers/etcd-amd64:3.0.17
+    gcr.io/google_containers/pause-amd64:3.0
+</code></pre><h2 id=on-the-slave-node-need-the-following-container-images>On the slave node, need the following container images:</h2><pre><code></code></pre><h2 id=trouble-shooting-kubelet-fails-to-start>Trouble shooting kubelet fails to start</h2><pre><code>local cluster fails to start Error: failed to run Kubelet: Running with swap on is not supported 
+</code></pre><p>Fix:
+<a href=https://github.com/kubernetes/kubernetes/issues/50373>Adding KUBELET_FLAGS=${KUBELET_FLAGS:-"&ndash;fail-swap-on=false&rdquo;} to hack/local-up-cluster.sh</a>
+Or running <a href=http://blog.csdn.net/csdn_duomaomao/article/details/75142769>sudo swapoff -a</a></p><pre><code>kubelet cgroup driver: &quot;systemd&quot; is different from docker cgroup driver: &quot;cgroupfs&quot;
+</code></pre><p><a href=https://github.com/kubernetes/kubernetes/issues/43805>Fix</a>:</p><pre><code>kubelet's cgroup driver is not same with docker's cgroup driver, so I update systemd -&gt; cgroupfs.
+
+vi /etc/systemd/system/kubelet.service.d/10-kubeadm.conf
+update KUBELET_CGROUP_ARGS=--cgroup-driver=systemd to KUBELET_CGROUP_ARGS=--cgroup-driver=cgroupfs
+
+restart kubelet
+run 'service kubelet restart'
+
+everyting is ok
+</code></pre><p>with the above fixes, now master is inited successfully:</p><pre><code>Your Kubernetes master has initialized successfully!
+
+To start using your cluster, you need to run (as a regular user):
+
+  mkdir -p $HOME/.kube
+  sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+  sudo chown $(id -u):$(id -g) $HOME/.kube/config
+
+You should now deploy a pod network to the cluster.
+Run &quot;kubectl apply -f [podnetwork].yaml&quot; with one of the options listed at:
+  http://kubernetes.io/docs/admin/addons/
+
+You can now join any number of machines by running the following on each node
+as root:
+
+  kubeadm join --token bda1d2.e97a506e04ab3a33 10.112.80.131:6443 --discovery-token-ca-cert-hash sha256:cbc107ceecd25f5dc9e31b50ca98a614d1463ca5a2c401f654f306bb07569c56
+</code></pre><h3 id=try-out-minikubehttpsgithubcomkubernetesminikube>Try out <a href=https://github.com/kubernetes/minikube>minikube</a></h3><h2 id=install-minikube--and-kubectl-on-linux>Install minikube and kubectl on linux:</h2><pre><code>curl -Lo minikube https://stora9ge.googleapis.com/minikube/releases/latest/minikube-linux-amd64 &amp;&amp; chmod +x minikube &amp;&amp; sudo mv minikube /usr/local/bin/
+
+curl -Lo kubectl https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl &amp;&amp; chmod +x kubectl &amp;&amp; sudo mv kubectl /usr/local/bin/
+
+export MINIKUBE_WANTUPDATENOTIFICATION=false
+export MINIKUBE_WANTREPORTERRORPROMPT=false
+export MINIKUBE_HOME=$HOME
+export CHANGE_MINIKUBE_NONE_USER=true
+mkdir $HOME/.kube || true
+touch $HOME/.kube/config
+
+export KUBECONFIG=$HOME/.kube/config
+sudo -E ./minikube start --vm-driver=none
+
+# this for loop waits until kubectl can access the api server that minikube has created
+for i in {1..150} # timeout for 5 minutes
+do
+   ./kubectl get po &amp;&gt; /dev/null
+   if [ $? -ne 1 ]; then
+      break
+  fi
+  sleep 2
+done
+
+# kubectl commands are now able to interact with minikube cluster
+
+</code></pre><h2 id=trouble-shooting-minikube-failed-to-start-due-to--anonymousauth-is-not-allowed-with-the-allowall-authorizer>Trouble shooting minikube failed to start due to <em>AnonymousAuth is not allowed with the AllowAll authorizer</em></h2><pre><code>On the proposed solution: as a workaround the additional line Environment='GODEBUG=netdns=go' can be applied directly to the localkube.service on the system followed by a systemctl daemon-reload and systemctl restart localkube.
+</code></pre><p>It is said on <a href=https://golang.org/pkg/net/>godoc</a>:</p><pre><code>export GODEBUG=netdns=go    # force pure Go resolver
+export GODEBUG=netdns=cgo   # force cgo resolver
+</code></pre><h2 id=links>Links</h2><h2 id=add-prestart-and-poststart-handler-to-podhttpskubernetesiodocstasksconfigurepodcontainerattachhandlerlifecycleevent><a href=https://kubernetes.io/docs/tasks/configure-pod-container/attach-handler-lifecycle-event/>Add preStart and postStart handler to pod</a></h2></div><footer class=post-footer><nav class=post-nav><a class=prev href=/post/tips/typist/><i class="iconfont icon-left"></i><span class="prev-text nav-default">typist</span>
+<span class="prev-text nav-mobile">Prev</span></a>
+<a class=next href=/post/tips/vagrant/><span class="next-text nav-default">vagrant</span>
+<span class="next-text nav-mobile">Next</span>
+<i class="iconfont icon-right"></i></a></nav></footer></article></div></div></main><footer id=footer class=footer><div class=social-links><a href=mailto:leowa@outlook.com class="iconfont icon-email" title=email></a><a href=https://github.com/leowa class="iconfont icon-github" title=github></a><a href=http://localhost:1313/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a></div><div class=copyright><span class=copyright-year>&copy;
+2019
+<span class=heart><i class="iconfont icon-heart"></i></span><span class=author>Andy Zhang</span></span></div></footer><div class=back-to-top id=back-to-top><i class="iconfont icon-up"></i></div></div><script src=https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin=anonymous></script><script src=https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin=anonymous></script><script src=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin=anonymous></script><script type=text/javascript src=/dist/even.26188efa.min.js></script></body></html>

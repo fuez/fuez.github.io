@@ -1,0 +1,802 @@
+<!doctype html><html lang=en><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge,chrome=1"><title>python - Andy's Blog</title><meta name=renderer content="webkit"><meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1"><meta http-equiv=cache-control content="no-transform"><meta http-equiv=cache-control content="no-siteapp"><meta name=theme-color content="#f8f5ec"><meta name=msapplication-navbutton-color content="#f8f5ec"><meta name=apple-mobile-web-app-capable content="yes"><meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec"><meta name=author content="Andy Zhang"><meta name=description content="Configure webdriver.FireFox to use proxy 1 2 3 4 5 6 7 profile = webdriver.FirefoxProfile() profile.set_preference(&amp;#34;network.proxy.type&amp;#34;, 1) profile.set_preference(&amp;#34;network.proxy.http&amp;#34;, &amp;#34;127.0.0.1&amp;#34;) profile.set_preference(&amp;#34;network.proxy.http_port&amp;#34;, 1087) profile.set_preference(&amp;#34;network.proxy.ssl&amp;#34;, &amp;#34;127.0.0.1&amp;#34;) profile.set_preference(&amp;#34;network.proxy.ssl_port&amp;#34;, 1087) profile.update_preferences() When debugging, try to use var.__dict__.keys() to show help for that variable, which show less than dir Python now supports overload like this: 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 from overloading import overload from"><meta name=keywords content="linux,SRE,software"><meta name=generator content="Hugo 0.60.1 with theme even"><link rel=canonical href=http://localhost:1313/post/tips/python/><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=manifest href=/manifest.json><link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5><link href=/dist/even.c2a46f00.min.css rel=stylesheet><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin=anonymous><meta property="og:title" content="python"><meta property="og:description" content="Configure webdriver.FireFox to use proxy 1 2 3 4 5 6 7 profile = webdriver.FirefoxProfile() profile.set_preference(&#34;network.proxy.type&#34;, 1) profile.set_preference(&#34;network.proxy.http&#34;, &#34;127.0.0.1&#34;) profile.set_preference(&#34;network.proxy.http_port&#34;, 1087) profile.set_preference(&#34;network.proxy.ssl&#34;, &#34;127.0.0.1&#34;) profile.set_preference(&#34;network.proxy.ssl_port&#34;, 1087) profile.update_preferences() When debugging, try to use var.__dict__.keys() to show help for that variable, which show less than dir Python now supports overload like this: 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 from overloading import overload from"><meta property="og:type" content="article"><meta property="og:url" content="http://localhost:1313/post/tips/python/"><meta property="article:published_time" content="2017-06-13T11:48:45+08:00"><meta property="article:modified_time" content="2019-12-07T16:09:35+08:00"><meta itemprop=name content="python"><meta itemprop=description content="Configure webdriver.FireFox to use proxy 1 2 3 4 5 6 7 profile = webdriver.FirefoxProfile() profile.set_preference(&#34;network.proxy.type&#34;, 1) profile.set_preference(&#34;network.proxy.http&#34;, &#34;127.0.0.1&#34;) profile.set_preference(&#34;network.proxy.http_port&#34;, 1087) profile.set_preference(&#34;network.proxy.ssl&#34;, &#34;127.0.0.1&#34;) profile.set_preference(&#34;network.proxy.ssl_port&#34;, 1087) profile.update_preferences() When debugging, try to use var.__dict__.keys() to show help for that variable, which show less than dir Python now supports overload like this: 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 from overloading import overload from"><meta itemprop=datePublished content="2017-06-13T11:48:45+08:00"><meta itemprop=dateModified content="2019-12-07T16:09:35+08:00"><meta itemprop=wordCount content="5322"><meta itemprop=keywords content><meta name=twitter:card content="summary"><meta name=twitter:title content="python"><meta name=twitter:description content="Configure webdriver.FireFox to use proxy 1 2 3 4 5 6 7 profile = webdriver.FirefoxProfile() profile.set_preference(&#34;network.proxy.type&#34;, 1) profile.set_preference(&#34;network.proxy.http&#34;, &#34;127.0.0.1&#34;) profile.set_preference(&#34;network.proxy.http_port&#34;, 1087) profile.set_preference(&#34;network.proxy.ssl&#34;, &#34;127.0.0.1&#34;) profile.set_preference(&#34;network.proxy.ssl_port&#34;, 1087) profile.update_preferences() When debugging, try to use var.__dict__.keys() to show help for that variable, which show less than dir Python now supports overload like this: 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 from overloading import overload from"><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script><script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]--></head><body><div id=mobile-navbar class=mobile-navbar><div class=mobile-header-logo><a href=/ class=logo>Andy's Blog</a></div><div class=mobile-navbar-icon><span></span><span></span><span></span></div></div><nav id=mobile-menu class="mobile-menu slideout-menu"><ul class=mobile-menu-list><a href=/><li class=mobile-menu-item>Home</li></a><a href=/post/><li class=mobile-menu-item>Archives</li></a><a href=/tags/><li class=mobile-menu-item>Tags</li></a><a href=/categories/><li class=mobile-menu-item>Categories</li></a><a href=/about/><li class=mobile-menu-item>About</li></a></ul></nav><div class=container id=mobile-panel><header id=header class=header><div class=logo-wrapper><a href=/ class=logo>Andy's Blog</a></div><nav class=site-navbar><ul id=menu class=menu><li class=menu-item><a class=menu-item-link href=/>Home</a></li><li class=menu-item><a class=menu-item-link href=/post/>Archives</a></li><li class=menu-item><a class=menu-item-link href=/tags/>Tags</a></li><li class=menu-item><a class=menu-item-link href=/categories/>Categories</a></li><li class=menu-item><a class=menu-item-link href=/about/>About</a></li></ul></nav></header><main id=main class=main><div class=content-wrapper><div id=content class=content><article class=post><header class=post-header><h1 class=post-title>python</h1><div class=post-meta><span class=post-time>2017-06-13</span><div class=post-category><a href=/categories/tip/>tip</a></div><span class=more-meta>5322 words</span>
+<span class=more-meta>11 mins read</span></div></header><div class=post-toc id=post-toc><h2 class=post-toc-title>Contents</h2><div class="post-toc-content always-active"><nav id=TableOfContents><ul><li><a href=#configure-webdriverfirefox-to-use-proxy>Configure webdriver.FireFox to use proxy</a></li><li><a href=#when-debugging-try-to-use-vardictkeys-to-show-help-for-that-variable-which-show-less-than-dir>When debugging, try to use var.__dict__.keys() to show help for that variable, which show less than dir</a></li><li><a href=#python-now-supports-overloadhttpswwwpythonorgdevpepspep3124-like-this>Python now supports overload like this:</a></li><li><a href=#great-code-to-study-and-review-on-python-palletshttpsgithubcompallets>Great code to study and review on python: Pallets</a></li><li><a href=#use-functoolstotalordering-to-create-a-comparable-object-in-python>Use functools.total_ordering to create a comparable object in python</a></li><li><a href=#how-to-automatically-import-your-favorite-libraries-to-ipython>How to automatically import your favorite libraries to ipython?</a></li><li><a href=#run-flaks-app-with-gunicorn-gunicorn-b-00008000-pythonfileapp>Run flaks app with gunicorn: gunicorn -b 0.0.0.0:8000 pythonfile:app</a></li><li><a href=#difference-between-new-and-init>Difference between __new__ and __init__</a></li><li><a href=#python-provides-permutations-and-combinations-algorithm-in-itertools-the-limitation-is-that-those-algorithms-do-not-handle-duplicate-items>python provides permutations and combinations algorithm in itertools, the limitation is that those algorithms do not handle duplicate items</a></li><li><a href=#set-up-autopep8httpspypiorgprojectautopep8>Set up autopep8</a></li><li><a href=#pytest-supports-running-python-unittestbasedhttpsdocspytestorgenlatestunittesthtml-tests-out-of-box>pytest supports running Python unittest-based tests out of box</a></li><li><a href=#python-str-provides-not-only-split-function-but-also-rsplit-to-split-from-right-and-an-optional-count-parameter>Python str provides not only split function, but also rsplit() to split from right and an optional count parameter</a></li><li><a href=#read-an-article-explaining-tcp-threeway-handshakehttpspacketlifenetblog2010jun7understandingtcpsequenceacknowledgmentnumbers>Read an article explaining TCP three-way handshake</a></li><li><a href=#read-wsgi-spec-in-pep3333httpswwwpythonorgdevpepspep3333>Read wsgi spec in PEP3333</a></li><li><a href=#two-ways-to-let-argparse-accept-a-list-as-its-arg>Two ways to let argparse accept a list as its arg</a></li><li><a href=#ospathsplitext-is-a-helper-function-to-split-path-to-a-tuple-of-dot-extension-and-other-part>os.path.splitext is a helper function to split path to a tuple of dot extension and other part</a></li><li><a href=#find-a-cool-python-command-line-interface-called-clickhttpsclickpalletsprojectscomen7x>Find a cool python command line interface called click</a></li><li><a href=#for-jupyter-to-support-golang-there-are-two-open-source-enabler>For Jupyter to support golang, there are two open source enabler:</a></li><li><a href=#for-jupyter-to-download-notebook-as-pdf-file-you-need-to>For Jupyter to download notebook as pdf file, you need to:</a></li><li><a href=#jupyter-notebook-viewer>Jupyter notebook viewer:</a></li><li><a href=#jupyter-how-to-reset-input-prompt-numbering>Jupyter: How to reset input prompt numbering?</a></li><li><a href=#juypter-enter-command-mode-by-pressing-esc-to-use-shortcut-keys-for-quick-edit>Juypter: Enter command mode by pressing Esc to use shortcut keys for quick edit</a></li><li><a href=#best-practice-with-retries-with-requestshttpswwwpeterbecomplogbestpracticewithretrieswithrequests>Best practice with retries with requests</a></li><li><a href=#understand-some-confused-concept-int-hex-strencode-ascii-ord-and-chr>Understand some confused concept: int(), hex(), str.encode(), ascii, ord(), and chr()</a></li><li><a href=#for-python3-the-default-division-operator--also-called-true-division-will-do-double-number-operation-for-positie-number-you-can-use-floor-division--to-get-floor-int-value-but-beware-that-32-returns-2-since-that-is-the-floor-for-15>For python3, the default division operator / (also called true division) will do double number operation. For positie number, you can use floor division // to get floor int value. But beware that -3//2 returns -2 since that is the floor for -1.5.</a></li><li><a href=#yaml-module-can-be-used-for-parsing-and-dumping-yaml-file>yaml module can be used for parsing and dumping yaml file</a></li><li><a href=#randomsample-function-is-useful-to-generate-random-sample-among-a-collection-randomsamplestringasciiletters16>random.sample() function is useful to generate random sample among a collection: random.sample(string.ascii_letters,16)</a></li><li><a href=#string-trim-method-in-python-is-called-strip-and-there-are-also-lstrip-and-rstrip-try-stringwhitespacestrip-will-return-empty-string>string trim method in python is called strip() and there are also lstrip() and rstrip(), try string.whitespace.strip() will return empty string.</a></li><li><a href=#get-to-know-string-builtin-module>Get to know string built-in module</a></li><li><a href=#html-scraping-with-lxml-and-requestshttpsdocspythonguideorgscenariosscrape>html scraping with lxml and requests</a></li><li><a href=#how-to-distribute-python-projecthttpspackagingpythonorgguidesdistributingpackagesusingsetuptools>How to distribute python project</a></li><li><a href=#python-regular-expression-tutorialhttpswwwguru99compythonregularexpressionscompletetutorialhtml>Python regular expression tutorial</a></li><li><a href=#using-stringio-and-bytesio-for-managing-data-as-file-objecthttpswebkulcomblogusingioforcreatingfileobject>Using StringIO and BytesIO for managing data as file object</a></li><li><a href=#understand-raise-valueerrorinvalid-inputs-from-e>Understand raise ValueError(‘Invalid inputs’) from e</a></li><li><a href=#in-python-3--operator-does-floating-point-division-for-both-int-and-float-arguments>In Python 3, / operator does floating point division for both int and float arguments.</a></li><li><a href=#python-regular-expression-needs-to-escape--as-well-as-other-characters-such-as----etc-since-they-have-special-meanings>Python regular expression needs to escape / as well as other characters such as \, ., *, etc since they have special meanings</a></li><li><a href=#use-jsonpickleencodeobj-to-dump-any-python-object-to-json-string>use jsonpickle.encode(<obj<) to dump any python object to json string.</a></li><li><a href=#configparser-from-configparser-package-is-very-useful-for-parsing-and-merging-ini-type-configuration-file-as-used-in-backy2>ConfigParser from configparser package is very useful for parsing and merging ini type configuration file, as used in backy2</a></li><li><a href=#install-python3-and-pip-on-centos-machine-yum-install-y-python36-python36pip-python36devel>Install python3 and pip on centos machine: yum install -y python36 python36-pip python36-devel</a></li><li><a href=#max-integer-value>Max integer value</a></li><li><a href=#use-osurandom-to-generate-random-bytes>Use os.urandom to generate random bytes</a></li><li><a href=#understand-setdifferenceupdateiterable->Understand set.difference_update(iterable, …)</a></li><li><a href=#understand-itertoolschainiterables>Understand itertools.chain(*iterables)</a></li><li><a href=#format-string-by-its-representation-method-like-this-xrformatx123234-for-other-format-specifier-just-use--like-this-x2fformat100>Format string by its representation method like this {x!r}.format(x=(123,234)), for other format specifier, just use :, like this {x:.2f}.format(100)</a></li><li><a href=#understand-map-filter-and-reduce-buildin-functions>Understand map, filter, and reduce build-in functions</a></li><li><a href=#a-little-trick-to-check-whether-a-var-is-set-in-environment-vars>A little trick to check whether a var is set in environment vars</a></li><li><a href=#understand-vars-locals-globals>Understand vars(), locals(), globals()</a></li><li><a href=#understand-slothttpbookpythontipscomenlatestslotsmagichtml>Understand slot</a></li><li><a href=#operator-package>operator package</a></li><li><a href=#understand-selfclassmrohttpsstackoverflowcomquestions2010692whatdoesmrodo>Understand self.__class__.mro()</a></li><li><a href=#understand-012x100>Understand %012x%100</a></li><li><a href=#about-frozenset>About frozenset</a></li><li><a href=#define-eq-method-by-getattr-like-this>Define __eq__ method by getattr like this:</a></li><li><a href=#there-is-a-defaultmain-module-for-each-python-program-we-can-test-that-to-use-its-attributes-like-this>There is a default__main__ module for each python program, we can test that to use its attributes like this:</a></li><li><a href=#understand-from-future-import-absoluteimport-division-printfunction>Understand from __future__ import (absolute_import, division, print_function)</a></li><li><a href=#get-parameter-passed-into-kwargs-since-kwargs-is-indeed-a-dict>Get parameter passed into kwargs since kwargs is indeed a dict</a></li><li><a href=#pythonic-way-to-check-interface-is-hasattr>pythonic way to check interface is hasattr:</a></li><li><a href=#python3-now-supports-unpack-a-list-like-this>python3 now supports unpack a list like this:</a></li><li><a href=#use-class-flags-for-plugin-pattern-like-this-to-support-capabilities>Use class flags for plugin pattern like this to support capabilities</a></li><li><a href=#to-support-in-operator-just-provides-contains-method-like-this>To support in operator, just provides __contains__ method like this</a></li><li><a href=#should-learn-more-about-pythnon-buildinsbuiltinspy-generated-in-pycharm-but-actually-implemented-in-c>Should learn more about pythnon buildins(builtins.py generated in pycharm, but actually implemented in c)</a></li><li><a href=#about-python-regex-special-characters>About python regex special characters:</a></li><li><a href=#how-to-skip-test-cases-with-condition-for-pytest>How to skip test cases with condition for pytest?</a></li><li><a href=#new-vs-init>__new__ vs __init__</a></li><li><a href=#use-cachetoolshttpswwwthepythoncornercom201804howtomakeyourcodefasterbyusingacacheinpythondoingwpcron15506517385658590793609619140625-for-caching>Use cachetools for caching</a></li><li><a href=#how-to-use-pandas-to-group-data>How to use pandas to group data?</a></li><li><a href=#how-to-get-unicode-value-for-a-character>How to get unicode value for a character?</a></li><li><a href=#pytest-fixture-finalization--executing-teardown-code>pytest: Fixture finalization / executing teardown code</a></li><li><a href=#fix-error-while-loading-shared-libraries-libpython34msorhpython3410-when-using-centospython34centos7-base-image>Fix error while loading shared libraries: libpython3.4m.so.rh-python34-1.0 when using centos/python-34-centos7 base image</a></li><li><a href=#fix-importerror-no-module-named-blabla-even-after-installing-it>Fix ImportError: No module named blabla even after installing it?</a></li><li><a href=#how-to-configure-pycharm-to-format-code-when-saving>How to configure pycharm to format code when saving?</a></li><li><a href=#how-to-create-test-category-which-is-call-markerhttpsdocspytestorgenlatestexamplemarkershtml-in-pytest>How to create test category, which is call marker in pytest?</a></li><li><a href=#how-to-get-nice-iso-format-current-time-string-since-python36>How to get nice iso format current time string since python3.6?</a></li><li><a href=#f-string-since-python36httpsrealpythoncompythonfstrings>f string since python3.6</a></li><li><a href=#how-to-test-async-codehttpsstackoverflowcomquestions23033939howtotestpython34asynciocode>How to test async code</a></li><li><a href=#celery-configurationhttpdocsceleryprojectorgenlatestuserguideconfigurationhtml>celery configuration</a></li><li><a href=#how-to-call-async-function-in-sync-way-not-recommended>How to call async function in sync way? (not recommended)</a></li><li><a href=#pytesthow-to-set-up-classic-xunitstyle-setuphttpsdocspytestorgenlatestxunitsetuphtml>pytest:How to set up classic xunit-style setup</a></li><li><a href=#about-python-mixinhttpseasyaspythoncommixinsforfunandprofitcb9962760556>About python mixin</a></li><li><a href=#how-to-configure-pycharm-to-use-autopep8httpsgithubcomhscgavinautopep8onpycharm>How to configure pyCharm to use autopep8?</a></li><li><a href=#test-with-pytest-and-toxhttpstoxreadthedocsioenlatestexamplepytesthtml>test with pytest and tox</a></li><li><a href=#testing-python-applications-with-pytesthttpssemaphorecicomcommunitytutorialstestingpythonapplicationswithpytest>Testing Python Applications with Pytest</a></li><li><a href=#python3-has-buildin-virtualenv-which-can-be-called-in-the-same-way-as-pip-python3-m-venv-somepath>python3 has build-in virtualenv, which can be called in the same way as pip: python3 -m venv somepath</a></li><li><a href=#type-hint-in-python3httpsdocspythonorg3librarytypinghtml>Type hint in python3</a></li><li><a href=#understand-python-decoratorshttpswwwprogramizcompythonprogrammingdecorator>Understand python Decorators</a></li><li><a href=#how-to-generate-random-token>How to generate random token?</a></li><li><a href=#how-to-configure-flake8httpflake8pycqaorgenlatestuserconfigurationhtml>How to configure Flake8</a></li><li><a href=#understand-python-propetyhttpswwwprogramizcompythonprogrammingproperty>Understand python propety</a></li><li><a href=#install-python-module-through-library-module-pip-python-m-pip-install-somepackage>Install python module through library module pip: python -m pip install SomePackage</a></li><li><a href=#how-to-pause-for-testing>How to pause for testing?</a></li><li><a href=#how-to-upload-a-new-pypi-packagehttpspackagingpythonorgtutorialspackagingprojects>How to upload a new pypi package?</a></li><li><a href=#how-to-configure-flake8httpflake8pycqaorgenlatestuserconfigurationhtml1>How to configure Flake8</a></li><li><a href=#about-mypy-an-example-for-python3-note-that-for-yield-the-type-is-iterator>About mypy: An example for python3+, note that for yield, the type is Iterator:</a></li><li><a href=#how-to-install-python3-on-centos>How to install python3 on centos?</a></li><li><a href=#how-to-install-pip-for-python3>How to install pip for python3:</a></li><li><a href=#how-to-support-gui>How to support gui?</a></li><li><a href=#create-a-local-pypi-mirrorhttpsaboutsimoncomblog20120224createalocalpypimirrorhtml-seems-not-work>Create a local PyPI mirror. seems not work</a></li><li><a href=#create-a-local-pypi-by-pip2pihttpsgithubcomwoleverpip2pi>Create a local pypi by pip2pi</a></li><li><a href=#named-group-for-regex-matchhttpsdocspythonorg2howtoregexhtml>Named group for regex match</a></li><li><a href=#encoding-and-decoding-in-pythonhttppythoncentraliopythonunicodeencodedecodestringspython2x>Encoding and decoding in python</a></li><li><a href=#how-to-fix-unresolved-reference-issuehttpstackoverflowcomquestions21236824unresolvedreferenceissueinpycharm>How to fix unresolved reference issue?</a></li><li><a href=#how-to-reload-a-module-just-call-buildin-function-reload-such-as-reloadtmp>How to reload a module? Just call build-in function reload, such as reload(tmp)</a></li><li><a href=#vimflake8-configurationhttpflake8readthedocsorgenlatestconfightml>vim-flake8 configuration</a></li><li><a href=#how-to-format-string-with-alignment102>How to format string with alignment?</a></li><li><a href=#how-to-show-help->How to show help ?</a></li><li><a href=#how-to-start-a-new-virtualenv-refer-to-virtual-environments101-for-detail>How to start a new virtualenv? Refer to Virtual Environments for detail.</a></li><li><a href=#how-to-cleanly-run-ipython-inside-virutalenv>How to cleanly run ipython inside virutalenv?</a></li><li><a href=#my-coding-style>My coding style</a></li><li><a href=#tutorial>Tutorial</a></li><li><a href=#sqlalchemy-tutorialhttpwwwrmunncomsqlalchemytutorialtutorialhtml>sqlalchemy tutorial</a></li><li><a href=#references>References</a></li><li><a href=#python-string-formathttpsmkaztechpythonstringformathtml>Python string format</a></li><li><a href=#write-a-tumblelog-application-with-flaskhttpsdocsmongodborgecosystemtutorialwriteatumblelogapplicationwithflaskmongoengine>Write a tumblelog application with flask</a></li><li><a href=#flask-by-example--project-setuphttpsrealpythoncomblogpythonflaskbyexamplepart1projectsetup>Flask by Example - Project Setup</a></li><li><a href=#packaging-and-distributing-projectshttpspackagingpythonorgenlatestdistributinguploadingyourprojecttopypi>Packaging and Distributing Projects</a></li><li><a href=#pypi-classifiershttpspypipythonorgpypi3aactionlistclassifiers>pypi classifiers</a></li><li><a href=#getting-started-with-wxpythonhttpswikiwxpythonorggetting20started>Getting started with wxPython</a></li><li><a href=#20-python-libraries-you-cant-live-20pythonlibrariesyoucantlivewithouthttpspythontipscom2013073020pythonlibrariesyoucantlivewithout>20 Python libraries you can’t live 20-python-libraries-you-cant-live-without</a></li><li><a href=#good-logging-practice-in-pythonhttpsfangpenlincomposts20120826goodloggingpracticeinpython>Good logging practice in Python</a></li></ul></nav></div></div><div class=post-content><h2 id=configure-webdriverfirefox-to-use-proxy>Configure webdriver.FireFox to use proxy</h2><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-python data-lang=python>    <span class=n>profile</span> <span class=o>=</span> <span class=n>webdriver</span><span class=o>.</span><span class=n>FirefoxProfile</span><span class=p>(</span><span class=p>)</span>
+    <span class=n>profile</span><span class=o>.</span><span class=n>set_preference</span><span class=p>(</span><span class=sa></span><span class=s2>&#34;</span><span class=s2>network.proxy.type</span><span class=s2>&#34;</span><span class=p>,</span> <span class=mi>1</span><span class=p>)</span>
+    <span class=n>profile</span><span class=o>.</span><span class=n>set_preference</span><span class=p>(</span><span class=sa></span><span class=s2>&#34;</span><span class=s2>network.proxy.http</span><span class=s2>&#34;</span><span class=p>,</span> <span class=sa></span><span class=s2>&#34;</span><span class=s2>127.0.0.1</span><span class=s2>&#34;</span><span class=p>)</span>
+    <span class=n>profile</span><span class=o>.</span><span class=n>set_preference</span><span class=p>(</span><span class=sa></span><span class=s2>&#34;</span><span class=s2>network.proxy.http_port</span><span class=s2>&#34;</span><span class=p>,</span> <span class=mi>1087</span><span class=p>)</span>
+    <span class=n>profile</span><span class=o>.</span><span class=n>set_preference</span><span class=p>(</span><span class=sa></span><span class=s2>&#34;</span><span class=s2>network.proxy.ssl</span><span class=s2>&#34;</span><span class=p>,</span> <span class=sa></span><span class=s2>&#34;</span><span class=s2>127.0.0.1</span><span class=s2>&#34;</span><span class=p>)</span>
+    <span class=n>profile</span><span class=o>.</span><span class=n>set_preference</span><span class=p>(</span><span class=sa></span><span class=s2>&#34;</span><span class=s2>network.proxy.ssl_port</span><span class=s2>&#34;</span><span class=p>,</span> <span class=mi>1087</span><span class=p>)</span>
+    <span class=n>profile</span><span class=o>.</span><span class=n>update_preferences</span><span class=p>(</span><span class=p>)</span>
+</code></pre></td></tr></table></div></div><h2 id=when-debugging-try-to-use-vardictkeys-to-show-help-for-that-variable-which-show-less-than-dir>When debugging, try to use <code>var.__dict__.keys()</code> to show help for that variable, which show less than <code>dir</code></h2><h2 id=python-now-supports-overloadhttpswwwpythonorgdevpepspep3124-like-this>Python now supports <a href=https://www.python.org/dev/peps/pep-3124/>overload</a> like this:</h2><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-python data-lang=python><span class=kn>from</span> <span class=nn>overloading</span> <span class=kn>import</span> <span class=n>overload</span>
+<span class=kn>from</span> <span class=nn>collections</span> <span class=kn>import</span> <span class=n>Iterable</span>
+
+<span class=k>def</span> <span class=nf>flatten</span><span class=p>(</span><span class=n>ob</span><span class=p>)</span><span class=p>:</span>
+    <span class=sa></span><span class=s2>&#34;&#34;&#34;</span><span class=s2>Flatten an object to its component iterables</span><span class=s2>&#34;&#34;&#34;</span>
+    <span class=k>yield</span> <span class=n>ob</span>
+
+<span class=nd>@overload</span>
+<span class=k>def</span> <span class=nf>flatten</span><span class=p>(</span><span class=n>ob</span><span class=p>:</span> <span class=n>Iterable</span><span class=p>)</span><span class=p>:</span>
+    <span class=k>for</span> <span class=n>o</span> <span class=ow>in</span> <span class=n>ob</span><span class=p>:</span>
+        <span class=k>for</span> <span class=n>ob</span> <span class=ow>in</span> <span class=n>flatten</span><span class=p>(</span><span class=n>o</span><span class=p>)</span><span class=p>:</span>
+            <span class=k>yield</span> <span class=n>ob</span>
+
+<span class=nd>@overload</span>
+<span class=k>def</span> <span class=nf>flatten</span><span class=p>(</span><span class=n>ob</span><span class=p>:</span> <span class=nb>basestring</span><span class=p>)</span><span class=p>:</span>
+    <span class=k>yield</span> <span class=n>ob</span>
+</code></pre></td></tr></table></div></div><h2 id=great-code-to-study-and-review-on-python-palletshttpsgithubcompallets>Great code to study and review on python: <a href=https://github.com/pallets>Pallets</a></h2><h2 id=use-functoolstotalordering-to-create-a-comparable-object-in-python>Use <code>functools.total_ordering</code> to create a comparable object in python</h2><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-python data-lang=python><span class=nd>@total_ordering</span>
+<span class=k>class</span> <span class=nc>WrappedNode</span><span class=p>:</span>
+    <span class=k>def</span> <span class=fm>__init__</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>node</span><span class=p>:</span> <span class=n>ListNode</span><span class=p>)</span><span class=p>:</span>
+        <span class=bp>self</span><span class=o>.</span><span class=n>_node</span> <span class=o>=</span> <span class=n>node</span>
+
+    <span class=k>def</span> <span class=fm>__eq__</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>other</span><span class=p>)</span><span class=p>:</span>
+        <span class=k>if</span> <span class=ow>not</span> <span class=n>other</span><span class=p>:</span>
+            <span class=k>return</span> <span class=bp>False</span>
+        <span class=k>return</span> <span class=bp>self</span><span class=o>.</span><span class=n>_node</span><span class=o>.</span><span class=n>val</span> <span class=o>==</span> <span class=n>other</span><span class=o>.</span><span class=n>_node</span><span class=o>.</span><span class=n>val</span>
+
+    <span class=k>def</span> <span class=fm>__lt__</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>other</span><span class=p>)</span><span class=p>:</span>
+        <span class=k>if</span> <span class=ow>not</span> <span class=n>other</span><span class=p>:</span>
+            <span class=k>return</span> <span class=bp>False</span>
+        <span class=k>return</span> <span class=bp>self</span><span class=o>.</span><span class=n>_node</span><span class=o>.</span><span class=n>val</span> <span class=o>&lt;</span> <span class=n>other</span><span class=o>.</span><span class=n>_node</span><span class=o>.</span><span class=n>val</span>
+</code></pre></td></tr></table></div></div><h2 id=how-to-automatically-import-your-favorite-libraries-to-ipython>How to automatically import your favorite libraries to ipython?</h2><blockquote><blockquote><p>Navigate to ~/.ipython/profile_default
+Create a folder called startup if it’s not already there
+Add a new Python file called start.py
+Put your favorite imports in this file
+Launch IPython or a Jupyter Notebook and your favorite libraries will be automatically loaded every time!</p></blockquote></blockquote><h2 id=run-flaks-app-with-gunicorn-gunicorn-b-00008000-pythonfileapp>Run flaks app with gunicorn: <code>gunicorn -b 0.0.0.0:8000 pythonfile:app</code></h2><h2 id=difference-between-new-and-init>Difference between <code>__new__</code> and <code>__init__</code></h2><blockquote><p>Use <strong>new</strong> when you need to control the creation of a new instance. Use <strong>init</strong> when you need to control initialization of a new instance.</p><p><strong>new</strong> is the first step of instance creation. It's called first, and is responsible for returning a new instance of your class. In contrast, <strong>init</strong> doesn't return anything; it's only responsible for initializing the instance after it's been created.</p><p><em>In general, you shouldn't need to override <strong>new</strong> unless you're subclassing an immutable type like str, int, unicode or tuple.</em></p></blockquote><h2 id=python-provides-permutations-and-combinations-algorithm-in-itertools-the-limitation-is-that-those-algorithms-do-not-handle-duplicate-items>python provides permutations and combinations algorithm in <code>itertools</code>, the limitation is that those algorithms do not handle duplicate items</h2><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-python data-lang=python><span class=kn>from</span> <span class=nn>itertools</span> <span class=kn>import</span> <span class=n>permuations</span><span class=p>,</span> <span class=n>combinations</span>
+
+<span class=nb>list</span><span class=p>(</span><span class=n>permutations</span><span class=p>(</span><span class=nb>range</span><span class=p>(</span><span class=mi>1</span><span class=p>,</span> <span class=mi>6</span><span class=p>)</span><span class=p>)</span><span class=p>)</span>
+<span class=nb>list</span><span class=p>(</span><span class=n>combinations</span><span class=p>(</span><span class=nb>range</span><span class=p>(</span><span class=mi>1</span><span class=p>,</span> <span class=mi>6</span><span class=p>)</span><span class=p>,</span> <span class=mi>3</span><span class=p>)</span><span class=p>)</span>
+
+</code></pre></td></tr></table></div></div><h2 id=set-up-autopep8httpspypiorgprojectautopep8>Set up <a href=https://pypi.org/project/autopep8/>autopep8</a></h2><p>For autopep8 to work for large source file in vscode, make sure to add timeout conf such as <code>"editor.formatOnSaveTimeout": 1500</code> to settings.json
+And autopep8 reads configuration from <code>pycodestyle.ini</code>, not <code>flake8.ini</code> even if you configure flake8 in vscode.</p><h2 id=pytest-supports-running-python-unittestbasedhttpsdocspytestorgenlatestunittesthtml-tests-out-of-box><code>pytest</code> supports running Python <a href=https://docs.pytest.org/en/latest/unittest.html><code>unittest</code>-based</a> tests out of box</h2><h2 id=python-str-provides-not-only-split-function-but-also-rsplit-to-split-from-right-and-an-optional-count-parameter>Python <code>str</code> provides not only <code>split</code> function, but also <code>rsplit()</code> to split from right and an optional count parameter</h2><h2 id=read-an-article-explaining-tcp-threeway-handshakehttpspacketlifenetblog2010jun7understandingtcpsequenceacknowledgmentnumbers>Read an article explaining <a href=https://packetlife.net/blog/2010/jun/7/understanding-tcp-sequence-acknowledgment-numbers/>TCP &ldquo;three-way handshake&rdquo;</a></h2><blockquote><p>&ldquo;SYN, SYN/ACK, ACK.&rdquo;</p><p>TCP utilizes a number of flags, or 1-bit boolean fields, in its header to control the state of a connection. The three we're most interested in here are:</p></blockquote><pre><code>SYN - (Synchronize) Initiates a connection
+FIN - (Final) Cleanly terminates a connection
+ACK - Acknowledges received data
+</code></pre><h2 id=read-wsgi-spec-in-pep3333httpswwwpythonorgdevpepspep3333>Read wsgi spec in <a href=https://www.python.org/dev/peps/pep-3333/>PEP3333</a></h2><blockquote><p>This PEP, therefore, proposes a simple and universal interface between web servers and web applications or frameworks: the Python Web Server Gateway Interface (WSGI).</p><p>The WSGI interface has two sides: the &ldquo;server&rdquo; or &ldquo;gateway&rdquo; side, and the &ldquo;application&rdquo; or &ldquo;framework&rdquo; side. The server side invokes a callable object that is provided by the application side.</p><p>In addition to &ldquo;pure&rdquo; servers/gateways and applications/frameworks, it is also possible to create &ldquo;middleware&rdquo; components that implement both sides of this specification.</p><p>The application object is simply a callable object that accepts two arguments</p><p>The server or gateway invokes the application callable once for each request it receives from an HTTP client, that is directed at the application.</p></blockquote><blockquote><p>&ldquo;middleware&rdquo; components can perform such functions as:
+- Routing a request to different application objects based on the target URL, after rewriting the environ accordingly.
+- Allowing multiple applications or frameworks to run side-by-side in the same process
+- Load balancing and remote processing, by forwarding requests and responses over a network
+- Perform content postprocessing, such as applying XSL stylesheets</p><p>The application object must accept two positional arguments. For the sake of illustration, we have named them environ and start_response, but they are not required to have these names. A server or gateway must invoke the application object using positional (not keyword) arguments.</p><p>The start_response parameter is a callable accepting two required positional arguments, and one optional argument. For the sake of illustration, we have named these arguments status, response_headers, and exc_info.
+The start_response callable must return a write(body_data) callable that takes one positional parameter: a bytestring to be written as part of the HTTP response body.</p><p>When called by the server, the application object must return an iterable yielding zero or more bytestrings.</p><p>The server or gateway must transmit the yielded bytestrings to the client in an unbuffered fashion, completing the transmission of each bytestring before requesting another one.</p></blockquote><p>A good reading about this topic <a href=https://www.toptal.com/python/pythons-wsgi-server-application-interface>Python WSGI</a></p><h2 id=two-ways-to-let-argparse-accept-a-list-as-its-arg>Two ways to let <em>argparse</em> accept a list as its arg</h2><p>Use the nargs option or the &lsquo;append&rsquo; setting of the action option</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-python data-lang=python><span class=n>parser</span><span class=o>.</span><span class=n>add_argument</span><span class=p>(</span><span class=sa></span><span class=s1>&#39;</span><span class=s1>-l</span><span class=s1>&#39;</span><span class=p>,</span><span class=sa></span><span class=s1>&#39;</span><span class=s1>--list</span><span class=s1>&#39;</span><span class=p>,</span> <span class=n>nargs</span><span class=o>=</span><span class=sa></span><span class=s1>&#39;</span><span class=s1>+</span><span class=s1>&#39;</span><span class=p>,</span> <span class=n>help</span><span class=o>=</span><span class=sa></span><span class=s1>&#39;</span><span class=s1>&lt;Required&gt; Set flag</span><span class=s1>&#39;</span><span class=p>,</span> <span class=n>required</span><span class=o>=</span><span class=bp>True</span><span class=p>)</span>  <span class=c1># &#39;+&#39; means one or more, while &#39;*&#39; means 0 or more</span>
+<span class=n>parser</span><span class=o>.</span><span class=n>add_argument</span><span class=p>(</span><span class=sa></span><span class=s1>&#39;</span><span class=s1>-l</span><span class=s1>&#39;</span><span class=p>,</span><span class=sa></span><span class=s1>&#39;</span><span class=s1>--list</span><span class=s1>&#39;</span><span class=p>,</span> <span class=n>action</span><span class=o>=</span><span class=sa></span><span class=s1>&#39;</span><span class=s1>append</span><span class=s1>&#39;</span><span class=p>,</span> <span class=n>help</span><span class=o>=</span><span class=sa></span><span class=s1>&#39;</span><span class=s1>&lt;Required&gt; Set flag</span><span class=s1>&#39;</span><span class=p>,</span> <span class=n>required</span><span class=o>=</span><span class=bp>True</span><span class=p>)</span>
+</code></pre></td></tr></table></div></div><h2 id=ospathsplitext-is-a-helper-function-to-split-path-to-a-tuple-of-dot-extension-and-other-part><code>os.path.splitext</code> is a helper function to split path to a tuple of dot extension and other part</h2><p>A path like <code>'/tmp/a....pdf'</code> will be splitted into <code>('/tmp/a...', '.pdf')</code></p><h2 id=find-a-cool-python-command-line-interface-called-clickhttpsclickpalletsprojectscomen7x>Find a cool python command line interface called <a href=https://click.palletsprojects.com/en/7.x/>click</a></h2><p>I think it is worth to study its source code, for its simple to use interface design, and its implementation.</p><h2 id=for-jupyter-to-support-golang-there-are-two-open-source-enabler>For Jupyter to support golang, there are two open source enabler:</h2><pre><code>- [gophernotes](https://github.com/gopherdata/gophernotes): on mac, need to install zmq by `brew install zmq`
+- [lgo](https://github.com/yunabe/lgo), but currently does not natively run on mac
+</code></pre><h2 id=for-jupyter-to-download-notebook-as-pdf-file-you-need-to>For Jupyter to download notebook as pdf file, you need to:</h2><pre><code>- Install `pandoc` and `tex` for mac. `tex` is very large. After install `mactex`, you need to restart terminal to include it to PATH.
+- Install `pip install pandoc`
+- Optionally, install [XeLaTex](http://www.texts.io/support/0001/), which seems to be a slim version of `mactex`
+</code></pre><h2 id=jupyter-notebook-viewer>Jupyter notebook viewer:</h2><pre><code>- [nbviewer](https://nbviewer.jupyter.org/) is the official jupyter viewer that you can start on you local machine as a web server
+- [JupyterHub](https://jupyterhub.readthedocs.io/en/stable/) is the full fledged one
+- [nteract](https://nteract.io/desktop) is definitely a cool desktop tool for jupyter notebook, and it natively supports [node.js](https://nteract.io/kernels/node). Looks like nteract fail to find python kernel, I worked around this by directly running `jupyter run`. But to be honest, it is not as convenient as native web one.
+</code></pre><h2 id=jupyter-how-to-reset-input-prompt-numbering>Jupyter: How to reset input prompt numbering?</h2><blockquote><p>Select &lsquo;Kernel > Restart and clear Output&rsquo; (restart the kernel) and then &lsquo;Cell > Run All&rsquo; (run the script)</p></blockquote><h2 id=juypter-enter-command-mode-by-pressing-esc-to-use-shortcut-keys-for-quick-edit>Juypter: Enter command mode by pressing <code>Esc</code> to use shortcut keys for quick edit</h2><h2 id=best-practice-with-retries-with-requestshttpswwwpeterbecomplogbestpracticewithretrieswithrequests><a href=https://www.peterbe.com/plog/best-practice-with-retries-with-requests>Best practice with retries with requests</a></h2><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-python data-lang=python><span class=kn>import</span> <span class=nn>requests</span>
+<span class=kn>from</span> <span class=nn>requests.adapters</span> <span class=kn>import</span> <span class=n>HTTPAdapter</span>
+<span class=kn>from</span> <span class=nn>requests.packages.urllib3.util.retry</span> <span class=kn>import</span> <span class=n>Retry</span>
+
+
+<span class=k>def</span> <span class=nf>requests_retry_session</span><span class=p>(</span>
+    <span class=n>retries</span><span class=o>=</span><span class=mi>3</span><span class=p>,</span>
+    <span class=n>backoff_factor</span><span class=o>=</span><span class=mf>0.3</span><span class=p>,</span>
+    <span class=n>status_forcelist</span><span class=o>=</span><span class=p>(</span><span class=mi>500</span><span class=p>,</span> <span class=mi>502</span><span class=p>,</span> <span class=mi>504</span><span class=p>)</span><span class=p>,</span>
+    <span class=n>session</span><span class=o>=</span><span class=bp>None</span><span class=p>,</span>
+<span class=p>)</span><span class=p>:</span>
+    <span class=n>session</span> <span class=o>=</span> <span class=n>session</span> <span class=ow>or</span> <span class=n>requests</span><span class=o>.</span><span class=n>Session</span><span class=p>(</span><span class=p>)</span>
+    <span class=n>retry</span> <span class=o>=</span> <span class=n>Retry</span><span class=p>(</span>
+        <span class=n>total</span><span class=o>=</span><span class=n>retries</span><span class=p>,</span>
+        <span class=n>read</span><span class=o>=</span><span class=n>retries</span><span class=p>,</span>
+        <span class=n>connect</span><span class=o>=</span><span class=n>retries</span><span class=p>,</span>
+        <span class=n>backoff_factor</span><span class=o>=</span><span class=n>backoff_factor</span><span class=p>,</span>
+        <span class=n>status_forcelist</span><span class=o>=</span><span class=n>status_forcelist</span><span class=p>,</span>
+    <span class=p>)</span>
+    <span class=n>adapter</span> <span class=o>=</span> <span class=n>HTTPAdapter</span><span class=p>(</span><span class=n>max_retries</span><span class=o>=</span><span class=n>retry</span><span class=p>)</span>
+    <span class=n>session</span><span class=o>.</span><span class=n>mount</span><span class=p>(</span><span class=sa></span><span class=s1>&#39;</span><span class=s1>http://</span><span class=s1>&#39;</span><span class=p>,</span> <span class=n>adapter</span><span class=p>)</span>
+    <span class=n>session</span><span class=o>.</span><span class=n>mount</span><span class=p>(</span><span class=sa></span><span class=s1>&#39;</span><span class=s1>https://</span><span class=s1>&#39;</span><span class=p>,</span> <span class=n>adapter</span><span class=p>)</span>
+    <span class=k>return</span> <span class=n>session</span>
+</code></pre></td></tr></table></div></div><p>BTW, <code>requests.Session()</code> can be used in place of usual <code>requests</code> with session headers to avoid duplicate code.</p><h2 id=understand-some-confused-concept-int-hex-strencode-ascii-ord-and-chr>Understand some confused concept: <code>int()</code>, <code>hex()</code>, <code>str.encode()</code>, <code>ascii</code>, <code>ord()</code>, and <code>chr()</code></h2><blockquote><p><code>int()</code> can be used to parse a string to an integer value, and int python3, there is no limit for an interger, and it accept a second positional argument as integer base such as 16 to parse hex string like <code>0xa0</code></p></blockquote><blockquote><p><code>hex()</code> accept an integer value to translate an integer to its hex string format. So <code>int(hex(random.randint(1, 2 &lt;&lt; 100)),16)</code> will return a random number.</p></blockquote><blockquote><p><code>str.encode()</code> will encode a string to bytes according to encoding codec. And its reverse operation is <code>str.decode()</code></p></blockquote><blockquote><p><code>ascii()</code> will return a string containing a printable representation of an object, but escape the non-ASCII characters.</p></blockquote><blockquote><p><code>ord()</code> will return a character's unicode value, and <code>chr</code> is its reverse operation.</p></blockquote><h2 id=for-python3-the-default-division-operator--also-called-true-division-will-do-double-number-operation-for-positie-number-you-can-use-floor-division--to-get-floor-int-value-but-beware-that-32-returns-2-since-that-is-the-floor-for-15>For python3, the default division operator <code>/</code> (also called true division) will do double number operation. For positie number, you can use <em>floor division</em> <code>//</code> to get floor int value. But beware that <code>-3//2</code> returns <code>-2</code> since that is the <em>floor</em> for <code>-1.5</code>.</h2><h2 id=yaml-module-can-be-used-for-parsing-and-dumping-yaml-file><code>yaml</code> module can be used for parsing and dumping yaml file</h2><blockquote><p>Use <code>yaml.safe_load()</code> to load a yaml file stream, and <code>yaml.safe_dump()</code> to dump a yaml dict object to a string, and it provides flag <code>default_flow_style</code> to suppress nesting collections. But in order to dump customized objects such as namedtuple, you might need to specify its representer like the following one:</p></blockquote><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-python data-lang=python>	<span class=n>Node</span> <span class=o>=</span> <span class=n>namedtuple</span><span class=p>(</span><span class=sa></span><span class=s2>&#34;</span><span class=s2>Node</span><span class=s2>&#34;</span><span class=p>,</span> <span class=sa></span><span class=s2>&#34;</span><span class=s2>index name uri path items</span><span class=s2>&#34;</span><span class=p>)</span>
+    <span class=k>def</span> <span class=nf>reprent_node_yaml</span><span class=p>(</span><span class=n>dumper</span><span class=p>,</span> <span class=n>data</span><span class=p>:</span> <span class=n>Node</span><span class=p>)</span><span class=p>:</span>
+        <span class=k>return</span> <span class=n>dumper</span><span class=o>.</span><span class=n>represent_mapping</span><span class=p>(</span><span class=sa>u</span><span class=s1>&#39;</span><span class=s1>tag:yaml.org,2002:map</span><span class=s1>&#39;</span><span class=p>,</span> <span class=n>data</span><span class=o>.</span><span class=n>_asdict</span><span class=p>(</span><span class=p>)</span><span class=p>)</span>
+    <span class=n>yaml</span><span class=o>.</span><span class=n>SafeDumper</span><span class=o>.</span><span class=n>add_multi_representer</span><span class=p>(</span><span class=n>Node</span><span class=p>,</span> <span class=n>reprent_node_yaml</span><span class=p>)</span>
+</code></pre></td></tr></table></div></div><p>But looks like there is no good and simple way to construct a python object from <code>yaml.safe_load()</code>. Maybe we should just use returned <code>dict</code>, and use static method to load individual objects.</p><h2 id=randomsample-function-is-useful-to-generate-random-sample-among-a-collection-randomsamplestringasciiletters16><code>random.sample()</code> function is useful to generate random sample among a collection: <code>random.sample(string.ascii_letters,16)</code></h2><h2 id=string-trim-method-in-python-is-called-strip-and-there-are-also-lstrip-and-rstrip-try-stringwhitespacestrip-will-return-empty-string>string trim method in python is called <code>strip()</code> and there are also <code>lstrip()</code> and <code>rstrip()</code>, try <code>string.whitespace.strip()</code> will return empty string.</h2><h2 id=get-to-know-string-builtin-module>Get to know <code>string</code> built-in module</h2><blockquote><p>It provides string consts such as <code>string.ascii_letters`,</code>string.digits<code>, </code>string.hexdigits<code>, as well string </code>Template` class</p></blockquote><h2 id=html-scraping-with-lxml-and-requestshttpsdocspythonguideorgscenariosscrape><a href=https://docs.python-guide.org/scenarios/scrape/>html scraping with lxml and requests</a></h2><blockquote><p>By the way, <a href=https://www.crummy.com/software/BeautifulSoup/bs4/doc/>BeatifulSoap</a> is kind of higher level language for html. To install it for python3, you should install bs4: <code>pip install bs4</code>, refer to <a href=https://towardsdatascience.com/how-to-web-scrape-with-python-in-4-minutes-bc49186a8460>how to web scrape</a> for details.</p></blockquote><p><strong>NOTE</strong>: the above two methods won't be able to scape page when JavaScript provides or &ldquo;hides&rdquo; contenet. In this case, you need to resort to <code>selenium</code> to get page source like what you see. Refer to this artical from <a href=https://www.freecodecamp.org/news/better-web-scraping-in-python-with-selenium-beautiful-soup-and-pandas-d6390592e251/>freecodecamp</a> for details.</p><h2 id=how-to-distribute-python-projecthttpspackagingpythonorgguidesdistributingpackagesusingsetuptools>How to <a href=https://packaging.python.org/guides/distributing-packages-using-setuptools/>distribute python project</a></h2><blockquote><p>Need to first install <code>pip install wheel</code> before running <code>python setup.py bdist_wheel</code>. And <code>setup.py</code> will read <code>setup.cfg</code> file for command options, so you can add options for <code>universal=1</code> to <code>[bdist_wheel]</code> section into that file to configure command running option for <code>bdist_wheel</code>. This also shows us a good example to extend <code>setup.py</code> to provide more commands. Maybe like <a href=https://github.com/pypa/wheel/blob/master/setup.py>this</a>:</p></blockquote><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span><span class=lnt>9
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-python data-lang=python>      <span class=n>entry_points</span><span class=o>=</span><span class=p>{</span>
+          <span class=sa></span><span class=s1>&#39;</span><span class=s1>console_scripts</span><span class=s1>&#39;</span><span class=p>:</span> <span class=p>[</span>
+              <span class=sa></span><span class=s1>&#39;</span><span class=s1>wheel=wheel.cli:main</span><span class=s1>&#39;</span>
+              <span class=p>]</span><span class=p>,</span>
+          <span class=sa></span><span class=s1>&#39;</span><span class=s1>distutils.commands</span><span class=s1>&#39;</span><span class=p>:</span> <span class=p>[</span>
+              <span class=sa></span><span class=s1>&#39;</span><span class=s1>bdist_wheel=wheel.bdist_wheel:bdist_wheel</span><span class=s1>&#39;</span>
+              <span class=p>]</span>
+          <span class=p>}</span>
+      <span class=p>)</span>
+</code></pre></td></tr></table></div></div><p>For a single project, it might be a good idea to add <a href=https://jichu4n.com/posts/how-to-add-custom-build-steps-and-commands-to-setuppy/>more custom build steps and commmand</a></p><h2 id=python-regular-expression-tutorialhttpswwwguru99compythonregularexpressionscompletetutorialhtml>Python regular expression <a href=https://www.guru99.com/python-regular-expressions-complete-tutorial.html>tutorial</a></h2><p>One thing to remind for <code>findall</code> method is that, if you use grouping <code>()</code> in regular expression, it will output list of tuple of strings, or just list of strings. And make sure to ad <code>re.MULTILINE</code> flag to capture from multiple line text.</p><h2 id=using-stringio-and-bytesio-for-managing-data-as-file-objecthttpswebkulcomblogusingioforcreatingfileobject><a href=https://webkul.com/blog/using-io-for-creating-file-object/>Using StringIO and BytesIO for managing data as file object</a></h2><blockquote><p><code>io.StringIO</code> requires a unicode string, while <code>io.BytesIO</code> requires a byte string.</p></blockquote><h2 id=understand-raise-valueerrorinvalid-inputs-from-e>Understand <code>raise ValueError(‘Invalid inputs’) from e</code></h2><blockquote><p>The from clause is used for exception chaining: if given, the second expression must be another exception class or instance, which will then be attached to the raised exception as the <strong>cause</strong> attribute (which is writable). If the raised exception is not handled, both exceptions will be printed</p></blockquote><h2 id=in-python-3--operator-does-floating-point-division-for-both-int-and-float-arguments>In Python 3, <code>/</code> operator does floating point division for both int and float arguments.</h2><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-py data-lang=py><span class=k>print</span> <span class=p>(</span><span class=mi>5</span><span class=o>/</span><span class=mi>2</span><span class=p>)</span> <span class=o>-</span><span class=o>-</span><span class=o>&gt;</span> <span class=mf>2.5</span>
+</code></pre></td></tr></table></div></div><h2 id=python-regular-expression-needs-to-escape--as-well-as-other-characters-such-as----etc-since-they-have-special-meanings>Python regular expression needs to escape <code>/</code> as well as other characters such as <code>\</code>, <code>.</code>, <code>*</code>, etc since they have special meanings</h2><p>This expression will match repository org name as well as repo name: <code>github\.com\/(?P&lt;org>.+)\/(?P&lt;repo>.+)\.git</code>.
+Please note that for named group, a <code>P</code> is after <code>?</code>, and in python code, that could be retrieved in this way: <code>re.search(r"github\.com\/(?P&lt;org>.+)\/(?P&lt;repo>.+)\.git", url).groupdict().get("repo")</code>
+BTW, you can easily check re from this nice website called <a href=https://regex101.com/>regex101</a></p><h2 id=use-jsonpickleencodeobj-to-dump-any-python-object-to-json-string>use <code>jsonpickle.encode(&lt;obj&lt;)</code> to dump any python object to json string.</h2><p>Example: <code>open("/tmp/a.json", 'wt').write(jsonpickle.encode(repo))</code></p><h2 id=configparser-from-configparser-package-is-very-useful-for-parsing-and-merging-ini-type-configuration-file-as-used-in-backy2><code>ConfigParser</code> from <code>configparser</code> package is very useful for parsing and merging <code>ini</code> type configuration file, as used in <code>backy2</code></h2><h2 id=install-python3-and-pip-on-centos-machine-yum-install-y-python36-python36pip-python36devel>Install <code>python3</code> and <code>pip</code> on centos machine: <code>yum install -y python36 python36-pip python36-devel</code></h2><h2 id=max-integer-value>Max integer value</h2><p>For python 2, this is <code>sys.maxint</code>, for python 3, int value is not bounded, but you can still rely on <code>sys.maxint</code> to get machine's word size.</p><h2 id=use-osurandom-to-generate-random-bytes>Use <code>os.urandom</code> to generate random bytes</h2><blockquote><p>Return a string of n random bytes suitable for cryptographic use.On a UNIX-like system this will query /dev/urandom.</p></blockquote><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-py data-lang=py><span class=kn>from</span> <span class=nn>hashlib</span> <span class=kn>import</span> <span class=n>sha1</span>
+<span class=n>sha1</span><span class=p>(</span><span class=n>os</span><span class=o>.</span><span class=n>urandom</span><span class=p>(</span><span class=mi>64</span><span class=p>)</span><span class=p>)</span><span class=o>.</span><span class=n>hexdigest</span><span class=p>(</span><span class=p>)</span>
+</code></pre></td></tr></table></div></div><h2 id=understand-setdifferenceupdateiterable->Understand <code>set.difference_update(iterable, …)</code></h2><blockquote><p>Updates the set, removing elements found in others.</p></blockquote><h2 id=understand-itertoolschainiterables>Understand <code>itertools.chain(*iterables)</code></h2><blockquote><p>Make an iterator that returns elements from the first iterable until it is exhausted, then proceeds to the next iterable, until all of the iterables are exhausted. Used for treating consecutive sequences as a single sequence. <code>chain.from_iterable</code> is classmethod for the same purpose.</p></blockquote><h2 id=format-string-by-its-representation-method-like-this-xrformatx123234-for-other-format-specifier-just-use--like-this-x2fformat100>Format string by its representation method like this <code>{x!r}.format(x=(123,234))</code>, for other format specifier, just use <code>:</code>, like this <code>{x:.2f}.format(100)</code></h2><h2 id=understand-map-filter-and-reduce-buildin-functions>Understand <code>map</code>, <code>filter</code>, and <code>reduce</code> build-in functions</h2><blockquote><p>map() function returns a list of the results after applying the given function to each item of a given iterable (list, tuple etc.), where iterable is a sequence, collection or an iterator object. You can send as many iterables as you like, just make sure the function has one parameter for each iterable.
+The filter() function returns an iterator were the items are filtered through a function to test if the item is accepted or not.
+In python3, reduce is moved to <em>functools</em> module, its syntax is <code>reduce(function, sequence[, initial]) -> value</code></p></blockquote><p>Sample code:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-py data-lang=py><span class=kn>from</span> <span class=nn>functools</span> <span class=kn>import</span> <span class=nb>reduce</span>
+<span class=n>numbers1</span> <span class=o>=</span> <span class=p>[</span><span class=mi>1</span><span class=p>,</span> <span class=mi>2</span><span class=p>,</span> <span class=mi>3</span><span class=p>]</span>
+<span class=n>numbers2</span> <span class=o>=</span> <span class=p>[</span><span class=mi>4</span><span class=p>,</span> <span class=mi>5</span><span class=p>,</span> <span class=mi>6</span><span class=p>]</span>
+<span class=n>result</span> <span class=o>=</span> <span class=nb>map</span><span class=p>(</span><span class=k>lambda</span> <span class=n>x</span><span class=p>:</span> <span class=n>x</span> <span class=o>+</span> <span class=n>x</span><span class=p>,</span> <span class=n>numbers1</span><span class=p>)</span>
+<span class=n>result</span> <span class=o>=</span> <span class=nb>map</span><span class=p>(</span><span class=k>lambda</span> <span class=n>x</span><span class=p>,</span> <span class=n>y</span><span class=p>:</span> <span class=n>x</span> <span class=o>+</span> <span class=n>y</span><span class=p>,</span> <span class=n>numbers1</span><span class=p>,</span> <span class=n>numbers2</span><span class=p>)</span>
+<span class=n>result</span> <span class=o>=</span> <span class=nb>filter</span><span class=p>(</span><span class=k>lambda</span> <span class=n>x</span><span class=p>:</span> <span class=n>x</span><span class=o>%</span><span class=mi>2</span><span class=o>==</span><span class=mi>0</span><span class=p>,</span> <span class=n>numbers2</span><span class=p>)</span>
+<span class=n>result</span> <span class=o>=</span> <span class=nb>reduce</span><span class=p>(</span><span class=k>lambda</span> <span class=n>x</span><span class=p>,</span><span class=n>y</span><span class=p>:</span> <span class=n>x</span><span class=o>+</span><span class=n>y</span><span class=p>,</span> <span class=n>numbers1</span><span class=p>,</span> <span class=mi>10</span><span class=p>)</span>
+
+</code></pre></td></tr></table></div></div><p>NOTE: what returned from <code>map</code>, <code>filter</code> is iterable/generator. Tha's said, <code>map</code> is not like <em>foreach</em> function, in order for <code>map</code> to execute function, just use <code>list</code> to exhaust iterable.</p><h2 id=a-little-trick-to-check-whether-a-var-is-set-in-environment-vars>A little trick to check whether a var is set in environment vars</h2><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-py data-lang=py>    <span class=n>SENTINEL</span> <span class=o>=</span> <span class=nb>object</span>
+    <span class=c1># Environment setting</span>
+    <span class=n>path_from_env</span> <span class=o>=</span> <span class=n>os</span><span class=o>.</span><span class=n>getenv</span><span class=p>(</span><span class=sa></span><span class=s2>&#34;</span><span class=s2>ANSIBLE_CONFIG</span><span class=s2>&#34;</span><span class=p>,</span> <span class=n>SENTINEL</span><span class=p>)</span>
+    <span class=k>if</span> <span class=n>path_from_env</span> <span class=ow>is</span> <span class=ow>not</span> <span class=n>SENTINEL</span><span class=p>:</span>
+	<span class=o>.</span><span class=o>.</span><span class=o>.</span><span class=o>.</span>
+</code></pre></td></tr></table></div></div><h2 id=understand-vars-locals-globals>Understand <code>vars()</code>, <code>locals()</code>, <code>globals()</code></h2><blockquote><p>The locals() function returns a dictionary containing the variables defined in the local namespace. Calling locals() in the global namespace is same as calling globals() and returns a dictionary representing the global namespace of the module.
+vars() returns either a dictionary of the current namespace (if called with no argument) or the dictionary of the argument.</p></blockquote><p>It is possible to add more vars like this <code>vars()['x'] = 1</code></p><h2 id=understand-slothttpbookpythontipscomenlatestslotsmagichtml>Understand <a href=http://book.pythontips.com/en/latest/__slots__magic.html><strong>slot</strong></a></h2><p>Basically, use <code>__slot__</code> will save a lot of RAM, and also make attributes explicit.</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-python data-lang=python><span class=k>class</span> <span class=nc>MyClass</span><span class=p>(</span><span class=nb>object</span><span class=p>)</span><span class=p>:</span>
+    <span class=vm>__slots__</span> <span class=o>=</span> <span class=p>[</span><span class=sa></span><span class=s1>&#39;</span><span class=s1>name</span><span class=s1>&#39;</span><span class=p>,</span> <span class=sa></span><span class=s1>&#39;</span><span class=s1>identifier</span><span class=s1>&#39;</span><span class=p>]</span>
+    <span class=k>def</span> <span class=fm>__init__</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>name</span><span class=p>,</span> <span class=n>identifier</span><span class=p>)</span><span class=p>:</span>
+        <span class=bp>self</span><span class=o>.</span><span class=n>name</span> <span class=o>=</span> <span class=n>name</span>
+        <span class=bp>self</span><span class=o>.</span><span class=n>identifier</span> <span class=o>=</span> <span class=n>identifier</span>
+        <span class=bp>self</span><span class=o>.</span><span class=n>set_up</span><span class=p>(</span><span class=p>)</span>
+<span class=o>.</span><span class=o>.</span><span class=o>.</span>
+</code></pre></td></tr></table></div></div><h2 id=operator-package><em>operator</em> package</h2><p>It provides a lot of useful small functions or callable that could be easily implemented as lambda expression, such as <code>lt</code>, <code>itemgetter</code>, which can be used in places that require callable, such as <code>sort</code> method.</p><h2 id=understand-selfclassmrohttpsstackoverflowcomquestions2010692whatdoesmrodo><a href=https://stackoverflow.com/questions/2010692/what-does-mro-do>Understand <code>self.__class__.mro()</code></a></h2><blockquote><p>As long as we have single inheritance, <strong>mro</strong> is just the tuple of: the class, its base, its base's base, and so on up to object
+in <strong>mro</strong>, no class is duplicated, and no class comes after its ancestors, save that classes that first enter at the same level of multiple inheritance.
+Every attribute you get on a class's instance, not just methods, is conceptually looked up along the <strong>mro</strong>, so, if more than one class among the ancestors defines that name, this tells you where the attribute will be found &ndash; in the first class in the <strong>mro</strong> that defines that name</p></blockquote><h2 id=understand-012x100>Understand <code>%012x</code>%100</h2><p>The 12 here means alighment size, and the leading 0 means filling with 0 (default is whitespace)</p><h2 id=about-frozenset>About <em>frozenset</em></h2><blockquote><p>Frozen set is just an immutable version of a Python set object. While elements of a set can be modified at any time, elements of frozen set remains the same after creation.
+Due to this, frozen sets can be used as key in Dictionary or as element of another set. But like sets, it is not ordered (the elements can be set at any index).
+The syntax of frozenset() method is: <code>frozenset([iterable])</code></p></blockquote><h2 id=define-eq-method-by-getattr-like-this>Define <code>__eq__</code> method by <code>getattr</code> like this:</h2><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-py data-lang=py>    <span class=k>def</span> <span class=fm>__eq__</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>other</span><span class=p>)</span><span class=p>:</span>
+        <span class=k>if</span> <span class=ow>not</span> <span class=nb>isinstance</span><span class=p>(</span><span class=n>other</span><span class=p>,</span> <span class=n>HostState</span><span class=p>)</span><span class=p>:</span>
+            <span class=k>return</span> <span class=bp>False</span>
+
+        <span class=k>for</span> <span class=n>attr</span> <span class=ow>in</span> <span class=p>(</span><span class=sa></span><span class=s1>&#39;</span><span class=s1>_blocks</span><span class=s1>&#39;</span><span class=p>,</span> <span class=sa></span><span class=s1>&#39;</span><span class=s1>cur_block</span><span class=s1>&#39;</span><span class=p>,</span> <span class=sa></span><span class=s1>&#39;</span><span class=s1>cur_regular_task</span><span class=s1>&#39;</span><span class=p>,</span> <span class=sa></span><span class=s1>&#39;</span><span class=s1>cur_rescue_task</span><span class=s1>&#39;</span><span class=p>,</span> <span class=sa></span><span class=s1>&#39;</span><span class=s1>cur_always_task</span><span class=s1>&#39;</span><span class=p>,</span>
+                     <span class=sa></span><span class=s1>&#39;</span><span class=s1>run_state</span><span class=s1>&#39;</span><span class=p>,</span> <span class=sa></span><span class=s1>&#39;</span><span class=s1>fail_state</span><span class=s1>&#39;</span><span class=p>,</span> <span class=sa></span><span class=s1>&#39;</span><span class=s1>pending_setup</span><span class=s1>&#39;</span><span class=p>,</span> <span class=sa></span><span class=s1>&#39;</span><span class=s1>cur_dep_chain</span><span class=s1>&#39;</span><span class=p>,</span>
+                     <span class=sa></span><span class=s1>&#39;</span><span class=s1>tasks_child_state</span><span class=s1>&#39;</span><span class=p>,</span> <span class=sa></span><span class=s1>&#39;</span><span class=s1>rescue_child_state</span><span class=s1>&#39;</span><span class=p>,</span> <span class=sa></span><span class=s1>&#39;</span><span class=s1>always_child_state</span><span class=s1>&#39;</span><span class=p>)</span><span class=p>:</span>
+            <span class=k>if</span> <span class=nb>getattr</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>attr</span><span class=p>)</span> <span class=o>!=</span> <span class=nb>getattr</span><span class=p>(</span><span class=n>other</span><span class=p>,</span> <span class=n>attr</span><span class=p>)</span><span class=p>:</span>
+                <span class=k>return</span> <span class=bp>False</span>
+
+        <span class=k>return</span> <span class=bp>True</span>
+</code></pre></td></tr></table></div></div><h2 id=there-is-a-defaultmain-module-for-each-python-program-we-can-test-that-to-use-its-attributes-like-this>There is a default<code>__main__</code> module for each python program, we can test that to use its attributes like this:</h2><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-py data-lang=py><span class=k>try</span><span class=p>:</span>
+    <span class=kn>from</span> <span class=nn>__main__</span> <span class=kn>import</span> <span class=n>display</span>
+<span class=k>except</span> <span class=ne>ImportError</span><span class=p>:</span>
+    <span class=kn>from</span> <span class=nn>ansible.utils.display</span> <span class=kn>import</span> <span class=n>Display</span>
+    <span class=n>display</span> <span class=o>=</span> <span class=n>Display</span><span class=p>(</span><span class=p>)</span>
+</code></pre></td></tr></table></div></div><h2 id=understand-from-future-import-absoluteimport-division-printfunction>Understand <code>from __future__ import (absolute_import, division, print_function)</code></h2><p>Those imports are to make python2 code like python3 code. <code>print_function</code> will bring <code>print</code> function to python2.</p><h2 id=get-parameter-passed-into-kwargs-since-kwargs-is-indeed-a-dict>Get parameter passed into <em>kwargs</em> since kwargs is indeed a dict</h2><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-py data-lang=py><span class=n>class_only</span> <span class=o>=</span> <span class=n>kwargs</span><span class=o>.</span><span class=n>pop</span><span class=p>(</span><span class=sa></span><span class=s1>&#39;</span><span class=s1>class_only</span><span class=s1>&#39;</span><span class=p>,</span> <span class=bp>False</span><span class=p>)</span>
+</code></pre></td></tr></table></div></div><h2 id=pythonic-way-to-check-interface-is-hasattr>pythonic way to check &ldquo;interface&rdquo; is <em>hasattr</em>:</h2><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-py data-lang=py><span class=k>if</span> <span class=p>(</span><span class=bp>self</span><span class=o>.</span><span class=n>_stdout_callback</span> <span class=ow>and</span>
+        <span class=nb>hasattr</span><span class=p>(</span><span class=bp>self</span><span class=o>.</span><span class=n>_stdout_callback</span><span class=p>,</span> <span class=sa></span><span class=s1>&#39;</span><span class=s1>set_play_context</span><span class=s1>&#39;</span><span class=p>)</span><span class=p>)</span><span class=p>:</span>
+    <span class=bp>self</span><span class=o>.</span><span class=n>_stdout_callback</span><span class=o>.</span><span class=n>set_play_context</span><span class=p>(</span><span class=n>play_context</span><span class=p>)</span>
+</code></pre></td></tr></table></div></div><h2 id=python3-now-supports-unpack-a-list-like-this>python3 now supports unpack a list like this:</h2><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-py data-lang=py><span class=n>name</span><span class=p>,</span><span class=n>_</span><span class=p>,</span> <span class=n>sur</span> <span class=o>=</span> <span class=sa></span><span class=s2>&#34;</span><span class=s2>Andy J Zhang</span><span class=s2>&#34;</span><span class=o>.</span><span class=n>split</span><span class=p>(</span><span class=p>)</span>
+</code></pre></td></tr></table></div></div><h2 id=use-class-flags-for-plugin-pattern-like-this-to-support-capabilities>Use class flags for plugin pattern like this to support capabilities</h2><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-py data-lang=py><span class=n>callback_type</span> <span class=o>=</span> <span class=nb>getattr</span><span class=p>(</span><span class=n>callback_plugin</span><span class=p>,</span> <span class=sa></span><span class=s1>&#39;</span><span class=s1>CALLBACK_TYPE</span><span class=s1>&#39;</span><span class=p>,</span> <span class=sa></span><span class=s1>&#39;</span><span class=s1>&#39;</span><span class=p>)</span>
+<span class=n>callback_needs_whitelist</span> <span class=o>=</span> <span class=nb>getattr</span><span class=p>(</span><span class=n>callback_plugin</span><span class=p>,</span> <span class=sa></span><span class=s1>&#39;</span><span class=s1>CALLBACK_NEEDS_WHITELIST</span><span class=s1>&#39;</span><span class=p>,</span> <span class=bp>False</span><span class=p>)</span>
+</code></pre></td></tr></table></div></div><h2 id=to-support-in-operator-just-provides-contains-method-like-this>To support <em>in</em> operator, just provides <code>__contains__</code> method like this</h2><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-py data-lang=py>    <span class=k>def</span> <span class=nf>has_plugin</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>name</span><span class=p>)</span><span class=p>:</span>
+        <span class=sa></span><span class=s1>&#39;&#39;&#39;</span><span class=s1> Checks if a plugin named name exists </span><span class=s1>&#39;&#39;&#39;</span>
+
+        <span class=k>return</span> <span class=bp>self</span><span class=o>.</span><span class=n>find_plugin</span><span class=p>(</span><span class=n>name</span><span class=p>)</span> <span class=ow>is</span> <span class=ow>not</span> <span class=bp>None</span>
+
+    <span class=fm>__contains__</span> <span class=o>=</span> <span class=n>has_plugin</span>
+
+</code></pre></td></tr></table></div></div><h2 id=should-learn-more-about-pythnon-buildinsbuiltinspy-generated-in-pycharm-but-actually-implemented-in-c>Should learn more about pythnon <em>buildins</em>(builtins.py generated in pycharm, but actually implemented in c)</h2><h2 id=about-python-regex-special-characters>About python regex special characters:</h2><blockquote><p>(?:&mldr;)
+A non-capturing version of regular parentheses. Matches whatever regular expression is inside the parentheses, but the substring matched by the group cannot be retrieved after performing a match or referenced later in the pattern.</p></blockquote><h2 id=how-to-skip-test-cases-with-condition-for-pytest>How to skip test cases with condition for pytest?</h2><p>Use something like this for skip without condition, <a href=mailto:%60@pytest.mark.skip>`@pytest.mark.skip</a>(reason="no way of currently testing this&rdquo;)<code>, and </code>@pytest.mark.skipif(&lsquo;pandas&rsquo; not in sys.modules,reason="requires the Pandas library&rdquo;)` to skip with condition check.</p><h2 id=new-vs-init><code>__new__</code> vs <code>__init__</code></h2><blockquote><p>Use <strong>new</strong> when you need to control the creation of a new instance. Use <strong>init</strong> when you need to control initialization of a new instance.
+<strong>new</strong> is the first step of instance creation. It's called first, and is responsible for returning a new instance of your class. In contrast, <strong>init</strong> doesn't return anything; it's only responsible for initializing the instance after it's been created.
+In general, you shouldn't need to override <strong>new</strong> unless you're subclassing an immutable type like str, int, unicode or tuple.</p></blockquote><h2 id=use-cachetoolshttpswwwthepythoncornercom201804howtomakeyourcodefasterbyusingacacheinpythondoingwpcron15506517385658590793609619140625-for-caching>Use <a href="https://www.thepythoncorner.com/2018/04/how-to-make-your-code-faster-by-using-a-cache-in-python/?doing_wp_cron=1550651738.5658590793609619140625">cachetools</a> for caching</h2><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-py data-lang=py><span class=kn>import</span> <span class=nn>time</span>
+<span class=kn>import</span> <span class=nn>datetime</span>
+
+<span class=kn>from</span> <span class=nn>cachetools</span> <span class=kn>import</span> <span class=n>cached</span><span class=p>,</span> <span class=n>TTLCache</span>  <span class=c1># 1 - let&#39;s import the &#34;cached&#34; decorator and the &#34;TTLCache&#34; object from cachetools</span>
+<span class=n>cache</span> <span class=o>=</span> <span class=n>TTLCache</span><span class=p>(</span><span class=n>maxsize</span><span class=o>=</span><span class=mi>100</span><span class=p>,</span> <span class=n>ttl</span><span class=o>=</span><span class=mi>300</span><span class=p>)</span>  <span class=c1># 2 - let&#39;s create the cache object.</span>
+
+<span class=nd>@cached</span><span class=p>(</span><span class=n>cache</span><span class=p>)</span>  <span class=c1># 3 - it&#39;s time to decorate the method to use our cache system!</span>
+<span class=k>def</span> <span class=nf>get_candy_price</span><span class=p>(</span><span class=n>candy_id</span><span class=p>)</span><span class=p>:</span>
+	<span class=o>.</span><span class=o>.</span><span class=o>.</span><span class=o>.</span>
+	<span class=k>return</span> <span class=p>(</span><span class=n>datetime</span><span class=o>.</span><span class=n>datetime</span><span class=o>.</span><span class=n>now</span><span class=p>(</span><span class=p>)</span><span class=o>.</span><span class=n>strftime</span><span class=p>(</span><span class=sa></span><span class=s2>&#34;</span><span class=si>%c</span><span class=s2>&#34;</span><span class=p>)</span><span class=p>,</span> <span class=n>price</span><span class=p>)</span>
+</code></pre></td></tr></table></div></div><h2 id=how-to-use-pandas-to-group-data>How to use <em>pandas</em> to group data?</h2><p>The problem is to group different squence typing (ST) by its drug resistence (DR)</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-py data-lang=py><span class=kn>import</span> <span class=nn>pandas</span> <span class=kn>as</span> <span class=nn>pd</span>
+<span class=n>st</span> <span class=o>=</span> <span class=n>pd</span><span class=o>.</span><span class=n>read_csv</span><span class=p>(</span><span class=sa></span><span class=s2>&#34;</span><span class=s2>st-dr.csv</span><span class=s2>&#34;</span><span class=p>)</span> <span class=c1># load data</span>
+<span class=n>stg</span> <span class=o>=</span> <span class=n>st</span><span class=o>.</span><span class=n>groupby</span><span class=p>(</span><span class=sa></span><span class=s2>&#34;</span><span class=s2>ST型别</span><span class=s2>&#34;</span><span class=p>)</span><span class=o>.</span><span class=n>sum</span><span class=p>(</span><span class=p>)</span> <span class=c1># sum to get value like this: RSRRRRR</span>
+<span class=n>res</span> <span class=o>=</span> <span class=n>stg</span><span class=o>.</span><span class=n>applymap</span><span class=p>(</span><span class=k>lambda</span> <span class=n>x</span><span class=p>:</span> <span class=nb>int</span><span class=p>(</span><span class=n>x</span><span class=o>.</span><span class=n>count</span><span class=p>(</span><span class=sa></span><span class=s1>&#39;</span><span class=s1>R</span><span class=s1>&#39;</span><span class=p>)</span><span class=o>/</span><span class=nb>len</span><span class=p>(</span><span class=n>x</span><span class=p>)</span><span class=o>*</span><span class=mi>10000</span><span class=p>)</span><span class=o>/</span><span class=mi>100</span><span class=p>)</span> <span class=c1># use applymap to calculate DR percent rate</span>
+<span class=n>res</span><span class=o>.</span><span class=n>to_csv</span><span class=p>(</span><span class=sa></span><span class=s1>&#39;</span><span class=s1>st-dr-g.csv</span><span class=s1>&#39;</span><span class=p>)</span> <span class=c1># output to csv file</span>
+<span class=n>res</span><span class=o>.</span><span class=n>T</span><span class=o>.</span><span class=n>to_csv</span><span class=p>(</span><span class=sa></span><span class=s1>&#39;</span><span class=s1>dr-st-g.csv</span><span class=s1>&#39;</span><span class=p>)</span> <span class=c1># output its rotation to csv file</span>
+</code></pre></td></tr></table></div></div><h2 id=how-to-get-unicode-value-for-a-character>How to get unicode value for a character?</h2><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-py data-lang=py><span class=n>s</span> <span class=o>=</span> <span class=sa></span><span class=s2>&#34;</span><span class=s2>【歡樂頌1】</span><span class=s2>&#34;</span>
+<span class=n>s</span><span class=o>.</span><span class=n>encode</span><span class=p>(</span><span class=sa></span><span class=s2>&#34;</span><span class=s2>unicode_escaple</span><span class=s2>&#34;</span><span class=p>)</span>
+</code></pre></td></tr></table></div></div><h2 id=pytest-fixture-finalization--executing-teardown-code>pytest: Fixture finalization / executing teardown code</h2><blockquote><p>pytest supports execution of fixture specific finalization code when the fixture goes out of scope. By using a yield statement instead of return, all the code after the yield statement serves as the teardown code:</p></blockquote><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-py data-lang=py><span class=c1># content of conftest.py</span>
+
+<span class=kn>import</span> <span class=nn>smtplib</span>
+<span class=kn>import</span> <span class=nn>pytest</span>
+
+
+<span class=nd>@pytest.fixture</span><span class=p>(</span><span class=n>scope</span><span class=o>=</span><span class=sa></span><span class=s2>&#34;</span><span class=s2>module</span><span class=s2>&#34;</span><span class=p>)</span>
+<span class=k>def</span> <span class=nf>smtp_connection</span><span class=p>(</span><span class=p>)</span><span class=p>:</span>
+    <span class=n>smtp_connection</span> <span class=o>=</span> <span class=n>smtplib</span><span class=o>.</span><span class=n>SMTP</span><span class=p>(</span><span class=sa></span><span class=s2>&#34;</span><span class=s2>smtp.gmail.com</span><span class=s2>&#34;</span><span class=p>,</span> <span class=mi>587</span><span class=p>,</span> <span class=n>timeout</span><span class=o>=</span><span class=mi>5</span><span class=p>)</span>
+    <span class=k>yield</span> <span class=n>smtp_connection</span>  <span class=c1># provide the fixture value</span>
+    <span class=k>print</span><span class=p>(</span><span class=sa></span><span class=s2>&#34;</span><span class=s2>teardown smtp</span><span class=s2>&#34;</span><span class=p>)</span>
+    <span class=n>smtp_connection</span><span class=o>.</span><span class=n>close</span><span class=p>(</span><span class=p>)</span>
+
+</code></pre></td></tr></table></div></div><h2 id=fix-error-while-loading-shared-libraries-libpython34msorhpython3410-when-using-centospython34centos7-base-image>Fix <code>error while loading shared libraries: libpython3.4m.so.rh-python34-1.0</code> when using <em>centos/python-34-centos7</em> base image</h2><p>Add <em>LD_LIBRARY_PATH</em> like this to Dockerfile: <code>ENV LD_LIBRARY_PATH = $LD_LIBRARY_PATH:/opt/rh/rh-python34/root/usr/lib64/</code></p><h2 id=fix-importerror-no-module-named-blabla-even-after-installing-it>Fix <em>ImportError: No module named blabla</em> even after installing it?</h2><p>It might be fixed by setting <em>PYTHONPATH</em> like this <code>PYTHONPATH=$PYTHONPATH:/usr/lib64/python3.4/site-packages/</code>, especially for cpython module like this: <code>/usr/lib64/python3.4/site-packages/rados.cpython-34m.so</code></p><p>to fix wield pip install failure <em>AttributeError: _DistInfoDistribution__dep_map</em>: upgrade <em>pip</em> and <em>setuptools</em> by <code>pip install --upgrade pip setuptools</code></p><h2 id=how-to-configure-pycharm-to-format-code-when-saving>How to configure pycharm to format code when saving?</h2><p>In Preference -> Other Settings -> Save Actions, change corresponding options.</p><h2 id=how-to-create-test-category-which-is-call-markerhttpsdocspytestorgenlatestexamplemarkershtml-in-pytest>How to create test &ldquo;category&rdquo;, which is call <a href=https://docs.pytest.org/en/latest/example/markers.html>marker</a> in pytest?</h2><h2 id=how-to-get-nice-iso-format-current-time-string-since-python36>How to get nice iso format current time string since python3.6?</h2><p><code>datetime.datetime.now().astimezone().replace(microsecond=0).isoformat()</code></p><h2 id=f-string-since-python36httpsrealpythoncompythonfstrings><a href=https://realpython.com/python-f-strings/>f string since python3.6</a></h2><blockquote><p>The <strong>str</strong>() and <strong>repr</strong>() methods deal with how objects are presented as strings, so you’ll need to make sure you include at least one of those methods in your class definition. If you have to pick one, go with <strong>repr</strong>() because it can be used in place of <strong>str</strong>().
+Calling str() and repr() is preferable to using <strong>str</strong>() and <strong>repr</strong>() directly.By default, f-strings will use <strong>str</strong>(), but you can make sure they use <strong>repr</strong>() if you include the conversion flag !r</p></blockquote><h2 id=how-to-test-async-codehttpsstackoverflowcomquestions23033939howtotestpython34asynciocode><a href=https://stackoverflow.com/questions/23033939/how-to-test-python-3-4-asyncio-code>How to test async code</a></h2><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-py data-lang=py><span class=k>class</span> <span class=nc>Test</span><span class=p>(</span><span class=n>unittest</span><span class=o>.</span><span class=n>TestCase</span><span class=p>)</span><span class=p>:</span>
+    <span class=k>def</span> <span class=nf>setUp</span><span class=p>(</span><span class=bp>self</span><span class=p>)</span><span class=p>:</span>
+		<span class=c1># Note: use a new event loop to isolate tests</span>
+        <span class=bp>self</span><span class=o>.</span><span class=n>loop</span> <span class=o>=</span> <span class=n>asyncio</span><span class=o>.</span><span class=n>new_event_loop</span><span class=p>(</span><span class=p>)</span>
+        <span class=n>asyncio</span><span class=o>.</span><span class=n>set_event_loop</span><span class=p>(</span><span class=bp>None</span><span class=p>)</span>
+
+    <span class=k>def</span> <span class=nf>test_xxx</span><span class=p>(</span><span class=bp>self</span><span class=p>)</span><span class=p>:</span>
+        <span class=nd>@asyncio.coroutine</span>
+        <span class=k>def</span> <span class=nf>go</span><span class=p>(</span><span class=p>)</span><span class=p>:</span>
+            <span class=n>reader</span><span class=p>,</span> <span class=n>writer</span> <span class=o>=</span> <span class=k>yield</span> <span class=kn>from</span> <span class=nn>asyncio.open_connection</span><span class=p>(</span>
+                <span class=sa></span><span class=s1>&#39;</span><span class=s1>127.0.0.1</span><span class=s1>&#39;</span><span class=p>,</span> <span class=mi>8888</span><span class=p>,</span> <span class=n>loop</span><span class=o>=</span><span class=bp>self</span><span class=o>.</span><span class=n>loop</span><span class=p>)</span>
+            <span class=k>yield</span> <span class=kn>from</span> <span class=nn>asyncio.sleep</span><span class=p>(</span><span class=mf>0.01</span><span class=p>,</span> <span class=n>loop</span><span class=o>=</span><span class=bp>self</span><span class=o>.</span><span class=n>loop</span><span class=p>)</span>
+        <span class=bp>self</span><span class=o>.</span><span class=n>loop</span><span class=o>.</span><span class=n>run_until_complete</span><span class=p>(</span><span class=n>go</span><span class=p>(</span><span class=p>)</span><span class=p>)</span>
+</code></pre></td></tr></table></div></div><h2 id=celery-configurationhttpdocsceleryprojectorgenlatestuserguideconfigurationhtml><a href=http://docs.celeryproject.org/en/latest/userguide/configuration.html>celery configuration</a></h2><h2 id=how-to-call-async-function-in-sync-way-not-recommended>How to call async function in <em>sync</em> way? (not recommended)</h2><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-py data-lang=py><span class=nd>@asyncio.coroutine</span>
+<span class=k>def</span> <span class=nf>async_gettter</span><span class=p>(</span><span class=p>)</span><span class=p>:</span>
+    <span class=k>return</span> <span class=p>(</span><span class=k>yield</span> <span class=kn>from</span> <span class=nn>http_client.get</span><span class=p>(</span><span class=sa></span><span class=s1>&#39;</span><span class=s1>http://example.com</span><span class=s1>&#39;</span><span class=p>)</span><span class=p>)</span>
+
+<span class=k>def</span> <span class=nf>sync_getter</span><span class=p>(</span><span class=p>)</span>
+    <span class=k>return</span> <span class=n>asyncio</span><span class=o>.</span><span class=n>get_event_loop</span><span class=p>(</span><span class=p>)</span><span class=o>.</span><span class=n>run_until_complete</span><span class=p>(</span><span class=n>async_getter</span><span class=p>(</span><span class=p>)</span><span class=p>)</span>
+</code></pre></td></tr></table></div></div><h2 id=pytesthow-to-set-up-classic-xunitstyle-setuphttpsdocspytestorgenlatestxunitsetuphtml><a href=https://docs.pytest.org/en/latest/xunit_setup.html>pytest:How to set up classic xunit-style setup</a></h2><p>Just add the following methods:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span><span class=lnt>23
+</span><span class=lnt>24
+</span><span class=lnt>25
+</span><span class=lnt>26
+</span><span class=lnt>27
+</span><span class=lnt>28
+</span><span class=lnt>29
+</span><span class=lnt>30
+</span><span class=lnt>31
+</span><span class=lnt>32
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-py data-lang=py><span class=c1># Module level, where module parameter is optional</span>
+<span class=k>def</span> <span class=nf>setup_module</span><span class=p>(</span><span class=n>module</span><span class=p>)</span><span class=p>:</span>
+    <span class=sa></span><span class=s2>&#34;&#34;&#34;</span><span class=s2> setup any state specific to the execution of the given module.</span><span class=s2>&#34;&#34;&#34;</span>
+
+<span class=k>def</span> <span class=nf>teardown_module</span><span class=p>(</span><span class=n>module</span><span class=p>)</span><span class=p>:</span>
+    <span class=sa></span><span class=s2>&#34;&#34;&#34;</span><span class=s2> teardown any state that was previously setup with a setup_module</span><span class=s2>
+</span><span class=s2></span><span class=s2>    method.</span><span class=s2>
+</span><span class=s2></span><span class=s2>    </span><span class=s2>&#34;&#34;&#34;</span>
+
+<span class=c1># Class level</span>
+<span class=nd>@classmethod</span>
+<span class=k>def</span> <span class=nf>setup_class</span><span class=p>(</span><span class=bp>cls</span><span class=p>)</span><span class=p>:</span>
+    <span class=sa></span><span class=s2>&#34;&#34;&#34;</span><span class=s2> setup any state specific to the execution of the given class (which</span><span class=s2>
+</span><span class=s2></span><span class=s2>    usually contains tests).</span><span class=s2>
+</span><span class=s2></span><span class=s2>    </span><span class=s2>&#34;&#34;&#34;</span>
+
+<span class=nd>@classmethod</span>
+<span class=k>def</span> <span class=nf>teardown_class</span><span class=p>(</span><span class=bp>cls</span><span class=p>)</span><span class=p>:</span>
+    <span class=sa></span><span class=s2>&#34;&#34;&#34;</span><span class=s2> teardown any state that was previously setup with a call to</span><span class=s2>
+</span><span class=s2></span><span class=s2>    setup_class.</span><span class=s2>
+</span><span class=s2></span><span class=s2>    </span><span class=s2>&#34;&#34;&#34;</span>
+
+<span class=c1># method level, where the method parameter is optional</span>
+<span class=k>def</span> <span class=nf>setup_method</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>method</span><span class=p>)</span><span class=p>:</span>
+    <span class=sa></span><span class=s2>&#34;&#34;&#34;</span><span class=s2> setup any state tied to the execution of the given method in a</span><span class=s2>
+</span><span class=s2></span><span class=s2>    class.  setup_method is invoked for every test method of a class.</span><span class=s2>
+</span><span class=s2></span><span class=s2>    </span><span class=s2>&#34;&#34;&#34;</span>
+
+<span class=k>def</span> <span class=nf>teardown_method</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>method</span><span class=p>)</span><span class=p>:</span>
+    <span class=sa></span><span class=s2>&#34;&#34;&#34;</span><span class=s2> teardown any state that was previously setup with a setup_method</span><span class=s2>
+</span><span class=s2></span><span class=s2>    call.</span><span class=s2>
+</span><span class=s2></span><span class=s2>    </span><span class=s2>&#34;&#34;&#34;</span>
+</code></pre></td></tr></table></div></div><h2 id=about-python-mixinhttpseasyaspythoncommixinsforfunandprofitcb9962760556><a href=https://easyaspython.com/mixins-for-fun-and-profit-cb9962760556>About python mixin</a></h2><blockquote><p>In Python, mixins are supported via multiple inheritance.
+Mixins take various forms depending on the language, but at the end of the day they encapsulate behavior that can be reused in other classes.</p></blockquote><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span><span class=lnt>22
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-py data-lang=py><span class=kn>import</span> <span class=nn>logging</span>
+
+<span class=k>class</span> <span class=nc>LoggerMixin</span><span class=p>(</span><span class=nb>object</span><span class=p>)</span><span class=p>:</span>
+    <span class=nd>@property</span>
+    <span class=k>def</span> <span class=nf>logger</span><span class=p>(</span><span class=bp>self</span><span class=p>)</span><span class=p>:</span>
+        <span class=n>name</span> <span class=o>=</span> <span class=sa></span><span class=s1>&#39;</span><span class=s1>.</span><span class=s1>&#39;</span><span class=o>.</span><span class=n>join</span><span class=p>(</span><span class=p>[</span>
+            <span class=bp>self</span><span class=o>.</span><span class=vm>__module__</span><span class=p>,</span>
+            <span class=bp>self</span><span class=o>.</span><span class=vm>__class__</span><span class=o>.</span><span class=vm>__name__</span>
+        <span class=p>]</span><span class=p>)</span>
+        <span class=k>return</span> <span class=n>logging</span><span class=o>.</span><span class=n>getLogger</span><span class=p>(</span><span class=n>name</span><span class=p>)</span>
+
+<span class=k>class</span> <span class=nc>EssentialFunctioner</span><span class=p>(</span><span class=n>LoggerMixin</span><span class=p>,</span> <span class=nb>object</span><span class=p>)</span><span class=p>:</span>
+    <span class=k>def</span> <span class=nf>do_the_thing</span><span class=p>(</span><span class=bp>self</span><span class=p>)</span><span class=p>:</span>
+        <span class=k>try</span><span class=p>:</span>
+            <span class=o>.</span><span class=o>.</span><span class=o>.</span>
+        <span class=k>except</span> <span class=n>BadThing</span><span class=p>:</span>
+            <span class=bp>self</span><span class=o>.</span><span class=n>logger</span><span class=o>.</span><span class=n>error</span><span class=p>(</span><span class=sa></span><span class=s1>&#39;</span><span class=s1>OH NOES</span><span class=s1>&#39;</span><span class=p>)</span>
+
+<span class=k>class</span> <span class=nc>BusinessLogicer</span><span class=p>(</span><span class=n>LoggerMixin</span><span class=p>,</span> <span class=nb>object</span><span class=p>)</span><span class=p>:</span>
+    <span class=k>def</span> <span class=fm>__init__</span><span class=p>(</span><span class=bp>self</span><span class=p>)</span><span class=p>:</span>
+        <span class=nb>super</span><span class=p>(</span><span class=p>)</span><span class=o>.</span><span class=fm>__init__</span><span class=p>(</span><span class=p>)</span>
+        <span class=bp>self</span><span class=o>.</span><span class=n>logger</span><span class=o>.</span><span class=n>debug</span><span class=p>(</span><span class=sa></span><span class=s1>&#39;</span><span class=s1>Giving the logic the business...</span><span class=s1>&#39;</span><span class=p>)</span>
+</code></pre></td></tr></table></div></div><p>on <em>pytest</em>
+- Enable logging output using option <code>-s</code> to stop capturing
+- Show verbose testing progress with option: <code>-v</code> or <code>-vv</code></p><h2 id=how-to-configure-pycharm-to-use-autopep8httpsgithubcomhscgavinautopep8onpycharm><a href=https://github.com/hscgavin/autopep8-on-pycharm>How to configure pyCharm to use autopep8?</a></h2><h2 id=test-with-pytest-and-toxhttpstoxreadthedocsioenlatestexamplepytesthtml><a href=https://tox.readthedocs.io/en/latest/example/pytest.html>test with pytest and tox</a></h2><p>An example <em>tox.ini</em> file:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-ini data-lang=ini><span class=k>[tox]</span>
+<span class=na>envlist</span> <span class=o>=</span> <span class=s>py35,py36</span>
+<span class=k>[testenv]</span>
+<span class=na>changedir</span><span class=o>=</span><span class=s>tests</span>
+<span class=na>deps</span><span class=o>=</span><span class=s>pytest</span>
+<span class=na>commands</span><span class=o>=</span> <span class=s>pytest  --basetemp={envtmpdir}  \ # pytest tempdir setting
+</span><span class=s>                  {posargs}                 # substitute with tox&#39; positional arguments</span>
+</code></pre></td></tr></table></div></div><h2 id=testing-python-applications-with-pytesthttpssemaphorecicomcommunitytutorialstestingpythonapplicationswithpytest><a href=https://semaphoreci.com/community/tutorials/testing-python-applications-with-pytest>Testing Python Applications with Pytest</a></h2><blockquote><p>Fixture functions are created by marking them with the @pytest.fixture decorator. Test functions that require fixtures should accept them as arguments.</p></blockquote><blockquote><p>Each test is provided with a newly-initialized Wallet instance, and not one that has been used in another test.</p></blockquote><blockquote><p>It is a good practice to add docstrings for your fixtures. To see all the available fixtures, run the following command:<code>pytest --fixtures</code></p></blockquote><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-py data-lang=py><span class=nd>@pytest.fixture</span>
+<span class=k>def</span> <span class=nf>empty_wallet</span><span class=p>(</span><span class=p>)</span><span class=p>:</span>
+    <span class=sa></span><span class=s1>&#39;&#39;&#39;</span><span class=s1>Returns a Wallet instance with a zero balance</span><span class=s1>&#39;&#39;&#39;</span>
+    <span class=k>return</span> <span class=n>Wallet</span><span class=p>(</span><span class=p>)</span>
+
+<span class=nd>@pytest.fixture</span>
+<span class=k>def</span> <span class=nf>wallet</span><span class=p>(</span><span class=p>)</span><span class=p>:</span>
+    <span class=sa></span><span class=s1>&#39;&#39;&#39;</span><span class=s1>Returns a Wallet instance with a balance of 20</span><span class=s1>&#39;&#39;&#39;</span>
+    <span class=k>return</span> <span class=n>Wallet</span><span class=p>(</span><span class=mi>20</span><span class=p>)</span>
+
+<span class=k>def</span> <span class=nf>test_default_initial_amount</span><span class=p>(</span><span class=n>empty_wallet</span><span class=p>)</span><span class=p>:</span>
+    <span class=k>assert</span> <span class=n>empty_wallet</span><span class=o>.</span><span class=n>balance</span> <span class=o>==</span> <span class=mi>0</span>
+
+<span class=k>def</span> <span class=nf>test_setting_initial_amount</span><span class=p>(</span><span class=n>wallet</span><span class=p>)</span><span class=p>:</span>
+    <span class=k>assert</span> <span class=n>wallet</span><span class=o>.</span><span class=n>balance</span> <span class=o>==</span> <span class=mi>20</span>
+</code></pre></td></tr></table></div></div><p>An example combining <em>fixture</em> and <em>parametrized</em> test functions:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-py data-lang=py><span class=c1># test_wallet.py</span>
+
+<span class=nd>@pytest.fixture</span>
+<span class=k>def</span> <span class=nf>my_wallet</span><span class=p>(</span><span class=p>)</span><span class=p>:</span>
+    <span class=sa></span><span class=s1>&#39;&#39;&#39;</span><span class=s1>Returns a Wallet instance with a zero balance</span><span class=s1>&#39;&#39;&#39;</span>
+    <span class=k>return</span> <span class=n>Wallet</span><span class=p>(</span><span class=p>)</span>
+
+<span class=nd>@pytest.mark.parametrize</span><span class=p>(</span><span class=sa></span><span class=s2>&#34;</span><span class=s2>earned,spent,expected</span><span class=s2>&#34;</span><span class=p>,</span> <span class=p>[</span>
+    <span class=p>(</span><span class=mi>30</span><span class=p>,</span> <span class=mi>10</span><span class=p>,</span> <span class=mi>20</span><span class=p>)</span><span class=p>,</span>
+    <span class=p>(</span><span class=mi>20</span><span class=p>,</span> <span class=mi>2</span><span class=p>,</span> <span class=mi>18</span><span class=p>)</span><span class=p>,</span>
+<span class=p>]</span><span class=p>)</span>
+<span class=k>def</span> <span class=nf>test_transactions</span><span class=p>(</span><span class=n>my_wallet</span><span class=p>,</span> <span class=n>earned</span><span class=p>,</span> <span class=n>spent</span><span class=p>,</span> <span class=n>expected</span><span class=p>)</span><span class=p>:</span>
+    <span class=n>my_wallet</span><span class=o>.</span><span class=n>add_cash</span><span class=p>(</span><span class=n>earned</span><span class=p>)</span>
+    <span class=n>my_wallet</span><span class=o>.</span><span class=n>spend_cash</span><span class=p>(</span><span class=n>spent</span><span class=p>)</span>
+    <span class=k>assert</span> <span class=n>my_wallet</span><span class=o>.</span><span class=n>balance</span> <span class=o>==</span> <span class=n>expected</span>
+</code></pre></td></tr></table></div></div><p>Also refer to officail doc about <a href=https://docs.pytest.org/en/latest/parametrize.html#parametrize-basics>Basic parametrize</a>, and <a href=https://docs.pytest.org/en/latest/example/parametrize.html#apply-indirect-on-particular-arguments>more parametrize</a>; pytest also provides a way to accept input from pytest command line option like this:</p><pre><code>def pytest_addoption(parser):
+    parser.addoption(&quot;--stringinput&quot;, action=&quot;append&quot;, default=[],
+        help=&quot;list of stringinputs to pass to test functions&quot;)
+
+def pytest_generate_tests(metafunc):
+    if 'stringinput' in metafunc.fixturenames:
+        metafunc.parametrize(&quot;stringinput&quot;,
+                             metafunc.config.getoption('stringinput'))
+</code></pre><h2 id=python3-has-buildin-virtualenv-which-can-be-called-in-the-same-way-as-pip-python3-m-venv-somepath>python3 has build-in <em>virtualenv</em>, which can be called in the same way as <em>pip</em>: <code>python3 -m venv somepath</code></h2><h2 id=type-hint-in-python3httpsdocspythonorg3librarytypinghtml><a href=https://docs.python.org/3/library/typing.html>Type hint in python3</a></h2><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-py data-lang=py><span class=kn>from</span> <span class=nn>typing</span> <span class=kn>import</span> <span class=n>List</span>
+<span class=n>Vector</span> <span class=o>=</span> <span class=n>List</span><span class=p>[</span><span class=nb>float</span><span class=p>]</span>
+
+<span class=k>def</span> <span class=nf>scale</span><span class=p>(</span><span class=n>scalar</span><span class=p>:</span> <span class=nb>float</span><span class=p>,</span> <span class=n>vector</span><span class=p>:</span> <span class=n>Vector</span><span class=p>)</span> <span class=o>-</span><span class=o>&gt;</span> <span class=n>Vector</span><span class=p>:</span>
+    <span class=k>return</span> <span class=p>[</span><span class=n>scalar</span> <span class=o>*</span> <span class=n>num</span> <span class=k>for</span> <span class=n>num</span> <span class=ow>in</span> <span class=n>vector</span><span class=p>]</span>
+
+    <span class=c1># typechecks; a list of floats qualifies as a Vector.</span>
+    <span class=n>new_vector</span> <span class=o>=</span> <span class=n>scale</span><span class=p>(</span><span class=mf>2.0</span><span class=p>,</span> <span class=p>[</span><span class=mf>1.0</span><span class=p>,</span> <span class=o>-</span><span class=mf>4.2</span><span class=p>,</span> <span class=mf>5.4</span><span class=p>]</span><span class=p>)</span>
+</code></pre></td></tr></table></div></div><h2 id=understand-python-decoratorshttpswwwprogramizcompythonprogrammingdecorator><a href=https://www.programiz.com/python-programming/decorator>Understand python Decorators</a></h2><blockquote><p>A decorator takes in a function, adds some functionality and returns it. This is also called metaprogramming as a part of the program tries to modify another part of the program at compile time.</p></blockquote><blockquote><p>We must be comfortable with the fact that, everything in Python (Yes! Even classes), are objects. Names that we define are simply identifiers bound to these objects. Functions are no exceptions, they are objects too (with attributes). Various different names can be bound to the same function object. Such function that take other functions as arguments are also called higher order functions.</p></blockquote><blockquote><p>Functions and methods are called callable as they can be called. In fact, any object which implements the special method <strong>call</strong>() is termed callable. So, in the most basic sense, a decorator is a callable that returns a callable. Basically, a decorator takes in a function, adds some functionality and returns it.</p></blockquote><blockquote><p>We can see that the decorator function added some new functionality to the original function. This is similar to packing a gift. The decorator acts as a wrapper. The nature of the object that got decorated (actual gift inside) does not alter. But now, it looks pretty (since it got decorated).</p></blockquote><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-py data-lang=py><span class=nd>@make_pretty</span>
+<span class=k>def</span> <span class=nf>ordinary</span><span class=p>(</span><span class=p>)</span><span class=p>:</span>
+    <span class=k>print</span><span class=p>(</span><span class=sa></span><span class=s2>&#34;</span><span class=s2>I am ordinary</span><span class=s2>&#34;</span><span class=p>)</span>
+</code></pre></td></tr></table></div></div><p>is equivalent to</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-py data-lang=py><span class=k>def</span> <span class=nf>ordinary</span><span class=p>(</span><span class=p>)</span><span class=p>:</span>
+    <span class=k>print</span><span class=p>(</span><span class=sa></span><span class=s2>&#34;</span><span class=s2>I am ordinary</span><span class=s2>&#34;</span><span class=p>)</span>
+<span class=n>ordinary</span> <span class=o>=</span> <span class=n>make_pretty</span><span class=p>(</span><span class=n>ordinary</span><span class=p>)</span>
+</code></pre></td></tr></table></div></div><p>This is just a syntactic sugar to implement decorators.</p><p>A whole example:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-py data-lang=py><span class=k>def</span> <span class=nf>smart_divide</span><span class=p>(</span><span class=n>func</span><span class=p>)</span><span class=p>:</span>
+   <span class=k>def</span> <span class=nf>inner</span><span class=p>(</span><span class=n>a</span><span class=p>,</span><span class=n>b</span><span class=p>)</span><span class=p>:</span>
+      <span class=k>print</span><span class=p>(</span><span class=sa></span><span class=s2>&#34;</span><span class=s2>I am going to divide</span><span class=s2>&#34;</span><span class=p>,</span><span class=n>a</span><span class=p>,</span><span class=sa></span><span class=s2>&#34;</span><span class=s2>and</span><span class=s2>&#34;</span><span class=p>,</span><span class=n>b</span><span class=p>)</span>
+      <span class=k>if</span> <span class=n>b</span> <span class=o>==</span> <span class=mi>0</span><span class=p>:</span>
+         <span class=k>print</span><span class=p>(</span><span class=sa></span><span class=s2>&#34;</span><span class=s2>Whoops! cannot divide</span><span class=s2>&#34;</span><span class=p>)</span>
+         <span class=k>return</span>
+
+      <span class=k>return</span> <span class=n>func</span><span class=p>(</span><span class=n>a</span><span class=p>,</span><span class=n>b</span><span class=p>)</span>
+   <span class=k>return</span> <span class=n>inner</span>
+
+<span class=nd>@smart_divide</span>
+<span class=k>def</span> <span class=nf>divide</span><span class=p>(</span><span class=n>a</span><span class=p>,</span><span class=n>b</span><span class=p>)</span><span class=p>:</span>
+    <span class=k>return</span> <span class=n>a</span><span class=o>/</span><span class=n>b</span>
+
+<span class=c1># in python, inner(*args, **kwargs) can match any function.</span>
+<span class=k>def</span> <span class=nf>works_for_all</span><span class=p>(</span><span class=n>func</span><span class=p>)</span><span class=p>:</span>
+    <span class=k>def</span> <span class=nf>inner</span><span class=p>(</span><span class=o>*</span><span class=n>args</span><span class=p>,</span> <span class=o>*</span><span class=o>*</span><span class=n>kwargs</span><span class=p>)</span><span class=p>:</span>
+        <span class=k>print</span><span class=p>(</span><span class=sa></span><span class=s2>&#34;</span><span class=s2>I can decorate any function</span><span class=s2>&#34;</span><span class=p>)</span>
+        <span class=k>return</span> <span class=n>func</span><span class=p>(</span><span class=o>*</span><span class=n>args</span><span class=p>,</span> <span class=o>*</span><span class=o>*</span><span class=n>kwargs</span><span class=p>)</span>
+    <span class=k>return</span> <span class=n>inner</span>
+</code></pre></td></tr></table></div></div><h2 id=how-to-generate-random-token>How to generate random token?</h2><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-sh data-lang=sh>python -c <span class=err>&#39;</span>import secrets,base64<span class=p>;</span> print<span class=o>(</span>base64.b64encode<span class=o>(</span>base64.b64encode<span class=o>(</span>secrets.token_bytes<span class=o>(</span>16<span class=o>)</span><span class=o>)</span><span class=o>)</span><span class=o>)</span><span class=p>;</span>
+</code></pre></td></tr></table></div></div><h2 id=how-to-configure-flake8httpflake8pycqaorgenlatestuserconfigurationhtml><a href=http://flake8.pycqa.org/en/latest/user/configuration.html>How to configure Flake8</a></h2><h2 id=understand-python-propetyhttpswwwprogramizcompythonprogrammingproperty><a href=https://www.programiz.com/python-programming/property>Understand python propety</a></h2><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-python data-lang=python><span class=k>class</span> <span class=nc>Celsius</span><span class=p>:</span>
+    <span class=k>def</span> <span class=fm>__init__</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>temperature</span> <span class=o>=</span> <span class=mi>0</span><span class=p>)</span><span class=p>:</span>
+        <span class=bp>self</span><span class=o>.</span><span class=n>_temperature</span> <span class=o>=</span> <span class=n>temperature</span>
+
+    <span class=k>def</span> <span class=nf>to_fahrenheit</span><span class=p>(</span><span class=bp>self</span><span class=p>)</span><span class=p>:</span>
+        <span class=k>return</span> <span class=p>(</span><span class=bp>self</span><span class=o>.</span><span class=n>temperature</span> <span class=o>*</span> <span class=mf>1.8</span><span class=p>)</span> <span class=o>+</span> <span class=mi>32</span>
+
+    <span class=nd>@property</span>
+    <span class=k>def</span> <span class=nf>temperature</span><span class=p>(</span><span class=bp>self</span><span class=p>)</span><span class=p>:</span>
+        <span class=k>print</span><span class=p>(</span><span class=sa></span><span class=s2>&#34;</span><span class=s2>Getting value</span><span class=s2>&#34;</span><span class=p>)</span>
+        <span class=k>return</span> <span class=bp>self</span><span class=o>.</span><span class=n>_temperature</span>
+
+    <span class=nd>@temperature.setter</span>
+    <span class=k>def</span> <span class=nf>temperature</span><span class=p>(</span><span class=bp>self</span><span class=p>,</span> <span class=n>value</span><span class=p>)</span><span class=p>:</span>
+        <span class=k>if</span> <span class=n>value</span> <span class=o>&lt;</span> <span class=o>-</span><span class=mi>273</span><span class=p>:</span>
+            <span class=k>raise</span> <span class=ne>ValueError</span><span class=p>(</span><span class=sa></span><span class=s2>&#34;</span><span class=s2>Temperature below -273 is not possible</span><span class=s2>&#34;</span><span class=p>)</span>
+        <span class=k>print</span><span class=p>(</span><span class=sa></span><span class=s2>&#34;</span><span class=s2>Setting value</span><span class=s2>&#34;</span><span class=p>)</span>
+        <span class=bp>self</span><span class=o>.</span><span class=n>_temperature</span> <span class=o>=</span> <span class=n>value</span>
+</code></pre></td></tr></table></div></div><h2 id=install-python-module-through-library-module-pip-python-m-pip-install-somepackage>Install python module through library module <em>pip</em>: <code>python -m pip install SomePackage</code></h2><h2 id=how-to-pause-for-testing>How to pause for testing?</h2><p>Check out <a href=https://github.com/zeromq/pyzmq/blob/master/examples/pubsub/topics_pub.py>zmq topic example</a></p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-py data-lang=py>    <span class=k>print</span><span class=p>(</span><span class=sa></span><span class=s2>&#34;</span><span class=s2>Hit Ctrl-C to stop broadcasting.</span><span class=s2>&#34;</span><span class=p>)</span>
+    <span class=k>print</span><span class=p>(</span><span class=sa></span><span class=s2>&#34;</span><span class=s2>Waiting so subscriber sockets can connect...</span><span class=s2>&#34;</span><span class=p>)</span>
+    <span class=k>print</span><span class=p>(</span><span class=sa></span><span class=s2>&#34;</span><span class=s2>&#34;</span><span class=p>)</span>
+    <span class=n>time</span><span class=o>.</span><span class=n>sleep</span><span class=p>(</span><span class=mf>1.0</span><span class=p>)</span>
+
+    <span class=n>msg_counter</span> <span class=o>=</span> <span class=n>itertools</span><span class=o>.</span><span class=n>count</span><span class=p>(</span><span class=p>)</span>
+    <span class=k>try</span><span class=p>:</span>
+        <span class=k>for</span> <span class=n>topic</span> <span class=ow>in</span> <span class=n>itertools</span><span class=o>.</span><span class=n>cycle</span><span class=p>(</span><span class=n>all_topics</span><span class=p>)</span><span class=p>:</span>
+            <span class=n>msg_body</span> <span class=o>=</span> <span class=nb>str</span><span class=p>(</span><span class=n>msg_counter</span><span class=o>.</span><span class=n>next</span><span class=p>(</span><span class=p>)</span><span class=p>)</span>
+            <span class=k>print</span><span class=p>(</span><span class=sa></span><span class=s1>&#39;</span><span class=s1>   Topic: </span><span class=si>%s</span><span class=s1>, msg:</span><span class=si>%s</span><span class=s1>&#39;</span> <span class=o>%</span> <span class=p>(</span><span class=n>topic</span><span class=p>,</span> <span class=n>msg_body</span><span class=p>)</span><span class=p>)</span>
+            <span class=n>s</span><span class=o>.</span><span class=n>send_multipart</span><span class=p>(</span><span class=p>[</span><span class=n>topic</span><span class=p>,</span> <span class=n>msg_body</span><span class=p>]</span><span class=p>)</span>
+            <span class=c1># short wait so we don&#39;t hog the cpu</span>
+            <span class=n>time</span><span class=o>.</span><span class=n>sleep</span><span class=p>(</span><span class=mf>0.1</span><span class=p>)</span>
+    <span class=k>except</span> <span class=ne>KeyboardInterrupt</span><span class=p>:</span>
+</code></pre></td></tr></table></div></div><h2 id=how-to-upload-a-new-pypi-packagehttpspackagingpythonorgtutorialspackagingprojects><a href=https://packaging.python.org/tutorials/packaging-projects/>How to upload a new pypi package?</a></h2><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span><span class=lnt>8
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-sh data-lang=sh><span class=c1># Install/upgrade setuptools and wheel</span>
+ pip install --upgrade setuptools wheel
+ <span class=c1># Build distribution package</span>
+ python setup.py bdist_wheel
+ <span class=c1># Install twine</span>
+pip install --upgrade twine
+<span class=c1># Upload package to pypi</span>
+twine upload dist/*
+</code></pre></td></tr></table></div></div><h2 id=how-to-configure-flake8httpflake8pycqaorgenlatestuserconfigurationhtml1><a href=http://flake8.pycqa.org/en/latest/user/configuration.html>How to configure Flake8</a></h2><h2 id=about-mypy-an-example-for-python3-note-that-for-yield-the-type-is-iterator>About mypy: An example for python3+, note that for <em>yield</em>, the type is <em>Iterator</em>:</h2><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-py data-lang=py><span class=kn>from</span> <span class=nn>typing</span> <span class=kn>import</span> <span class=n>Iterator</span>
+
+<span class=k>def</span> <span class=nf>fib</span><span class=p>(</span><span class=n>n</span><span class=p>:</span> <span class=nb>int</span><span class=p>)</span> <span class=o>-</span><span class=o>&gt;</span> <span class=n>Iterator</span><span class=p>[</span><span class=nb>int</span><span class=p>]</span><span class=p>:</span>
+    <span class=n>a</span><span class=p>,</span> <span class=n>b</span> <span class=o>=</span> <span class=mi>0</span><span class=p>,</span> <span class=mi>1</span>
+    <span class=k>while</span> <span class=n>a</span> <span class=o>&lt;</span> <span class=n>n</span><span class=p>:</span>
+        <span class=k>yield</span> <span class=n>a</span>
+        <span class=n>a</span><span class=p>,</span> <span class=n>b</span> <span class=o>=</span> <span class=n>b</span><span class=p>,</span> <span class=n>a</span> <span class=o>+</span> <span class=n>b</span>
+</code></pre></td></tr></table></div></div><p>For python2.7, comment can serve the same purpose:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-py data-lang=py><span class=k>def</span> <span class=nf>is_palindrome</span><span class=p>(</span><span class=n>s</span><span class=p>)</span><span class=p>:</span>
+    <span class=c1># type: (str) -&gt; bool</span>
+    <span class=k>return</span> <span class=n>s</span> <span class=o>==</span> <span class=n>s</span><span class=p>[</span><span class=p>:</span><span class=p>:</span><span class=o>-</span><span class=mi>1</span><span class=p>]</span>
+</code></pre></td></tr></table></div></div><p><em>NOTE</em>: the third parameter in slicing means steps for each increment</p><h2 id=how-to-install-python3-on-centos>How to install python3 on centos?</h2><p>Just run <code>yum install -y python36</code>, and then create a symbol link for <em>python3</em>: <code>sudo ln -s /usr/bin/python36 /usr/bin/python3</code></p><h2 id=how-to-install-pip-for-python3>How to install pip for python3:</h2><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-sh data-lang=sh>wget https://bootstrap.pypa.io/get-pip.py
+python3 get-pip.py
+rm get-pip.py
+</code></pre></td></tr></table></div></div><h2 id=how-to-support-gui>How to support gui?</h2><p>Use <a href=https://www.activestate.com/>ActivePython</a>. More <a href=http://docs.activestate.com/activepython/3.4/gettingstarted.html>detail</a>.</p><h2 id=create-a-local-pypi-mirrorhttpsaboutsimoncomblog20120224createalocalpypimirrorhtml-seems-not-work><a href=https://aboutsimon.com/blog/2012/02/24/Create-a-local-PyPI-mirror.html>Create a local PyPI mirror</a>. <strong>seems not work</strong></h2><h2 id=create-a-local-pypi-by-pip2pihttpsgithubcomwoleverpip2pi><a href=https://github.com/wolever/pip2pi>Create a local pypi by pip2pi</a></h2><ul><li>Create a requirements.txt file for packages to collect</li><li>Run <code>pip2tgz &lt;package path> -r requirements.txt</code> to download packages</li><li>Run <code>dir2pi &lt;package path</code> to generate <em>simple</em></li><li>Make sure package path is indexed by web server like <em>nginx</em></li></ul><h2 id=named-group-for-regex-matchhttpsdocspythonorg2howtoregexhtml><a href=https://docs.python.org/2/howto/regex.html>Named group for regex match</a></h2><blockquote><p>The syntax for a named group is one of the Python-specific extensions: (?P&mldr;). name is, obviously, the name of the group. Named groups also behave exactly like capturing groups, and additionally associate a name with a group</p></blockquote><h2 id=encoding-and-decoding-in-pythonhttppythoncentraliopythonunicodeencodedecodestringspython2x><a href=http://pythoncentral.io/python-unicode-encode-decode-strings-python-2x/>Encoding and decoding in python</a></h2><ul><li>You need to add to head <em># -<em>- coding: utf-8 -</em>-</em> if a python script contains unicode</li><li>Before you can pretty print or store some unicode string, try to encoding it into <strong>utf_8</strong> first by <code>str.encode('utf_8')</code></li></ul><h2 id=how-to-fix-unresolved-reference-issuehttpstackoverflowcomquestions21236824unresolvedreferenceissueinpycharm><a href=http://stackoverflow.com/questions/21236824/unresolved-reference-issue-in-pycharm>How to fix unresolved reference issue?</a></h2><blockquote><p>Manually adding it as you have done is indeed one way of doing this, but there is a simpler method, and that is by simply telling pycharm that you want to add the src folder as a source root, and then adding the sources root to your python path.</p></blockquote><h2 id=how-to-reload-a-module-just-call-buildin-function-reload-such-as-reloadtmp>How to reload a module? Just call build-in function <code>reload</code>, such as <code>reload(tmp)</code></h2><p>For <code>python >=3.4</code>, the syntax is:</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-py data-lang=py><span class=kn>import</span> <span class=nn>importlib</span>
+<span class=n>importlib</span><span class=o>.</span><span class=n>reload</span><span class=p>(</span><span class=n>module</span><span class=p>)</span>
+</code></pre></td></tr></table></div></div><h2 id=vimflake8-configurationhttpflake8readthedocsorgenlatestconfightml><a href=http://flake8.readthedocs.org/en/latest/config.html>vim-flake8 configuration</a></h2><p>Need to configure <em>~/.config/flake8</em> like the following:</p><pre><code class=language-conf data-lang=conf>[flake8]
+ignore = E226,E302,E41
+max-line-length = 160
+exclude = tests/*
+max-complexity = 10
+</code></pre><h2 id=how-to-format-string-with-alignment102><a href=https://mkaz.tech/python-string-format.html>How to format string with alignment</a>?</h2><ul><li>Left aligned: <em>{:&lt;10}</em></li><li>Right aligned: <em>{:10}</em></li><li>Center aligned: <em>{:^10}</em></li><li>Center aligned and padded by <em>-</em>: <em>{:-^10}</em></li></ul><h2 id=how-to-show-help->How to show help ?</h2><blockquote><p>Just use build-in help() function, and it will print out doc string for that var.</p></blockquote><h2 id=how-to-start-a-new-virtualenv-refer-to-virtual-environments101-for-detail>How to start a new virtualenv? Refer to <a href=http://docs.python-guide.org/en/latest/dev/virtualenvs/>Virtual Environments</a> for detail.</h2><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span></code></pre></td><td class=lntd><pre class=chroma><code class=language-shell data-lang=shell>pip install virutalenv
+<span class=nb>cd</span> yourenvdir
+virtualenv pname
+<span class=nb>source</span> pname/bin/activate
+
+<span class=c1># later when you want to exit from virtualenv</span>
+deactivate
+</code></pre></td></tr></table></div></div><h2 id=how-to-cleanly-run-ipython-inside-virutalenv>How to cleanly run ipython inside virutalenv?</h2><p>Try to add a new alias:
+<code>alias ipy="python -c 'import IPython; IPython.terminal.ipapp.launch_new_instance()'"</code>
+After source virtualenv's activate file, run ipy</p><h2 id=my-coding-style>My coding style</h2><ul><li>Prefer double quote(") than single quote</li></ul><h2 id=tutorial>Tutorial</h2><h2 id=sqlalchemy-tutorialhttpwwwrmunncomsqlalchemytutorialtutorialhtml><a href=http://www.rmunn.com/sqlalchemy-tutorial/tutorial.html>sqlalchemy tutorial</a></h2><h2 id=references>References</h2><h2 id=python-string-formathttpsmkaztechpythonstringformathtml><a href=https://mkaz.tech/python-string-format.html>Python string format</a></h2><h2 id=write-a-tumblelog-application-with-flaskhttpsdocsmongodborgecosystemtutorialwriteatumblelogapplicationwithflaskmongoengine><a href=https://docs.mongodb.org/ecosystem/tutorial/write-a-tumblelog-application-with-flask-mongoengine/>Write a tumblelog application with flask</a></h2><h2 id=flask-by-example--project-setuphttpsrealpythoncomblogpythonflaskbyexamplepart1projectsetup><a href=https://realpython.com/blog/python/flask-by-example-part-1-project-setup/>Flask by Example - Project Setup</a></h2><h2 id=packaging-and-distributing-projectshttpspackagingpythonorgenlatestdistributinguploadingyourprojecttopypi><a href=https://packaging.python.org/en/latest/distributing/#uploading-your-project-to-pypi>Packaging and Distributing Projects</a></h2><h2 id=pypi-classifiershttpspypipythonorgpypi3aactionlistclassifiers><a href="https://pypi.python.org/pypi?%3Aaction=list_classifiers">pypi classifiers</a></h2><h2 id=getting-started-with-wxpythonhttpswikiwxpythonorggetting20started><a href=https://wiki.wxpython.org/Getting%20Started>Getting started with wxPython</a></h2><h2 id=20-python-libraries-you-cant-live-20pythonlibrariesyoucantlivewithouthttpspythontipscom2013073020pythonlibrariesyoucantlivewithout><a href=https://pythontips.com/2013/07/30/20-python-libraries-you-cant-live-without/>20 Python libraries you can’t live 20-python-libraries-you-cant-live-without</a></h2><h2 id=good-logging-practice-in-pythonhttpsfangpenlincomposts20120826goodloggingpracticeinpython><a href=https://fangpenlin.com/posts/2012/08/26/good-logging-practice-in-python/>Good logging practice in Python</a></h2></div><footer class=post-footer><nav class=post-nav><a class=prev href=/post/tips/ppc64/><i class="iconfont icon-left"></i><span class="prev-text nav-default">ppc64</span>
+<span class="prev-text nav-mobile">Prev</span></a>
+<a class=next href=/post/tips/raspberry/><span class="next-text nav-default">raspberry</span>
+<span class="next-text nav-mobile">Next</span>
+<i class="iconfont icon-right"></i></a></nav></footer></article></div></div></main><footer id=footer class=footer><div class=social-links><a href=mailto:leowa@outlook.com class="iconfont icon-email" title=email></a><a href=https://github.com/leowa class="iconfont icon-github" title=github></a><a href=http://localhost:1313/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a></div><div class=copyright><span class=copyright-year>&copy;
+2019
+<span class=heart><i class="iconfont icon-heart"></i></span><span class=author>Andy Zhang</span></span></div></footer><div class=back-to-top id=back-to-top><i class="iconfont icon-up"></i></div></div><script src=https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin=anonymous></script><script src=https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin=anonymous></script><script src=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin=anonymous></script><script type=text/javascript src=/dist/even.26188efa.min.js></script></body></html>
