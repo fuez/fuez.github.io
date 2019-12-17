@@ -1,14 +1,14 @@
 ---
 title: java
 date: 2017-06-13T11:48:45+08:00
-lastmod: 2019-11-12T08:57:46+08:00
+lastmod: 2019-12-17T23:35:05Z
 draft: false
 tags: []
 categories: ["tip"]
 hiddenFromHomePage: true
 ---
 
-
+## Install openjdk8 on mac: `brew cask install adoptopenjdk/openjdk/adoptopenjdk8`
 
 ## Secret in java `keytool`, its default password is `changeit`
 

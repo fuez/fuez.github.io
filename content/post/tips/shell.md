@@ -1,14 +1,40 @@
 ---
 title: shell
 date: 2018-08-13T10:41:52+08:00
-lastmod: 2019-12-13T19:20:17+08:00
+lastmod: 2019-12-17T23:35:05Z
 draft: false
 tags: []
 categories: ["tip"]
 hiddenFromHomePage: true
 ---
 
+## Mac iso date format: `date -u +"%Y-%m-%dT%H:%M:%SZ"`
 
+## [Single Brackets vs Double Brackets](https://scriptingosx.com/2018/02/single-brackets-vs-double-brackets/)
+> The single bracket [ is actually a command. It has the same functionality as the test command, except that the last argument needs to be the closing square bracket ]
+> A single bracket test will fail when one of its arguments is empty and gets substituted to nothing. You can prevent this error by quoting the variables (always a prudent solution)
+> Double brackets in bash are not a command but a part of the language syntax.
+> With double brackets you can also use two equals characters == for a more C like syntax. (or, better, use ((…)) syntax for arithmetic expressions)
+> Since the single bracket is a command, many characters it uses for its arguments need to be escaped to work properly; Double brackets interpret these characters properly. You can also use the (again more C like) && and || operators instead of -a and -o: ` [[ ( $a == $b ) || ( $a == $c ) ]]`
+> With double brackets you can compare to * and ? wildcards, and bracket globbing […]. `a=hat; [[ $a = ?at ]] && echo match; [[ $a = [chrp]at ]] && echo match`
+> You can also use < and > to compare strings lexicographically
+> And you get an operator =~ for regular expressions
+
+## How to check string starts with some sub-string?
+> The == comparison operator behaves differently within a double-brackets
+> test than within single brackets. See [Other Comparison Operators](http://tldp.org/LDP/abs/html/comparison-ops.html)
+
+```shell
+[[ $a == z* ]]   # True if $a starts with a "z" (wildcard matching).
+[[ $a == "z*" ]] # True if $a is equal to z* (literal matching).
+```
+
+## `LC_ALL` 
+> It forces applications to use the default language for output
+> and forces sorting to be byte-wise
+> `LC_ALL` is the environment variable that overrides all the other localisation settings
+
+## Redirect output to stderr: `exec 1>&2`
 
 ## How can I make "press any key to continue"?
 

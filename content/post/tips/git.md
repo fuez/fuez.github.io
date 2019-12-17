@@ -1,12 +1,16 @@
 ---
 title: git
 date: 2017-06-13T11:48:45+08:00
-lastmod: 2019-12-11T20:40:57+08:00
+lastmod: 2019-12-17T23:35:05Z
 draft: false
 tags: []
 categories: ["tip"]
 hiddenFromHomePage: true
 ---
+
+## [How to share git hooks](https://www.darrenlester.com/blog/including-hooks-in-a-git-repository)
+> By default hooks are stored in .git/hooks outside of the working tree and are thus not shared between users of the repository. 
+> Git versions >= 2.9 provide a helpful configuration option which changes the path Git looks for hooks in. Like this: `git config core.hooksPath <hooks-dir>`
 
 ## [How to download a single folder from a Github Repo](https://stackoverflow.com/questions/7106012/download-a-single-folder-or-directory-from-a-github-repo)
 

@@ -1,14 +1,15 @@
 ---
 title: mac
 date: 2017-06-13T11:48:45+08:00
-lastmod: 2019-12-07T16:09:35+08:00
+lastmod: 2019-12-17T23:35:05Z
 draft: false
 tags: []
 categories: ["tip"]
 hiddenFromHomePage: true
 ---
 
-
+## `sed` to avoid backup on mac
+> should use like `sed -i '' -e ...`
 
 ## How to fix broken package error like: `ImportError: dlopen(/usr/local/Cellar/python/3.7.3/Frameworks/Python.framework/Versions/3.7/lib/python3.7/lib-dynload/_ssl.cpython-37m-darwin.so, 2): Library not loaded: /usr/local/opt/openssl/lib/libssl.1.0.0.dylib`
 
