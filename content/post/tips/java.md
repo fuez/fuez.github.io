@@ -1,7 +1,7 @@
 ---
 title: java
 date: 2017-06-13T11:48:45+08:00
-lastmod: 2019-12-20T00:58:21Z
+lastmod: 2019-12-20T12:39:01Z
 draft: false
 tags: []
 categories: ["tip"]
@@ -11,6 +11,31 @@ hiddenFromHomePage: true
 ## Trap for Java class for json
 
 That class should not have final field, should have an empty constructor, and for getter/setter for all fields. It costs me several hours to find out when working on https://github.com/leowa/jetty. Lesson learned is that when troube shooting, try to start from a working example.
+=======
+## [Add proxy for `maven`](https://maven.apache.org/guides/mini/guide-proxies.html)
+
+Add the following setting to `${user.home}/.m2/settings.xml`:
+
+```xml
+<settings>
+  .
+  .
+  <proxies>
+   <proxy>
+      <id>example-proxy</id>
+      <active>true</active>
+      <protocol>http</protocol>
+      <host>proxy.example.com</host>
+      <port>8080</port>
+      <username>proxyuser</username>
+      <password>somepassword</password>
+      <nonProxyHosts>www.google.com|*.example.com</nonProxyHosts>
+    </proxy>
+  </proxies>
+  .
+  .
+</settings>
+```
 
 ## Install openjdk8 on mac: `brew cask install adoptopenjdk/openjdk/adoptopenjdk8`
 
