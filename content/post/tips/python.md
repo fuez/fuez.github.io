@@ -1,7 +1,7 @@
 ---
 title: python
 date: 2017-06-13T11:48:45+08:00
-lastmod: 2019-12-07T16:09:35+08:00
+lastmod: 2019-12-20T00:58:21Z
 draft: false
 tags: []
 categories: ["tip"]
@@ -9,6 +9,15 @@ hiddenFromHomePage: true
 ---
 
 
+## How to sort name in Chinese?
+
+```
+from pypinyin import lazy_pinyin
+
+# names is a string separated by `;`
+sorted([_.strip() for _ in names.split(";")], key=lambda x: ''.join(lazy_pinyin(x)))
+
+```
 
 ## Configure webdriver.FireFox to use proxy
 

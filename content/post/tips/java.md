@@ -1,12 +1,16 @@
 ---
 title: java
 date: 2017-06-13T11:48:45+08:00
-lastmod: 2019-12-17T23:35:05Z
+lastmod: 2019-12-20T00:58:21Z
 draft: false
 tags: []
 categories: ["tip"]
 hiddenFromHomePage: true
 ---
+
+## Trap for Java class for json
+
+That class should not have final field, should have an empty constructor, and for getter/setter for all fields. It costs me several hours to find out when working on https://github.com/leowa/jetty. Lesson learned is that when troube shooting, try to start from a working example.
 
 ## Install openjdk8 on mac: `brew cask install adoptopenjdk/openjdk/adoptopenjdk8`
 
