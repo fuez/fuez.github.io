@@ -1,13 +1,16 @@
 ---
 title: python
 date: 2017-06-13T11:48:45+08:00
-lastmod: 2019-12-20T00:58:21Z
+lastmod: 2019-12-21T01:33:29Z
 draft: false
 tags: []
 categories: ["tip"]
 hiddenFromHomePage: true
 ---
 
+## How to upgrade chromedriver?
+
+Simply download driver version that's compatible with your current chrome version from [web driver](https://sites.google.com/a/chromium.org/chromedriver/downloads), unzip it and then `mv chromedriver /usr/local/bin`
 
 ## How to sort name in Chinese?
 

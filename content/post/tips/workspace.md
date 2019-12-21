@@ -1,13 +1,22 @@
 ---
 title: workspace
 date: 2019-06-21T18:24:23+08:00
-lastmod: 2019-12-11T18:26:55+08:00
+lastmod: 2019-12-21T01:33:29Z
 draft: false
 tags: []
 categories: ["tip"]
 hiddenFromHomePage: true
 ---
 
+## Installed jetbrain plugins list
+
+- BashSupport
+- IdeaVim
+- Material Theme UI
+- Python
+- Save Actions
+- SonarLint
+- Toml
 
 
 ## tmux3 made a breaking change:
