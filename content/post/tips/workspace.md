@@ -1,12 +1,16 @@
 ---
 title: workspace
 date: 2019-06-21T18:24:23+08:00
-lastmod: 2019-12-21T01:33:29Z
+lastmod: 2019-12-24T23:01:19Z
 draft: false
 tags: []
 categories: ["tip"]
 hiddenFromHomePage: true
 ---
+
+## For IntelliJ IDEA you can select proper profile for maven in this way
+
+> If you import a maven project in intellij, you can choose profiles in the maven tool window (usually on the right of the screen). Once these profiles are selected they will persist in the project configuration for that project and will become effective every time the project loads, until you choose to change them. These profile selections will only affect intellij and instances of maven run within intellij.
 
 ## Installed jetbrain plugins list
 

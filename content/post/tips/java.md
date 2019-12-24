@@ -1,12 +1,19 @@
 ---
 title: java
 date: 2017-06-13T11:48:45+08:00
-lastmod: 2019-12-20T12:39:01Z
+lastmod: 2019-12-24T23:01:19Z
 draft: false
 tags: []
 categories: ["tip"]
 hiddenFromHomePage: true
 ---
+
+## How to get resource file data
+
+```java
+InputStream inputStream = getClass()
+			.getClassLoader().getResourceAsStream("database.properties");
+```
 
 ## Trap for Java class for json
 
