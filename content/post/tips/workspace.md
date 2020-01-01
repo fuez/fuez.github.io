@@ -8,6 +8,13 @@ categories: ["tip"]
 hiddenFromHomePage: true
 ---
 
+## How to save and load iterm2 profile?
+
+> If you have a look at Preferences -> General you will notice at the bottom of the panel, there is a setting Load preferences from a custom folder or URL:. There is a button next to it Save settings to Folder.
+> So all you need to do is save your settings first and load it after you reinstalled your OS.
+> If the Save settings to Folder is disabled, select a folder (e.g. empty) in the Load preferences from a custom folder or URL: text box.
+> In iTerm2 3.3 on OSX the sequence is: iTerm2 menu, Preferences, General tab, Preferences subtab
+
 ## For IntelliJ IDEA you can select proper profile for maven in this way
 
 > If you import a maven project in intellij, you can choose profiles in the maven tool window (usually on the right of the screen). Once these profiles are selected they will persist in the project configuration for that project and will become effective every time the project loads, until you choose to change them. These profile selections will only affect intellij and instances of maven run within intellij.
