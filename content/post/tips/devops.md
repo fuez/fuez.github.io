@@ -1,13 +1,28 @@
 ---
 title: devops
 date: 2019-06-08T10:36:33+08:00
-lastmod: 2019-11-19T18:50:32+08:00
+lastmod: 2020-01-03T08:48:24Z
 draft: false
 tags: []
 categories: ["tip"]
 hiddenFromHomePage: true
 ---
 
+
+## 如何重置Nexus3的密码
+
+主要步骤如下：
+
+1、停服
+
+2、进入OrientDB控制台：java -jar /usr/local/nexus/lib/support/nexus-orient-console.jar 
+
+3、在控制台执行：connect plocal:/home/xiaoban/nexus-repository/nexus3/db/security admin admin
+
+4、重置密码为admin123 ：
+
+update user SET password="$shiro1$SHA-512$1024$NE+wqQq/TmjZMvfI7ENh/g==$V4yPw8T64UQ6GfJfxYq2hLsVrBY8D1v+bktfOxGdt4b/9BthpWPNUy/CBk6V9iA0nHpzYzJFWO8v/tZFtES8CA==" UPSERT WHERE id="admin"
+5、启动服务
 
 
 ## [使用 Certbot + Let's Encrypt 小步快跑的奔向 HTTPS](https://learnku.com/laravel/t/2525/using-certbot-lets-encrypt-small-step-run-towards-https)
