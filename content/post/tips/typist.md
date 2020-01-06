@@ -1,5 +1,5 @@
 ---
-title: typist
+title: "typist"
 date: 2017-11-03T18:04:58+08:00
 lastmod: 2017-11-03T18:04:58+08:00
 draft: false

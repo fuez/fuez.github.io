@@ -1,5 +1,5 @@
 ---
-title: fun
+title: "fun"
 date: 2019-06-26T18:48:29+08:00
 lastmod: 2019-06-26T18:48:29+08:00
 draft: false

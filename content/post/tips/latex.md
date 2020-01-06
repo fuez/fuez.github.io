@@ -1,5 +1,5 @@
 ---
-title: latex
+title: "latex"
 date: 2019-09-10T16:35:49+08:00
 lastmod: 2019-11-04T13:31:55+08:00
 draft: false

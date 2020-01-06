@@ -1,5 +1,5 @@
 ---
-title: life
+title: "life"
 date: 2017-06-13T11:48:45+08:00
 lastmod: 2019-06-01T10:12:45+08:00
 draft: false

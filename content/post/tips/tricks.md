@@ -1,5 +1,5 @@
 ---
-title: tricks
+title: "tricks"
 date: 2018-11-21T05:37:43+08:00
 lastmod: 2019-12-26T10:12:46Z
 draft: false

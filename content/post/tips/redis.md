@@ -1,5 +1,5 @@
 ---
-title: redis
+title: "redis"
 date: 2019-06-08T10:36:33+08:00
 lastmod: 2019-08-12T18:01:23+08:00
 draft: false

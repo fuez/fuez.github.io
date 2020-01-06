@@ -1,5 +1,5 @@
 ---
-title: vagrant
+title: "vagrant"
 date: 2017-10-23T18:16:41+08:00
 lastmod: 2017-10-23T18:16:41+08:00
 draft: false

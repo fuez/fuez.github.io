@@ -1,5 +1,5 @@
 ---
-title: ppc64
+title: "ppc64"
 date: 2017-06-13T11:48:45+08:00
 lastmod: 2017-06-13T11:48:45+08:00
 draft: false

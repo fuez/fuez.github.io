@@ -1,5 +1,5 @@
 ---
-title: python
+title: "python"
 date: 2017-06-13T11:48:45+08:00
 lastmod: 2019-12-21T01:33:29Z
 draft: false

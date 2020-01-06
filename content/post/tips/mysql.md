@@ -1,5 +1,5 @@
 ---
-title: mysql
+title: "mysql"
 date: 2017-06-13T11:48:45+08:00
 lastmod: 2018-06-07T13:20:10+08:00
 draft: false

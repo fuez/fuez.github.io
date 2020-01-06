@@ -1,5 +1,5 @@
 ---
-title: centos
+title: "centos"
 date: 2017-06-13T11:48:45+08:00
 lastmod: 2019-05-09T15:51:31+08:00
 draft: false

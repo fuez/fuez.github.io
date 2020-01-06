@@ -1,5 +1,5 @@
 ---
-title: core
+title: "core"
 date: 2019-04-24T16:25:18+08:00
 lastmod: 2019-04-24T16:25:18+08:00
 draft: false
