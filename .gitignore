@@ -130,3 +130,6 @@ dmypy.json
 
 # public
 public/
+
+# npm
+node_modules/
