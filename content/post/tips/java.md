@@ -1,7 +1,7 @@
 ---
 title: "java"
 date: 2017-06-13T11:48:45+08:00
-lastmod: 2019-12-24T23:01:19Z
+lastmod: 2020-01-06T13:14:28Z
 draft: false
 tags: []
 categories: ["tip"]
@@ -18,7 +18,7 @@ InputStream inputStream = getClass()
 ## Trap for Java class for json
 
 That class should not have final field, should have an empty constructor, and for getter/setter for all fields. It costs me several hours to find out when working on https://github.com/leowa/jetty. Lesson learned is that when troube shooting, try to start from a working example.
-=======
+
 ## [Add proxy for `maven`](https://maven.apache.org/guides/mini/guide-proxies.html)
 
 Add the following setting to `${user.home}/.m2/settings.xml`:
