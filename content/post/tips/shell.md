@@ -8,6 +8,12 @@ categories: ["tip"]
 hiddenFromHomePage: true
 ---
 
+
+## What does `echo 'POWERLEVEL9K_DISABLE_CONFIGURATION_WIZARD=true' >>! ~/.zshrc` means
+
+> cmd >>! file will append stdout to file, creating the file if it does not already exist
+> If noclobber is not set then the ! has no effect
+
 ## Mac iso date format: `date -u +"%Y-%m-%dT%H:%M:%SZ"`
 
 ## [Single Brackets vs Double Brackets](https://scriptingosx.com/2018/02/single-brackets-vs-double-brackets/)
